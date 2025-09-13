@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Panagiotis Valsamis - Portfolio</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f8f9fa;color:#333;line-height:1.6}
+    .container{max-width:1200px;margin:0 auto;padding:20px;display:grid;grid-template-columns:300px 1fr;gap:40px;min-height:100vh}
+    .sidebar{background:#fff;border-radius:12px;padding:30px;box-shadow:0 2px 10px rgba(0,0,0,.08);height:fit-content;position:sticky;top:20px}
+    .profile-img img{width:100%;height:50%;border-radius:50%;object-fit:cover}
+    .name{font-size:28px;font-weight:700;margin-bottom:10px;color:#2c3e50}
+    .bio{color:#7f8c8d;margin-bottom:30px;font-size:14px}
+    .connect{margin-top:40px}
+    .connect h3{color:#2c3e50;margin-bottom:15px;font-size:18px}
+    .social-link{display:block;color:#3498db;text-decoration:none;padding:8px 0;font-size:14px;transition:color .25s ease}
+    .social-link:hover{color:#2980b9}
+
+    .main-content{background:#fff;border-radius:12px;padding:40px;box-shadow:0 2px 10px rgba(0,0,0,.08)}
+    .header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;gap:12px;flex-wrap:wrap}
+    .header h1{color:#2c3e50;font-size:28px;font-weight:600}
+    .count{color:#7f8c8d;font-size:14px;margin-left:auto}
+
+    /* Tabs */
+    .tabs{display:flex;gap:8px;background:#f4f6f8;border-radius:10px;padding:6px}
+    .tab-btn{border:none;background:transparent;padding:8px 14px;border-radius:8px;cursor:pointer;font-weight:600;color:#5f6368}
+    .tab-btn[aria-selected="true"]{background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.08);color:#2c3e50}
+
+    /* Projects */
+    .projects{display:flex;flex-direction:column;gap:30px}
+    .project-card{border:1px solid #e1e8ed;border-radius:12px;padding:25px;background:#fefefe;transition:all .3s ease}
+    .project-card:hover{box-shadow:0 4px 20px rgba(0,0,0,.1);transform:translateY(-2px)}
+    .project-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:15px}
+    .project-title{font-size:20px;font-weight:600;color:#2c3e50;margin-bottom:8px;display:flex;align-items:center}
+    .project-lang{display:inline-block;background:#e3f2fd;color:#1976d2;padding:4px 12px;border-radius:9999px;font-size:12px;font-weight:500}
+    .project-description{color:#7f8c8d;margin-bottom:20px;font-size:14px}
+    .tech-stack{margin-bottom:20px}
+    .tech-label{font-size:12px;color:#7f8c8d;margin-bottom:10px;font-weight:500}
+    .tech-tags{display:flex;flex-wrap:wrap;gap:8px}
+    .tech-tag{background:#f1f3f4;color:#5f6368;padding:4px 10px;border-radius:12px;font-size:11px;font-weight:500}
+    .tech-stack .tech-tags + .tech-label{margin-top:14px}
+    .project-actions{display:flex;gap:15px;align-items:center}
+    .btn{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:500;transition:all .3s ease;border:none;cursor:pointer}
+    .btn-git{background:#24292e;color:#fff}
+    .btn-git:hover{background:#1b1f23}
+    .status-indicator{width:8px;height:8px;border-radius:50%;margin-right:6px}
+    .status-active{background:#4caf50}
+
+    /* Certifications */
+    .certs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+    .cert-card{border:1px solid #e1e8ed;border-radius:12px;background:#fefefe;padding:18px}
+    .cert-title{font-weight:700;color:#2c3e50;margin-bottom:6px}
+    .cert-issuer{font-size:13px;color:#6b7280;margin-bottom:8px}
+    .cert-meta{font-size:12px;color:#7f8c8d}
+    .cert-link{display:inline-block;margin-top:10px;font-size:13px;color:#3498db;text-decoration:none}
+    .cert-link:hover{color:#2980b9;text-decoration:underline}
+
+    /* Certifications summary */
+    .section-intro{margin-bottom:18px;color:#4b5563;font-size:14px}
+
+    /* Hide/show views */
+    .view{display:none}
+    .view.active{display:block}
+
+    @media (max-width:900px){
+      .certs{grid-template-columns:1fr}
+    }
+    @media (max-width:768px){
+      .container{grid-template-columns:1fr;gap:20px}
+      .sidebar{position:relative;top:0}
+      .main-content{padding:20px}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <div class="profile-img">
+        <img src="photo.jpg" alt="Panagiotis Valsamis">
+      </div>
+      <h1 class="name">Panagiotis Valsamis</h1>
+      <p class="bio">
+        Mathematics graduate and current Master's student in Data Science at the University of Luxembourg. I specialize in machine learning, statistical analysis, and optimization, with hands-on experience in Python, R, and deep learning frameworks like PyTorch and TensorFlow.
+      </p>
+
+      <div class="connect">
+        <h3>Connect With Me</h3>
+        <a href="https://www.linkedin.com/in/panagiotis-valsamis-a45a93377/" class="social-link" target="_blank" rel="noopener">LinkedIn Profile</a>
+        <a href="https://github.com/ValsamisP" class="social-link" target="_blank" rel="noopener">GitHub Profile</a>
+        <a href="assets/files/Panagiotis_Valsamis_CV.pdf" class="social-link" download="Panagiotis_Valsamis_CV.pdf">Download CV</a>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="header">
+        <h1 id="viewTitle">My Projects</h1>
+        <div class="tabs" role="tablist" aria-label="Sections">
+          <button class="tab-btn" role="tab" aria-selected="true" aria-controls="projectsView" id="projectsTab">Projects</button>
+          <button class="tab-btn" role="tab" aria-selected="false" aria-controls="certsView" id="certsTab">Certifications</button>
+        </div>
+        <div class="count" id="countLabel"></div>
+      </div>
+
+      <!-- Projects View -->
+      <section id="projectsView" class="view active" role="tabpanel" aria-labelledby="projectsTab">
+        <div class="projects">
+          <!-- Project 1 -->
+          <div class="project-card">
+            <div class="project-header">
+              <div>
+                <div class="project-title">
+                  <span class="status-indicator status-active"></span>
+                  Walkforward-Arimax
+                </div>
+                <div class="project-lang">Python</div>
+              </div>
+            </div>
+
+            <p class="project-description">
+              A financial time series forecasting framework implementing ARIMAX models with walk-forward validation to develop and evaluate trading strategies against market benchmarks. The models achieved returns more than twice the market performance using rolling window approaches with risk-adjusted performance analysis and visualizations.
+            </p>
+
+            <div class="tech-stack">
+              <div class="tech-label">Technologies Used</div>
+              <div class="tech-tags">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">ARIMAX</span>
+                <span class="tech-tag">yfinance</span>
+                <span class="tech-tag">Time Series Forecasting</span>
+              </div>
+              <div class="tech-label">Key Features</div>
+              <div class="tech-tags">
+                <span class="tech-tag">Grid-Search</span>
+                <span class="tech-tag">Time Series Feature Engineering</span>
+                <span class="tech-tag">Rolling Window Analysis</span>
+                <span class="tech-tag">Risk-adjusted Performance Metrics</span>
+                <span class="tech-tag">Walk-forward Validation</span>
+              </div>
+            </div>
+
+            <div class="project-actions">
+              <a href="https://github.com/ValsamisP/Walkforward-Arimax" class="btn btn-git" target="_blank" rel="noopener">View Code</a>
+            </div>
+          </div>
+
+          <!-- Project 2 -->
+          <div class="project-card">
+            <div class="project-header">
+              <div>
+                <div class="project-title">
+                  <span class="status-indicator status-active"></span>
+                  ECG Arrhythmia Classification using 1D CNNs with Residual Connections
+                </div>
+                <div class="project-lang">Python</div>
+              </div>
+            </div>
+
+            <p class="project-description">
+              A deep learning solution for automated ECG signal classification using 1D Convolutional Neural Networks with residual connections, achieving 98% accuracy, 97% Macro Precision and 86% Macro Recall on the MIT-BIH Arrhythmia Database.
+            </p>
+
+            <div class="tech-stack">
+              <div class="tech-label">Technologies Used</div>
+              <div class="tech-tags">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">TensorFlow</span>
+                <span class="tech-tag">1D Convolutional Neural Networks</span>
+                <span class="tech-tag">MIT-BIH Arrhythmia Database</span>
+              </div>
+              <div class="tech-label">Key Features</div>
+              <div class="tech-tags">
+                <span class="tech-tag">Multi-class Classification</span>
+                <span class="tech-tag">Class Imbalance Handling</span>
+                <span class="tech-tag">Comprehensive Evaluation</span>
+              </div>
+            </div>
+
+            <div class="project-actions">
+              <a href="https://github.com/ValsamisP/ECG-Classification-1DCNN" class="btn btn-git" target="_blank" rel="noopener">View Code</a>
+            </div>
+          </div>
+
+          <!-- Project 3 -->
+          <div class="project-card">
+            <div class="project-header">
+              <div>
+                <div class="project-title">
+                  <span class="status-indicator status-active"></span>
+                  Portfolio Optimizer User Interface
+                </div>
+                <div class="project-lang">Python</div>
+              </div>
+            </div>
+
+            <p class="project-description">
+                A Python based portfolio optimization tool that implements modern portfolio theory algorithms (Maximum Sharpe, Risk Parity, Minimum Variance) with  risk analysis, Monte Carlo simulation, and  rebalancing capabilities through an interactive user interface.
+            </p>
+
+            <div class="tech-stack">
+              <div class="tech-label">Technologies Used</div>
+              <div class="tech-tags">
+                <span class="tech-tag">Python</span>
+                <span class="tech-tag">Portfolio Theory</span>
+                <span class="tech-tag">Monte Carlo Simulations</span>
+                <span class="tech-tag">Streamlit</span>
+              </div>
+
+              <div class="tech-label">Key Features</div>
+              <div class="tech-tags">
+                <span class="tech-tag">Sharpe Ratio</span>
+                <span class="tech-tag">Value at Risk</span>
+                <span class="tech-tag">Risk Parity</span>
+                <span class="tech-tag">Maximum Drawdown</span>
+              </div>
+            </div>
+
+            <div class="project-actions">
+              <a href="https://github.com/ValsamisP/Portfolio-Optimizer" class="btn btn-git" target="_blank" rel="noopener">View Code</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Certifications View -->
+      <section id="certsView" class="view" role="tabpanel" aria-labelledby="certsTab">
+        <p class="section-intro">
+            Each certification represents a step in my personal growth—focused in learning that helped me improve my skills and apply them in real projects. Whether it’s deepening my understanding of machine learning, getting hands-on with cloud technologies, or improving the way I build and deploy data solutions, these experiences are about more than just credentials.
+        </p>
+
+        <div class="certs" id="certsGrid">
+          <!-- Example certification cards — replace with yours -->
+          <article class="cert-card">
+            <div class="cert-title">AI for Medicine Specialization</div>
+            <div class="cert-issuer">Coursera · DeepLearning.AI</div>
+            <div class="cert-meta">Issued: Sep 2025</div>
+            <a class="cert-link" href="https://coursera.org/share/a23f64895fb43e6158f4c515c7209a59" target="_blank" rel="noopener">View credential</a>
+          </article>
+          <article class="cert-card">
+            <div class="cert-title">Machine Learning Specialization</div>
+            <div class="cert-issuer">Coursera · DeepLearning.AI</div>
+            <div class="cert-meta">Issued: Jul 2025</div>
+            <a class="cert-link" href="https://coursera.org/share/1f3d3fedf4e7745b5e9aea8a8f278dcb" target="_blank" rel="noopener">View credential</a>
+          </article>
+          <article class="cert-card">
+            <div class="cert-title">From Excel to Power BI</div>
+            <div class="cert-issuer">Coursera</div>
+            <div class="cert-meta">Issued: Aug 2025</div>
+            <a class="cert-link" href="https://coursera.org/share/09d53d6dadebdfe919d8f5e016e5ad79" target="_blank" rel="noopener">View credential</a>
+          </article>
+          <article class="cert-card">
+            <div class="cert-title">Data Analysis with Python</div>
+            <div class="cert-issuer">Coursera · IBM</div>
+            <div class="cert-meta">Issued: Mar 2025</div>
+            <a class="cert-link" href="https://coursera.org/share/090b50124c7aaddd4a4facfb3f7d0a30" target="_blank" rel="noopener">View credential</a>
+          </article>
+          <article class="cert-card">
+            <div class="cert-title">Getting Started with Data Visualization in R</div>
+            <div class="cert-issuer">Coursera · Johns Hopkins University</div>
+            <div class="cert-meta">Issued: Dec 2024</div>
+            <a class="cert-link" href="https://coursera.org/share/80f6d9275c7ad61f857464ce60092ac3" target="_blank" rel="noopener">View credential</a>
+          </article>
+          <article class="cert-card">
+            <div class="cert-title">
+                Data Visualization in R with ggplot2</div>
+            <div class="cert-issuer">Coursera · Johns Hopkins University</div>
+            <div class="cert-meta">Issued: Dec 2024</div>
+            <a class="cert-link" href="https://coursera.org/share/7d826e02d0fc310fc85dc5b00f365dd3" target="_blank" rel="noopener">View credential</a>
+          </article>
+          <article class="cert-card">
+            <div class="cert-title">
+                Advanced Data Visualization with R</div>
+            <div class="cert-issuer">Coursera · Johns Hopkins University</div>
+            <div class="cert-meta">Issued: Mar 2025</div>
+            <a class="cert-link" href="https://coursera.org/share/21a510f3f2fff212f48f9bca07ef72f0" target="_blank" rel="noopener">View credential</a>
+          </article>
+          <article class="cert-card">
+            <div class="cert-title">Understanding and Visualizing Data with Python</div>
+            <div class="cert-issuer">Coursera · University of Michigan</div>
+            <div class="cert-meta">Issued: Dec 2024</div>
+            <a class="cert-link" href="https://coursera.org/share/6f7a149d13bd291a649e8645037c027a" target="_blank" rel="noopener">View credential</a>
+          </article>
+          <article class="cert-card">
+            <div class="cert-title">
+                Supervised Machine Learning: Classification</div>
+            <div class="cert-issuer">Coursera · IBM</div>
+            <div class="cert-meta">Issued: Jul 2025</div>
+            <a class="cert-link" href="https://coursera.org/share/212584fcb7b5b521c5fda8ac361d30eb" target="_blank" rel="noopener">View credential</a>
+          </article>
+          <article class="cert-card">
+            <div class="cert-title">
+                SQL for Data Science</div>
+            <div class="cert-issuer">Coursera · University of California, Davis</div>
+            <div class="cert-meta">Issued: Jul 2025</div>
+            <a class="cert-link" href="https://coursera.org/share/e7425fa1d58041ed9aebbb74f67bfe61" target="_blank" rel="noopener">View credential</a>
+          </article>
+          <article class="cert-card">
+            <div class="cert-title">
+                Excel Skills for Business: Essentials</div>
+            <div class="cert-issuer">Coursera · Macquarie University</div>
+            <div class="cert-meta">Issued: Jul 2025</div>
+            <a class="cert-link" href="https://coursera.org/share/81bce1fe90e8cad166a4503af2b180a2" target="_blank" rel="noopener">View credential</a>
+          </article>
+          <article class="cert-card">
+            <div class="cert-title">
+                Excel Skills for Business: Intermediate I</div>
+            <div class="cert-issuer">Coursera · Macquarie University</div>
+            <div class="cert-meta">Issued: Jul 2025</div>
+            <a class="cert-link" href="https://coursera.org/share/6c0f7420f67d7a2fb7ad06159e85e9ff" target="_blank" rel="noopener">View credential</a>
+          </article>
+          <article class="cert-card">
+            <div class="cert-title">
+                Data Science with R</div>
+            <div class="cert-issuer">Aegean University</div>
+            <div class="cert-meta">Issued: Jun 2024</div>
+          </article>
+          <article class="cert-card">
+            <div class="cert-title">
+                BlockChain Technologies</div>
+            <div class="cert-issuer">Aegean University</div>
+            <div class="cert-meta">Issued: Jun 2024</div>
+          </article>
+          <article class="cert-card">
+            <div class="cert-title">
+                GRE Certificate</div>
+            <div class="cert-issuer">76th Percentile Quantitative Reasoning</div>
+            <div class="cert-meta">Issued: Jun 2023</div>
+          </article>
+          <article class="cert-card">
+            <div class="cert-title">
+                IELTS</div>
+            <div class="cert-issuer">CEFR Level C1</div>
+            <div class="cert-meta">Issued: Feb 2024</div>
+          </article>
+
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // Hover border effect
+    document.querySelectorAll('.project-card').forEach(card => {
+      card.addEventListener('mouseenter', function(){ this.style.borderColor='#3498db'; });
+      card.addEventListener('mouseleave', function(){ this.style.borderColor='#e1e8ed'; });
+    });
+
+    // Tabs logic with deep-link support
+    const projectsTab = document.getElementById('projectsTab');
+    const certsTab = document.getElementById('certsTab');
+    const projectsView = document.getElementById('projectsView');
+    const certsView = document.getElementById('certsView');
+    const titleEl = document.getElementById('viewTitle');
+    const countEl = document.getElementById('countLabel');
+
+    function setActive(view){
+      const isProjects = view === 'projects';
+      projectsView.classList.toggle('active', isProjects);
+      certsView.classList.toggle('active', !isProjects);
+      projectsTab.setAttribute('aria-selected', String(isProjects));
+      certsTab.setAttribute('aria-selected', String(!isProjects));
+      titleEl.textContent = isProjects ? 'My Projects' : 'My Certifications';
+      // Update URL hash (no scroll jump)
+      history.replaceState(null, '', isProjects ? '#projects' : '#certifications');
+      // Update count
+      const count = isProjects
+        ? document.querySelectorAll('#projectsView .project-card').length
+        : document.querySelectorAll('#certsView .cert-card').length;
+      countEl.textContent = `${count} ${isProjects ? (count===1?'project':'projects') : (count===1?'certification':'certifications')}`;
+    }
+
+    projectsTab.addEventListener('click', () => setActive('projects'));
+    certsTab.addEventListener('click', () => setActive('certs'));
+
+    // Initialize based on hash (supports #certifications)
+    const hash = location.hash.replace('#','').toLowerCase();
+    setActive(hash === 'certifications' || hash === 'certs' ? 'certs' : 'projects');
+
+    // Keyboard arrow navigation for tabs
+    document.querySelectorAll('.tab-btn').forEach(btn=>{
+      btn.addEventListener('keydown', (e)=>{
+        if(e.key === 'ArrowRight' || e.key === 'ArrowLeft'){
+          e.preventDefault();
+          (btn.id === 'projectsTab' ? certsTab : projectsTab).focus();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
