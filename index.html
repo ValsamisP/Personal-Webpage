@@ -4,72 +4,748 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Panagiotis Valsamis - Portfolio</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
   <style>
-    *{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f8f9fa;color:#333;line-height:1.6}
-    .container{max-width:1200px;margin:0 auto;padding:20px;display:grid;grid-template-columns:300px 1fr;gap:40px;min-height:100vh}
-    .sidebar{background:#fff;border-radius:12px;padding:30px;box-shadow:0 2px 10px rgba(0,0,0,.08);height:fit-content;position:sticky;top:20px}
-    .profile-img img{width:100%;height:50%;border-radius:50%;object-fit:cover}
-    .name{font-size:28px;font-weight:700;margin-bottom:10px;color:#2c3e50}
-    .bio{color:#7f8c8d;margin-bottom:30px;font-size:14px}
-    .connect{margin-top:40px}
-    .connect h3{color:#2c3e50;margin-bottom:15px;font-size:18px}
-    .social-link{display:block;color:#3498db;text-decoration:none;padding:8px 0;font-size:14px;transition:color .25s ease}
-    .social-link:hover{color:#2980b9}
-
-    .main-content{background:#fff;border-radius:12px;padding:40px;box-shadow:0 2px 10px rgba(0,0,0,.08)}
-    .header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;gap:12px;flex-wrap:wrap}
-    .header h1{color:#2c3e50;font-size:28px;font-weight:600}
-    .count{color:#7f8c8d;font-size:14px;margin-left:auto}
-
-    /* Tabs */
-    .tabs{display:flex;gap:8px;background:#f4f6f8;border-radius:10px;padding:6px}
-    .tab-btn{border:none;background:transparent;padding:8px 14px;border-radius:8px;cursor:pointer;font-weight:600;color:#5f6368}
-    .tab-btn[aria-selected="true"]{background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.08);color:#2c3e50}
-
-    /* Projects */
-    .projects{display:flex;flex-direction:column;gap:30px}
-    .project-card{border:1px solid #e1e8ed;border-radius:12px;padding:25px;background:#fefefe;transition:all .3s ease}
-    .project-card:hover{box-shadow:0 4px 20px rgba(0,0,0,.1);transform:translateY(-2px)}
-    .project-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:15px}
-    .project-title{font-size:20px;font-weight:600;color:#2c3e50;margin-bottom:8px;display:flex;align-items:center}
-    .project-lang{display:inline-block;background:#e3f2fd;color:#1976d2;padding:4px 12px;border-radius:9999px;font-size:12px;font-weight:500}
-    .project-description{color:#7f8c8d;margin-bottom:20px;font-size:14px}
-    .tech-stack{margin-bottom:20px}
-    .tech-label{font-size:12px;color:#7f8c8d;margin-bottom:10px;font-weight:500}
-    .tech-tags{display:flex;flex-wrap:wrap;gap:8px}
-    .tech-tag{background:#f1f3f4;color:#5f6368;padding:4px 10px;border-radius:12px;font-size:11px;font-weight:500}
-    .tech-stack .tech-tags + .tech-label{margin-top:14px}
-    .project-actions{display:flex;gap:15px;align-items:center}
-    .btn{display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border-radius:6px;text-decoration:none;font-size:13px;font-weight:500;transition:all .3s ease;border:none;cursor:pointer}
-    .btn-git{background:#24292e;color:#fff}
-    .btn-git:hover{background:#1b1f23}
-    .status-indicator{width:8px;height:8px;border-radius:50%;margin-right:6px}
-    .status-active{background:#4caf50}
-
-    /* Certifications */
-    .certs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
-    .cert-card{border:1px solid #e1e8ed;border-radius:12px;background:#fefefe;padding:18px}
-    .cert-title{font-weight:700;color:#2c3e50;margin-bottom:6px}
-    .cert-issuer{font-size:13px;color:#6b7280;margin-bottom:8px}
-    .cert-meta{font-size:12px;color:#7f8c8d}
-    .cert-link{display:inline-block;margin-top:10px;font-size:13px;color:#3498db;text-decoration:none}
-    .cert-link:hover{color:#2980b9;text-decoration:underline}
-
-    /* Certifications summary */
-    .section-intro{margin-bottom:18px;color:#4b5563;font-size:14px}
-
-    /* Hide/show views */
-    .view{display:none}
-    .view.active{display:block}
-
-    @media (max-width:900px){
-      .certs{grid-template-columns:1fr}
+    :root {
+      --primary: #6366f1;
+      --primary-dark: #4f46e5;
+      --secondary: #f1f5f9;
+      --accent: #06b6d4;
+      --text-primary: #1e293b;
+      --text-secondary: #64748b;
+      --text-muted: #94a3b8;
+      --surface: #ffffff;
+      --surface-elevated: #ffffff;
+      --border: #e2e8f0;
+      --border-hover: #cbd5e1;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
     }
-    @media (max-width:768px){
-      .container{grid-template-columns:1fr;gap:20px}
-      .sidebar{position:relative;top:0}
-      .main-content{padding:20px}
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Inter', sans-serif;
+      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+      color: var(--text-primary);
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 40px;
+      min-height: 100vh;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      background: var(--surface);
+      border-radius: 20px;
+      padding: 40px 30px;
+      box-shadow: var(--shadow);
+      height: fit-content;
+      border: 1px solid var(--border);
+      backdrop-filter: blur(10px);
+      animation: slideInLeft 0.6s ease-out;
+      transition: all 0.3s ease;
+      align-self: start;
+    }
+
+    @keyframes slideInLeft {
+      from {
+        opacity: 0;
+        transform: translateX(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    .profile-img {
+      position: relative;
+      margin-bottom: 24px;
+    }
+
+    .profile-img img {
+      width: 100%;
+      height: 50%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid var(--primary);
+      box-shadow: var(--shadow-lg);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .profile-img img:hover {
+      transform: scale(1.05);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .name {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text-primary);
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .bio {
+      color: var(--text-secondary);
+      margin-bottom: 32px;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .connect {
+      margin-top: 40px;
+    }
+
+    .connect h3 {
+      color: var(--text-primary);
+      margin-bottom: 20px;
+      font-size: 18px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .connect h3::before {
+      content: '';
+      width: 4px;
+      height: 20px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      border-radius: 2px;
+    }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text-secondary);
+      text-decoration: none;
+      padding: 12px 16px;
+      margin: 4px 0;
+      border-radius: 12px;
+      font-size: 14px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      border: 1px solid transparent;
+    }
+
+    .social-link:hover {
+      color: var(--primary);
+      background: var(--secondary);
+      border-color: var(--border-hover);
+      transform: translateX(4px);
+    }
+
+    .social-link i {
+      width: 18px;
+      text-align: center;
+      color: var(--primary);
+    }
+
+    /* Main Content */
+    .main-content {
+      background: var(--surface-elevated);
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
+      animation: slideInRight 0.6s ease-out 0.2s both;
+    }
+
+    @keyframes slideInRight {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 32px;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .header h1 {
+      color: var(--text-primary);
+      font-size: 32px;
+      font-weight: 700;
+      transition: all 0.3s ease;
+    }
+
+    .count {
+      color: var(--text-muted);
+      font-size: 14px;
+      font-weight: 500;
+      padding: 6px 12px;
+      background: var(--secondary);
+      border-radius: 20px;
+      border: 1px solid var(--border);
+    }
+
+    /* Enhanced Tabs */
+    .tabs {
+      display: flex;
+      gap: 4px;
+      background: var(--secondary);
+      border-radius: 16px;
+      padding: 6px;
+      border: 1px solid var(--border);
+      position: relative;
+    }
+
+    .tab-btn {
+      border: none;
+      background: transparent;
+      padding: 12px 20px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--text-secondary);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      z-index: 2;
+    }
+
+    .tab-btn[aria-selected="true"] {
+      background: var(--surface);
+      box-shadow: var(--shadow-sm);
+      color: var(--primary);
+      transform: translateY(-1px);
+    }
+
+    .tab-btn:hover:not([aria-selected="true"]) {
+      color: var(--text-primary);
+      background: rgba(255, 255, 255, 0.5);
+    }
+
+    /* Enhanced Projects */
+    .projects {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .project-card {
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 32px;
+      background: var(--surface);
+      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+      animation: slideInUp 0.6s ease-out backwards;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .project-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .project-card:nth-child(1) { animation-delay: 0.1s; }
+    .project-card:nth-child(2) { animation-delay: 0.2s; }
+    .project-card:nth-child(3) { animation-delay: 0.3s; }
+    .project-card:nth-child(4) { animation-delay: 0.4s; }
+
+    @keyframes slideInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .project-card:hover {
+      box-shadow: var(--shadow-xl);
+      transform: translateY(-4px);
+      border-color: var(--primary);
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 16px;
+    }
+
+    .project-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .project-lang {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: white;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .project-description {
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .tech-stack {
+      margin-bottom: 24px;
+    }
+
+    .tech-label {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tech-tag {
+      background: var(--secondary);
+      color: var(--text-secondary);
+      padding: 6px 14px;
+      border-radius: 16px;
+      font-size: 12px;
+      font-weight: 500;
+      border: 1px solid var(--border);
+      transition: all 0.2s ease;
+    }
+
+    .tech-tag:hover {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .tech-stack .tech-tags + .tech-label {
+      margin-top: 16px;
+    }
+
+    .project-actions {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 24px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .btn:hover::before {
+      left: 100%;
+    }
+
+    .btn-git {
+      background: linear-gradient(135deg, #24292e, #1a1e22);
+      color: white;
+      box-shadow: var(--shadow);
+    }
+
+    .btn-git:hover {
+      background: linear-gradient(135deg, #1a1e22, #0d1117);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .status-indicator {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      margin-right: 8px;
+      position: relative;
+    }
+
+    .status-active {
+      background: #10b981;
+      box-shadow: 0 0 8px rgba(16, 185, 129, 0.4);
+    }
+
+    .status-active::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: inherit;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1.8);
+        opacity: 0;
+      }
+    }
+
+    /* Enhanced Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+
+    .skill-category {
+      background: var(--surface);
+      border-radius: 16px;
+      padding: 24px;
+      border: 1px solid var(--border);
+      animation: fadeInUp 0.6s ease-out backwards;
+    }
+
+    .skill-category:nth-child(1) { animation-delay: 0.1s; }
+    .skill-category:nth-child(2) { animation-delay: 0.2s; }
+    .skill-category:nth-child(3) { animation-delay: 0.3s; }
+    .skill-category:nth-child(4) { animation-delay: 0.4s; }
+    .skill-category:nth-child(5) { animation-delay: 0.5s; }
+    .skill-category:nth-child(6) { animation-delay: 0.6s; }
+
+    .skill-category-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .skill-category-title i {
+      color: var(--primary);
+      font-size: 16px;
+    }
+
+    .skills-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .skill-item {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .skill-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+
+    .skill-name {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    .skill-level {
+      display: flex;
+      gap: 4px;
+      align-items: center;
+    }
+
+    .skill-box {
+      width: 12px;
+      height: 12px;
+      border: 2px solid var(--border);
+      border-radius: 3px;
+      background: var(--secondary);
+      transition: all 0.3s ease;
+    }
+
+    .skill-box.filled {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      border-color: var(--primary);
+      box-shadow: 0 0 4px rgba(99, 102, 241, 0.3);
+    }
+
+    .skill-item:hover .skill-box.filled {
+      transform: scale(1.1);
+      box-shadow: 0 0 8px rgba(99, 102, 241, 0.5);
+    }
+
+    .skill-category:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-2px);
+      border-color: var(--primary);
+    }
+
+    /* Enhanced Certifications */
+    .certs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    .cert-card {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: var(--surface);
+      padding: 24px;
+      transition: all 0.3s ease;
+      animation: fadeInUp 0.6s ease-out backwards;
+    }
+
+    .cert-card:nth-child(odd) { animation-delay: 0.1s; }
+    .cert-card:nth-child(even) { animation-delay: 0.2s; }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .cert-card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-2px);
+      border-color: var(--primary);
+    }
+
+    .cert-title {
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+      font-size: 16px;
+    }
+
+    .cert-issuer {
+      font-size: 14px;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .cert-meta {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .cert-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 12px;
+      font-size: 13px;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
+    .cert-link:hover {
+      color: var(--primary-dark);
+      transform: translateX(2px);
+    }
+
+    .cert-link i {
+      font-size: 12px;
+    }
+
+    .section-intro {
+      margin-bottom: 24px;
+      color: var(--text-secondary);
+      font-size: 15px;
+      line-height: 1.6;
+      padding: 20px;
+      background: var(--secondary);
+      border-radius: 16px;
+      border: 1px solid var(--border);
+    }
+
+    /* View transitions */
+    .view {
+      display: none;
+      animation: fadeIn 0.4s ease-out;
+    }
+
+    .view.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 900px) {
+      .certs {
+        grid-template-columns: 1fr;
+      }
+      
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .container {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      
+      .sidebar {
+        position: relative;
+        top: 0;
+        text-align: center;
+      }
+      
+      .main-content {
+        padding: 24px;
+      }
+      
+      .header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 20px;
+      }
+      
+      .tabs {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        padding: 12px;
+      }
+      
+      .project-card,
+      .main-content {
+        padding: 20px;
+      }
+      
+      .header h1 {
+        font-size: 24px;
+      }
+      
+      .project-title {
+        font-size: 18px;
+      }
+      
+      .tech-tags {
+        gap: 6px;
+      }
+      
+      .tech-tag {
+        font-size: 11px;
+        padding: 4px 10px;
+      }
+    }
+
+    /* Scrollbar styling */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: var(--secondary);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--primary);
+      border-radius: 4px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--primary-dark);
     }
   </style>
 </head>
@@ -85,10 +761,16 @@
       </p>
 
       <div class="connect">
-        <h3>Connect With Me</h3>
-        <a href="https://www.linkedin.com/in/panagiotis-valsamis-a45a93377/" class="social-link" target="_blank" rel="noopener">LinkedIn Profile</a>
-        <a href="https://github.com/ValsamisP" class="social-link" target="_blank" rel="noopener">GitHub Profile</a>
-        <a href="assets/files/Panagiotis_Valsamis_CV.pdf" class="social-link" download="Panagiotis_Valsamis_CV.pdf">Download CV</a>
+        <h3><i class="fas fa-link"></i>Connect With Me</h3>
+        <a href="https://www.linkedin.com/in/panagiotis-valsamis-a45a93377/" class="social-link" target="_blank" rel="noopener">
+          <i class="fab fa-linkedin"></i>LinkedIn Profile
+        </a>
+        <a href="https://github.com/ValsamisP" class="social-link" target="_blank" rel="noopener">
+          <i class="fab fa-github"></i>GitHub Profile
+        </a>
+        <a href="assets/files/Panagiotis_Valsamis_CV.pdf" class="social-link" download="Panagiotis_Valsamis_CV.pdf">
+          <i class="fas fa-download"></i>Download CV
+        </a>
       </div>
     </aside>
 
@@ -96,8 +778,15 @@
       <div class="header">
         <h1 id="viewTitle">My Projects</h1>
         <div class="tabs" role="tablist" aria-label="Sections">
-          <button class="tab-btn" role="tab" aria-selected="true" aria-controls="projectsView" id="projectsTab">Projects</button>
-          <button class="tab-btn" role="tab" aria-selected="false" aria-controls="certsView" id="certsTab">Certifications</button>
+          <button class="tab-btn" role="tab" aria-selected="true" aria-controls="projectsView" id="projectsTab">
+            <i class="fas fa-code"></i> Projects
+          </button>
+          <button class="tab-btn" role="tab" aria-selected="false" aria-controls="skillsView" id="skillsTab">
+            <i class="fas fa-cogs"></i> Skills
+          </button>
+          <button class="tab-btn" role="tab" aria-selected="false" aria-controls="certsView" id="certsTab">
+            <i class="fas fa-certificate"></i> Certifications
+          </button>
         </div>
         <div class="count" id="countLabel"></div>
       </div>
@@ -113,7 +802,9 @@
                   <span class="status-indicator status-active"></span>
                   Walkforward-Arimax
                 </div>
-                <div class="project-lang">Python</div>
+                <div class="project-lang">
+                  <i class="fab fa-python"></i>Python
+                </div>
               </div>
             </div>
 
@@ -140,7 +831,9 @@
             </div>
 
             <div class="project-actions">
-              <a href="https://github.com/ValsamisP/Walkforward-Arimax" class="btn btn-git" target="_blank" rel="noopener">View Code</a>
+              <a href="https://github.com/ValsamisP/Walkforward-Arimax" class="btn btn-git" target="_blank" rel="noopener">
+                <i class="fab fa-github"></i>View Code
+              </a>
             </div>
           </div>
 
@@ -152,12 +845,14 @@
                   <span class="status-indicator status-active"></span>
                   Brain Tumor Classification using 2D+1D CNN
                 </div>
-                <div class="project-lang">Python</div>
+                <div class="project-lang">
+                  <i class="fab fa-python"></i>Python
+                </div>
               </div>
             </div>
 
             <p class="project-description">
-              Developed a convolutional neural network that combines 2D spatial processing with 1D sequential analysis to classify brain tumors into four categories:glioma,meningioma,pituitary tumors and healthy tissue. The model achieves a 97% test accuracy, demonstrated high clinical-grade performance. During the algorithm there were used several techniques to avoid overfitting and to provide a good generalization model.
+              Developed a convolutional neural network that combines 2D spatial processing with 1D sequential analysis to classify brain tumors into four categories: glioma, meningioma, pituitary tumors and healthy tissue. The model achieves a 97% test accuracy, demonstrated high clinical-grade performance. During the algorithm there were used several techniques to avoid overfitting and to provide a good generalization model.
             </p>
 
             <div class="tech-stack">
@@ -181,7 +876,9 @@
             </div>
 
             <div class="project-actions">
-              <a href="https://github.com/ValsamisP/Brain-Tumor-Classification-using-2D-1D-CNN" class="btn btn-git" target="_blank" rel="noopener">View Code</a>
+              <a href="https://github.com/ValsamisP/Brain-Tumor-Classification-using-2D-1D-CNN" class="btn btn-git" target="_blank" rel="noopener">
+                <i class="fab fa-github"></i>View Code
+              </a>
             </div>
           </div>
 
@@ -193,7 +890,9 @@
                   <span class="status-indicator status-active"></span>
                   ECG Arrhythmia Classification using 1D CNNs with Residual Connections
                 </div>
-                <div class="project-lang">Python</div>
+                <div class="project-lang">
+                  <i class="fab fa-python"></i>Python
+                </div>
               </div>
             </div>
 
@@ -218,7 +917,9 @@
             </div>
 
             <div class="project-actions">
-              <a href="https://github.com/ValsamisP/ECG-Classification-1DCNN" class="btn btn-git" target="_blank" rel="noopener">View Code</a>
+              <a href="https://github.com/ValsamisP/ECG-Classification-1DCNN" class="btn btn-git" target="_blank" rel="noopener">
+                <i class="fab fa-github"></i>View Code
+              </a>
             </div>
           </div>
 
@@ -230,12 +931,14 @@
                   <span class="status-indicator status-active"></span>
                   Portfolio Optimizer User Interface
                 </div>
-                <div class="project-lang">Python</div>
+                <div class="project-lang">
+                  <i class="fab fa-python"></i>Python
+                </div>
               </div>
             </div>
 
             <p class="project-description">
-                A Python based portfolio optimization tool that implements modern portfolio theory algorithms (Maximum Sharpe, Risk Parity, Minimum Variance) with  risk analysis, Monte Carlo simulation, and  rebalancing capabilities through an interactive user interface.
+                A Python based portfolio optimization tool that implements modern portfolio theory algorithms (Maximum Sharpe, Risk Parity, Minimum Variance) with risk analysis, Monte Carlo simulation, and rebalancing capabilities through an interactive user interface.
             </p>
 
             <div class="tech-stack">
@@ -257,7 +960,431 @@
             </div>
 
             <div class="project-actions">
-              <a href="https://github.com/ValsamisP/Portfolio-Optimizer" class="btn btn-git" target="_blank" rel="noopener">View Code</a>
+              <a href="https://github.com/ValsamisP/Portfolio-Optimizer" class="btn btn-git" target="_blank" rel="noopener">
+                <i class="fab fa-github"></i>View Code
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Skills View -->
+      <section id="skillsView" class="view" role="tabpanel" aria-labelledby="skillsTab">
+        <p class="section-intro">
+          <i class="fas fa-tools" style="color: var(--primary); margin-right: 8px;"></i>
+          My technical expertise spans multiple domains, from machine learning and data analysis to web development and cloud technologies. These skills have been developed through academic projects, professional experience, and continuous learning.
+        </p>
+
+        <div class="skills-grid">
+          <!-- Programming Languages -->
+          <div class="skill-category">
+            <h3 class="skill-category-title">
+              <i class="fas fa-code"></i>
+              Programming Languages
+            </h3>
+            <div class="skills-list">
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">Python</span>
+                  <div class="skill-level">
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box filled"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">R</span>
+                  <div class="skill-level">
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box filled"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">SQL</span>
+                  <div class="skill-level">
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">Scala</span>
+                  <div class="skill-level">
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box"></div>
+                    <div class="skill-box"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">JavaScript</span>
+                  <div class="skill-level">
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box"></div>
+                    <div class="skill-box"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Statistics & Probability -->
+          <div class="skill-category">
+            <h3 class="skill-category-title">
+              <i class="fas fa-calculator"></i>
+              Statistics & Probability
+            </h3>
+            <div class="skills-list">
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">Statistical Inference</span>
+                  <div class="skill-level">
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box filled"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">Hypothesis Testing</span>
+                  <div class="skill-level">
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box filled"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">A/B Testing</span>
+                  <div class="skill-level">
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">Bayesian Statistics</span>
+                  <div class="skill-level">
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">Probability Theory</span>
+                  <div class="skill-level">
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box filled"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Machine Learning & AI -->
+          <div class="skill-category">
+            <h3 class="skill-category-title">
+              <i class="fas fa-brain"></i>
+              Machine Learning & AI
+            </h3>
+            <div class="skills-list">
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">PyTorch</span>
+                  <div class="skill-level">
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">TensorFlow</span>
+                  <div class="skill-level">
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">Scikit-learn</span>
+                  <div class="skill-level">
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box filled"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">Deep Learning</span>
+                  <div class="skill-level">
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">Computer Vision</span>
+                  <div class="skill-level">
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box"></div>
+                    <div class="skill-box"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">NLP</span>
+                  <div class="skill-level">
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Data Analysis & Visualization -->
+          <div class="skill-category">
+            <h3 class="skill-category-title">
+              <i class="fas fa-chart-line"></i>
+              Data Analysis & Visualization
+            </h3>
+            <div class="skills-list">
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">Pandas</span>
+                  <div class="skill-level">
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box filled"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">NumPy</span>
+                  <div class="skill-level">
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box filled"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">Matplotlib/Seaborn</span>
+                  <div class="skill-level">
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box filled"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">Power BI</span>
+                  <div class="skill-level">
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">Tableau</span>
+                  <div class="skill-level">
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box"></div>
+                    <div class="skill-box"></div>
+                    <div class="skill-box"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">Data Storytelling</span>
+                  <div class="skill-level">
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Big Data & Databases -->
+          <div class="skill-category">
+            <h3 class="skill-category-title">
+              <i class="fas fa-database"></i>
+              Big Data & Databases
+            </h3>
+            <div class="skills-list">
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">PySpark</span>
+                  <div class="skill-level">
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">Hadoop</span>
+                  <div class="skill-level">
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box"></div>
+                    <div class="skill-box"></div>
+                    <div class="skill-box"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">MongoDB</span>
+                  <div class="skill-level">
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box"></div>
+                    <div class="skill-box"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">Neo4j</span>
+                  <div class="skill-level">
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box"></div>
+                    <div class="skill-box"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">Graph Analytics</span>
+                  <div class="skill-level">
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box"></div>
+                    <div class="skill-box"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tools & Technologies -->
+          <div class="skill-category">
+            <h3 class="skill-category-title">
+              <i class="fas fa-wrench"></i>
+              Tools & Technologies
+            </h3>
+            <div class="skills-list">
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">Git/GitHub</span>
+                  <div class="skill-level">
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">Docker</span>
+                  <div class="skill-level">
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box"></div>
+                    <div class="skill-box"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">Streamlit</span>
+                  <div class="skill-level">
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">Flask</span>
+                  <div class="skill-level">
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box "></div>
+                    <div class="skill-box"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">Jupyter</span>
+                  <div class="skill-level">
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box filled"></div>
+                    <div class="skill-box filled"></div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -266,163 +1393,255 @@
       <!-- Certifications View -->
       <section id="certsView" class="view" role="tabpanel" aria-labelledby="certsTab">
         <p class="section-intro">
-            Each certification represents a step in my personal growth—focused in learning that helped me improve my skills and apply them in real projects. Whether it's deepening my understanding of machine learning, getting hands-on with cloud technologies, or improving the way I build and deploy data solutions, these experiences are about more than just credentials.
+          <i class="fas fa-graduation-cap" style="color: var(--primary); margin-right: 8px;"></i>
+          Each certification represents a step in my personal growth—focused learning that helped me improve my skills and apply them in real projects. Whether it's deepening my understanding of machine learning, getting hands-on with cloud technologies, or improving the way I build and deploy data solutions, these experiences are about more than just credentials.
         </p>
 
         <div class="certs" id="certsGrid">
-          <!-- Example certification cards — replace with yours -->
           <article class="cert-card">
             <div class="cert-title">AI for Medicine Specialization</div>
             <div class="cert-issuer">Coursera · DeepLearning.AI</div>
             <div class="cert-meta">Issued: Sep 2025</div>
-            <a class="cert-link" href="https://coursera.org/share/a23f64895fb43e6158f4c515c7209a59" target="_blank" rel="noopener">View credential</a>
+            <a class="cert-link" href="https://coursera.org/share/a23f64895fb43e6158f4c515c7209a59" target="_blank" rel="noopener">
+              <i class="fas fa-external-link-alt"></i>View credential
+            </a>
           </article>
           <article class="cert-card">
             <div class="cert-title">Machine Learning Specialization</div>
             <div class="cert-issuer">Coursera · DeepLearning.AI</div>
             <div class="cert-meta">Issued: Jul 2025</div>
-            <a class="cert-link" href="https://coursera.org/share/1f3d3fedf4e7745b5e9aea8a8f278dcb" target="_blank" rel="noopener">View credential</a>
+            <a class="cert-link" href="https://coursera.org/share/1f3d3fedf4e7745b5e9aea8a8f278dcb" target="_blank" rel="noopener">
+              <i class="fas fa-external-link-alt"></i>View credential
+            </a>
           </article>
           <article class="cert-card">
             <div class="cert-title">From Excel to Power BI</div>
             <div class="cert-issuer">Coursera</div>
             <div class="cert-meta">Issued: Aug 2025</div>
-            <a class="cert-link" href="https://coursera.org/share/09d53d6dadebdfe919d8f5e016e5ad79" target="_blank" rel="noopener">View credential</a>
+            <a class="cert-link" href="https://coursera.org/share/09d53d6dadebdfe919d8f5e016e5ad79" target="_blank" rel="noopener">
+              <i class="fas fa-external-link-alt"></i>View credential
+            </a>
           </article>
           <article class="cert-card">
             <div class="cert-title">Data Analysis with Python</div>
             <div class="cert-issuer">Coursera · IBM</div>
             <div class="cert-meta">Issued: Mar 2025</div>
-            <a class="cert-link" href="https://coursera.org/share/090b50124c7aaddd4a4facfb3f7d0a30" target="_blank" rel="noopener">View credential</a>
+            <a class="cert-link" href="https://coursera.org/share/090b50124c7aaddd4a4facfb3f7d0a30" target="_blank" rel="noopener">
+              <i class="fas fa-external-link-alt"></i>View credential
+            </a>
           </article>
           <article class="cert-card">
             <div class="cert-title">Getting Started with Data Visualization in R</div>
             <div class="cert-issuer">Coursera · Johns Hopkins University</div>
             <div class="cert-meta">Issued: Dec 2024</div>
-            <a class="cert-link" href="https://coursera.org/share/80f6d9275c7ad61f857464ce60092ac3" target="_blank" rel="noopener">View credential</a>
+            <a class="cert-link" href="https://coursera.org/share/80f6d9275c7ad61f857464ce60092ac3" target="_blank" rel="noopener">
+              <i class="fas fa-external-link-alt"></i>View credential
+            </a>
           </article>
           <article class="cert-card">
-            <div class="cert-title">
-                Data Visualization in R with ggplot2</div>
+            <div class="cert-title">Data Visualization in R with ggplot2</div>
             <div class="cert-issuer">Coursera · Johns Hopkins University</div>
             <div class="cert-meta">Issued: Dec 2024</div>
-            <a class="cert-link" href="https://coursera.org/share/7d826e02d0fc310fc85dc5b00f365dd3" target="_blank" rel="noopener">View credential</a>
+            <a class="cert-link" href="https://coursera.org/share/7d826e02d0fc310fc85dc5b00f365dd3" target="_blank" rel="noopener">
+              <i class="fas fa-external-link-alt"></i>View credential
+            </a>
           </article>
           <article class="cert-card">
-            <div class="cert-title">
-                Advanced Data Visualization with R</div>
+            <div class="cert-title">Advanced Data Visualization with R</div>
             <div class="cert-issuer">Coursera · Johns Hopkins University</div>
             <div class="cert-meta">Issued: Mar 2025</div>
-            <a class="cert-link" href="https://coursera.org/share/21a510f3f2fff212f48f9bca07ef72f0" target="_blank" rel="noopener">View credential</a>
+            <a class="cert-link" href="https://coursera.org/share/21a510f3f2fff212f48f9bca07ef72f0" target="_blank" rel="noopener">
+              <i class="fas fa-external-link-alt"></i>View credential
+            </a>
           </article>
           <article class="cert-card">
             <div class="cert-title">Understanding and Visualizing Data with Python</div>
             <div class="cert-issuer">Coursera · University of Michigan</div>
             <div class="cert-meta">Issued: Dec 2024</div>
-            <a class="cert-link" href="https://coursera.org/share/6f7a149d13bd291a649e8645037c027a" target="_blank" rel="noopener">View credential</a>
+            <a class="cert-link" href="https://coursera.org/share/6f7a149d13bd291a649e8645037c027a" target="_blank" rel="noopener">
+              <i class="fas fa-external-link-alt"></i>View credential
+            </a>
           </article>
           <article class="cert-card">
-            <div class="cert-title">
-                Supervised Machine Learning: Classification</div>
+            <div class="cert-title">Supervised Machine Learning: Classification</div>
             <div class="cert-issuer">Coursera · IBM</div>
             <div class="cert-meta">Issued: Jul 2025</div>
-            <a class="cert-link" href="https://coursera.org/share/212584fcb7b5b521c5fda8ac361d30eb" target="_blank" rel="noopener">View credential</a>
+            <a class="cert-link" href="https://coursera.org/share/212584fcb7b5b521c5fda8ac361d30eb" target="_blank" rel="noopener">
+              <i class="fas fa-external-link-alt"></i>View credential
+            </a>
           </article>
           <article class="cert-card">
-            <div class="cert-title">
-                SQL for Data Science</div>
+            <div class="cert-title">SQL for Data Science</div>
             <div class="cert-issuer">Coursera · University of California, Davis</div>
             <div class="cert-meta">Issued: Jul 2025</div>
-            <a class="cert-link" href="https://coursera.org/share/e7425fa1d58041ed9aebbb74f67bfe61" target="_blank" rel="noopener">View credential</a>
+            <a class="cert-link" href="https://coursera.org/share/e7425fa1d58041ed9aebbb74f67bfe61" target="_blank" rel="noopener">
+              <i class="fas fa-external-link-alt"></i>View credential
+            </a>
           </article>
           <article class="cert-card">
-            <div class="cert-title">
-                Excel Skills for Business: Essentials</div>
+            <div class="cert-title">Excel Skills for Business: Essentials</div>
             <div class="cert-issuer">Coursera · Macquarie University</div>
             <div class="cert-meta">Issued: Jul 2025</div>
-            <a class="cert-link" href="https://coursera.org/share/81bce1fe90e8cad166a4503af2b180a2" target="_blank" rel="noopener">View credential</a>
+            <a class="cert-link" href="https://coursera.org/share/81bce1fe90e8cad166a4503af2b180a2" target="_blank" rel="noopener">
+              <i class="fas fa-external-link-alt"></i>View credential
+            </a>
           </article>
           <article class="cert-card">
-            <div class="cert-title">
-                Excel Skills for Business: Intermediate I</div>
+            <div class="cert-title">Excel Skills for Business: Intermediate I</div>
             <div class="cert-issuer">Coursera · Macquarie University</div>
             <div class="cert-meta">Issued: Jul 2025</div>
-            <a class="cert-link" href="https://coursera.org/share/6c0f7420f67d7a2fb7ad06159e85e9ff" target="_blank" rel="noopener">View credential</a>
+            <a class="cert-link" href="https://coursera.org/share/6c0f7420f67d7a2fb7ad06159e85e9ff" target="_blank" rel="noopener">
+              <i class="fas fa-external-link-alt"></i>View credential
+            </a>
           </article>
           <article class="cert-card">
-            <div class="cert-title">
-                Data Science with R</div>
+            <div class="cert-title">Data Science with R</div>
             <div class="cert-issuer">Aegean University</div>
             <div class="cert-meta">Issued: Jun 2024</div>
           </article>
           <article class="cert-card">
-            <div class="cert-title">
-                BlockChain Technologies</div>
+            <div class="cert-title">BlockChain Technologies</div>
             <div class="cert-issuer">Aegean University</div>
             <div class="cert-meta">Issued: Jun 2024</div>
           </article>
           <article class="cert-card">
-            <div class="cert-title">
-                GRE Certificate</div>
+            <div class="cert-title">GRE Certificate</div>
             <div class="cert-issuer">76th Percentile Quantitative Reasoning</div>
             <div class="cert-meta">Issued: Jun 2023</div>
           </article>
           <article class="cert-card">
-            <div class="cert-title">
-                IELTS</div>
+            <div class="cert-title">IELTS</div>
             <div class="cert-issuer">CEFR Level C1</div>
             <div class="cert-meta">Issued: Feb 2024</div>
           </article>
-
         </div>
       </section>
     </main>
   </div>
 
   <script>
-    // Hover border effect
-    document.querySelectorAll('.project-card').forEach(card => {
-      card.addEventListener('mouseenter', function(){ this.style.borderColor='#3498db'; });
-      card.addEventListener('mouseleave', function(){ this.style.borderColor='#e1e8ed'; });
-    });
-
-    // Tabs logic with deep-link support
+    // Get DOM elements
     const projectsTab = document.getElementById('projectsTab');
+    const skillsTab = document.getElementById('skillsTab');
     const certsTab = document.getElementById('certsTab');
     const projectsView = document.getElementById('projectsView');
+    const skillsView = document.getElementById('skillsView');
     const certsView = document.getElementById('certsView');
     const titleEl = document.getElementById('viewTitle');
     const countEl = document.getElementById('countLabel');
 
-    function setActive(view){
-      const isProjects = view === 'projects';
-      projectsView.classList.toggle('active', isProjects);
-      certsView.classList.toggle('active', !isProjects);
-      projectsTab.setAttribute('aria-selected', String(isProjects));
-      certsTab.setAttribute('aria-selected', String(!isProjects));
-      titleEl.textContent = isProjects ? 'My Projects' : 'My Certifications';
-      // Update URL hash (no scroll jump)
-      history.replaceState(null, '', isProjects ? '#projects' : '#certifications');
-      // Update count
-      const count = isProjects
-        ? document.querySelectorAll('#projectsView .project-card').length
-        : document.querySelectorAll('#certsView .cert-card').length;
-      countEl.textContent = `${count} ${isProjects ? (count===1?'project':'projects') : (count===1?'certification':'certifications')}`;
+    function showProjects() {
+      // Hide others, show projects
+      projectsView.classList.add('active');
+      skillsView.classList.remove('active');
+      certsView.classList.remove('active');
+      
+      // Update tab states
+      projectsTab.setAttribute('aria-selected', 'true');
+      skillsTab.setAttribute('aria-selected', 'false');
+      certsTab.setAttribute('aria-selected', 'false');
+      
+      // Update title and count
+      titleEl.textContent = 'My Projects';
+      const count = document.querySelectorAll('#projectsView .project-card').length;
+      countEl.textContent = `${count} ${count === 1 ? 'project' : 'projects'}`;
+      
+      // Update URL
+      history.replaceState(null, '', '#projects');
     }
 
-    projectsTab.addEventListener('click', () => setActive('projects'));
-    certsTab.addEventListener('click', () => setActive('certs'));
+    function showSkills() {
+      // Hide others, show skills
+      projectsView.classList.remove('active');
+      skillsView.classList.add('active');
+      certsView.classList.remove('active');
+      
+      // Update tab states
+      projectsTab.setAttribute('aria-selected', 'false');
+      skillsTab.setAttribute('aria-selected', 'true');
+      certsTab.setAttribute('aria-selected', 'false');
+      
+      // Update title and count
+      titleEl.textContent = 'My Skills';
+      const count = document.querySelectorAll('#skillsView .skill-category').length;
+      countEl.textContent = `${count} ${count === 1 ? 'category' : 'categories'}`;
+      
+      // Update URL
+      history.replaceState(null, '', '#skills');
+      
+      // Animate skill boxes
+      setTimeout(() => {
+        animateSkillBoxes();
+      }, 300);
+    }
 
-    // Initialize based on hash (supports #certifications)
+    function showCertifications() {
+      // Hide others, show certifications
+      projectsView.classList.remove('active');
+      skillsView.classList.remove('active');
+      certsView.classList.add('active');
+      
+      // Update tab states
+      projectsTab.setAttribute('aria-selected', 'false');
+      skillsTab.setAttribute('aria-selected', 'false');
+      certsTab.setAttribute('aria-selected', 'true');
+      
+      // Update title and count
+      titleEl.textContent = 'My Certifications';
+      const count = document.querySelectorAll('#certsView .cert-card').length;
+      countEl.textContent = `${count} ${count === 1 ? 'certification' : 'certifications'}`;
+      
+      // Update URL
+      history.replaceState(null, '', '#certifications');
+    }
+
+    function animateSkillBoxes() {
+      const skillBoxes = document.querySelectorAll('.skill-box');
+      skillBoxes.forEach((box, index) => {
+        if (box.classList.contains('filled')) {
+          box.style.opacity = '0';
+          box.style.transform = 'scale(0.5)';
+          setTimeout(() => {
+            box.style.opacity = '1';
+            box.style.transform = 'scale(1)';
+          }, index * 50);
+        }
+      });
+    }
+
+    // Hover border effect
+    document.querySelectorAll('.project-card').forEach(card => {
+      card.addEventListener('mouseenter', function(){ this.style.borderColor='var(--primary)'; });
+      card.addEventListener('mouseleave', function(){ this.style.borderColor='var(--border)'; });
+    });
+
+    // Add click event listeners
+    projectsTab.addEventListener('click', showProjects);
+    skillsTab.addEventListener('click', showSkills);
+    certsTab.addEventListener('click', showCertifications);
+
+    // Initialize based on hash
     const hash = location.hash.replace('#','').toLowerCase();
-    setActive(hash === 'certifications' || hash === 'certs' ? 'certs' : 'projects');
+    if (hash === 'certifications') {
+      showCertifications();
+    } else if (hash === 'skills') {
+      showSkills();
+    } else {
+      showProjects();
+    }
 
     // Keyboard arrow navigation for tabs
     document.querySelectorAll('.tab-btn').forEach(btn=>{
       btn.addEventListener('keydown', (e)=>{
         if(e.key === 'ArrowRight' || e.key === 'ArrowLeft'){
           e.preventDefault();
-          (btn.id === 'projectsTab' ? certsTab : projectsTab).focus();
+          if (btn.id === 'projectsTab') {
+            skillsTab.focus();
+          } else if (btn.id === 'skillsTab') {
+            certsTab.focus();
+          } else {
+            projectsTab.focus();
+          }
         }
       });
     });
