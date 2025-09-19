@@ -965,7 +965,6 @@
               </a>
             </div>
           </div>
-        </div>
 
           <!-- Project 5 -->
           <div class="project-card">
@@ -996,7 +995,7 @@
               <div class="tech-label">Key Features</div>
               <div class="tech-tags">
                 <span class="tech-tag">FP-Growth</span>
-                <span class="tech-tag">Cosine Ssimilarity</span>
+                <span class="tech-tag">Cosine Similarity</span>
                 <span class="tech-tag">Non-Negative Matrix Factorization</span>
                 <span class="tech-tag">Neural Collaborative Filtering</span>
               </div>
@@ -1010,6 +1009,7 @@
           </div>
         </div>
       </section>
+
       <!-- Skills View -->
       <section id="skillsView" class="view" role="tabpanel" aria-labelledby="skillsTab">
         <p class="section-intro">
@@ -1582,8 +1582,7 @@
       projectsTab.setAttribute('aria-selected', 'true');
       skillsTab.setAttribute('aria-selected', 'false');
       certsTab.setAttribute('aria-selected', 'false');
-      
-      // Update title and count
+// Update title and count
       titleEl.textContent = 'My Projects';
       const count = document.querySelectorAll('#projectsView .project-card').length;
       countEl.textContent = `${count} ${count === 1 ? 'project' : 'projects'}`;
