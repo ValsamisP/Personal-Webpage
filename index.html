@@ -814,6 +814,94 @@
       border: 1px solid var(--border);
     }
 
+    /* Metrics Dashboard */
+    .metrics-dashboard {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+      margin-bottom: 40px;
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    .metric-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 32px 24px;
+      text-align: center;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .metric-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .metric-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-xl);
+      border-color: var(--primary);
+    }
+
+    .metric-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .metric-icon {
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+      transition: all 0.3s ease;
+    }
+
+    .metric-card:hover .metric-icon {
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    .metric-icon i {
+      font-size: 28px;
+      color: white;
+    }
+
+    .metric-number {
+      font-size: 48px;
+      font-weight: 700;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 8px;
+      line-height: 1;
+    }
+
+    .metric-label {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .metric-sublabel {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
     /* View transitions */
     .view {
       display: none;
@@ -937,6 +1025,29 @@
       .theme-toggle i {
         font-size: 18px;
       }
+
+      .metrics-dashboard {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+        margin-bottom: 32px;
+      }
+
+      .metric-card {
+        padding: 24px 16px;
+      }
+
+      .metric-number {
+        font-size: 36px;
+      }
+
+      .metric-icon {
+        width: 48px;
+        height: 48px;
+      }
+
+      .metric-icon i {
+        font-size: 24px;
+      }
     }
 
     /* Scrollbar styling */
@@ -1018,6 +1129,45 @@
 
       <!-- Projects View -->
       <section id="projectsView" class="view active" role="tabpanel" aria-labelledby="projectsTab">
+        <!-- Metrics Dashboard -->
+        <div class="metrics-dashboard">
+          <div class="metric-card">
+            <div class="metric-icon">
+              <i class="fas fa-code"></i>
+            </div>
+            <div class="metric-number" data-target="0">0</div>
+            <div class="metric-label">Projects</div>
+            <div class="metric-sublabel">Completed</div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-icon">
+              <i class="fas fa-certificate"></i>
+            </div>
+            <div class="metric-number" data-target="0">0</div>
+            <div class="metric-label">Certifications</div>
+            <div class="metric-sublabel">Earned</div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-icon">
+              <i class="fas fa-cogs"></i>
+            </div>
+            <div class="metric-number" data-target="0">0</div>
+            <div class="metric-label">Technologies</div>
+            <div class="metric-sublabel">Mastered</div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-icon">
+              <i class="fas fa-chart-line"></i>
+            </div>
+            <div class="metric-number" data-target="97">0</div>
+            <div class="metric-label">Accuracy</div>
+            <div class="metric-sublabel">Best Model</div>
+          </div>
+        </div>
+
         <div class="projects">
           <!-- Project 1: Walkforward-Arimax -->
           <div class="project-card">
@@ -2122,6 +2272,86 @@
           allTabs[prevIndex].focus();
         }
       });
+    });
+
+    // Auto-update metrics by counting actual elements
+    function updateMetricsTargets() {
+      const metricNumbers = document.querySelectorAll('.metric-number');
+      
+      // Count projects
+      const projectCount = document.querySelectorAll('#projectsView .project-card').length;
+      metricNumbers[0].setAttribute('data-target', projectCount);
+      
+      // Count certifications
+      const certCount = document.querySelectorAll('#certsView .cert-card').length;
+      metricNumbers[1].setAttribute('data-target', certCount);
+      
+      // Count technologies (all unique skills across categories)
+      const skillItems = document.querySelectorAll('#skillsView .skill-item').length;
+      metricNumbers[2].setAttribute('data-target', skillItems);
+      
+      // Keep accuracy at 97% (static value)
+      metricNumbers[3].setAttribute('data-target', 97);
+    }
+
+    // Animated Counter for Metrics
+    function animateCounter(element) {
+      const target = parseInt(element.getAttribute('data-target'));
+      const duration = 2000; // 2 seconds
+      const increment = target / (duration / 16); // 60fps
+      let current = 0;
+
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          // Check if this is the accuracy metric (4th card)
+          const isAccuracy = element.parentElement.querySelector('.metric-label').textContent === 'Accuracy';
+          element.textContent = target + (isAccuracy ? '%' : '');
+          clearInterval(timer);
+        } else {
+          element.textContent = Math.floor(current);
+        }
+      }, 16);
+    }
+
+    // Trigger animation when metrics come into view
+    const observerOptions = {
+      threshold: 0.5,
+      rootMargin: '0px'
+    };
+
+    const metricsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          updateMetricsTargets(); // Update targets before animating
+          const metricNumbers = entry.target.querySelectorAll('.metric-number');
+          metricNumbers.forEach(num => {
+            if (num.textContent === '0') {
+              animateCounter(num);
+            }
+          });
+        }
+      });
+    }, observerOptions);
+
+    // Observe the metrics dashboard
+    const metricsDashboard = document.querySelector('.metrics-dashboard');
+    if (metricsDashboard) {
+      metricsObserver.observe(metricsDashboard);
+    }
+
+    // Reset counters when switching back to Projects view
+    projectsTab.addEventListener('click', () => {
+      setTimeout(() => {
+        updateMetricsTargets(); // Update targets first
+        const metricNumbers = document.querySelectorAll('.metric-number');
+        metricNumbers.forEach(num => {
+          if (num.textContent !== '0') {
+            num.textContent = '0';
+            animateCounter(num);
+          }
+        });
+      }, 100);
     });
   </script>
 </body>
