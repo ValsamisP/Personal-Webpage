@@ -18,10 +18,30 @@
       --surface-elevated: #ffffff;
       --border: #e2e8f0;
       --border-hover: #cbd5e1;
+      --background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
       --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
       --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
       --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
       --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    }
+
+    [data-theme="dark"] {
+      --primary: #818cf8;
+      --primary-dark: #6366f1;
+      --secondary: #1e293b;
+      --accent: #22d3ee;
+      --text-primary: #f1f5f9;
+      --text-secondary: #cbd5e1;
+      --text-muted: #94a3b8;
+      --surface: #0f172a;
+      --surface-elevated: #1e293b;
+      --border: #334155;
+      --border-hover: #475569;
+      --background: linear-gradient(135deg, #020617 0%, #0f172a 100%);
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.4);
+      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.5), 0 4px 6px -4px rgb(0 0 0 / 0.5);
+      --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.6), 0 8px 10px -6px rgb(0 0 0 / 0.6);
     }
 
     * {
@@ -32,10 +52,44 @@
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Inter', sans-serif;
-      background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+      background: var(--background);
       color: var(--text-primary);
       line-height: 1.7;
       min-height: 100vh;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .theme-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: var(--shadow-lg);
+      transition: all 0.3s ease;
+    }
+
+    .theme-toggle:hover {
+      transform: scale(1.1);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .theme-toggle i {
+      font-size: 20px;
+      color: var(--primary);
+      transition: transform 0.3s ease;
+    }
+
+    .theme-toggle:hover i {
+      transform: rotate(20deg);
     }
 
     .container {
@@ -60,6 +114,8 @@
       animation: slideInLeft 0.6s ease-out;
       transition: all 0.3s ease;
       align-self: start;
+      position: sticky;
+      top: 20px;
     }
 
     @keyframes slideInLeft {
@@ -241,7 +297,7 @@
 
     .tab-btn:hover:not([aria-selected="true"]) {
       color: var(--text-primary);
-      background: rgba(255, 255, 255, 0.5);
+      background: rgba(99, 102, 241, 0.1);
     }
 
     /* Enhanced Projects */
@@ -648,6 +704,105 @@
       font-size: 12px;
     }
 
+    /* Contact Section */
+    .contact-section {
+      background: var(--surface);
+      border-radius: 16px;
+      padding: 40px;
+      border: 1px solid var(--border);
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    .contact-header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .contact-header h2 {
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .contact-header p {
+      color: var(--text-secondary);
+      font-size: 16px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 24px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .contact-card {
+      background: var(--secondary);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      text-align: center;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .contact-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--primary);
+    }
+
+    .contact-icon {
+      width: 56px;
+      height: 56px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+      transition: all 0.3s ease;
+    }
+
+    .contact-card:hover .contact-icon {
+      transform: scale(1.1) rotate(5deg);
+    }
+
+    .contact-icon i {
+      font-size: 24px;
+      color: white;
+    }
+
+    .contact-title {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+
+    .contact-info {
+      font-size: 14px;
+      color: var(--text-secondary);
+      word-break: break-all;
+    }
+
+    .contact-link {
+      color: var(--primary);
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+
+    .contact-link:hover {
+      color: var(--primary-dark);
+      text-decoration: underline;
+    }
+
     .section-intro {
       margin-bottom: 24px;
       color: var(--text-secondary);
@@ -681,6 +836,17 @@
     }
 
     /* Responsive Design */
+    @media (max-width: 1024px) {
+      .container {
+        grid-template-columns: 280px 1fr;
+        gap: 30px;
+      }
+
+      .sidebar {
+        padding: 30px 20px;
+      }
+    }
+
     @media (max-width: 900px) {
       .certs {
         grid-template-columns: 1fr;
@@ -713,6 +879,16 @@
       
       .tabs {
         justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .theme-toggle {
+        top: 15px;
+        right: 15px;
       }
     }
 
@@ -722,7 +898,8 @@
       }
       
       .project-card,
-      .main-content {
+      .main-content,
+      .contact-section {
         padding: 20px;
       }
       
@@ -741,6 +918,24 @@
       .tech-tag {
         font-size: 11px;
         padding: 4px 10px;
+      }
+
+      .tab-btn {
+        padding: 10px 14px;
+        font-size: 13px;
+      }
+
+      .contact-header h2 {
+        font-size: 24px;
+      }
+
+      .theme-toggle {
+        width: 40px;
+        height: 40px;
+      }
+
+      .theme-toggle i {
+        font-size: 18px;
       }
     }
 
@@ -761,9 +956,19 @@
     ::-webkit-scrollbar-thumb:hover {
       background: var(--primary-dark);
     }
+
+    /* Smooth scroll */
+    html {
+      scroll-behavior: smooth;
+    }
   </style>
 </head>
 <body>
+  <!-- Theme Toggle Button -->
+  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+    <i class="fas fa-moon"></i>
+  </button>
+
   <div class="container">
     <aside class="sidebar">
       <div class="profile-img">
@@ -781,6 +986,9 @@
         </a>
         <a href="https://github.com/ValsamisP" class="social-link" target="_blank" rel="noopener">
           <i class="fab fa-github"></i>GitHub Profile
+        </a>
+        <a href="mailto:panagiotis.valsamis21@gmail.com" class="social-link">
+          <i class="fas fa-envelope"></i>Email Me
         </a>
         <a href="assets/files/Panagiotis_Valsamis_CV.pdf" class="social-link" download="Panagiotis_Valsamis_CV.pdf">
           <i class="fas fa-download"></i>Download CV
@@ -800,6 +1008,9 @@
           </button>
           <button class="tab-btn" role="tab" aria-selected="false" aria-controls="certsView" id="certsTab">
             <i class="fas fa-certificate"></i> Certifications
+          </button>
+          <button class="tab-btn" role="tab" aria-selected="false" aria-controls="contactView" id="contactTab">
+            <i class="fas fa-envelope"></i> Contact
           </button>
         </div>
         <div class="count" id="countLabel"></div>
@@ -908,7 +1119,7 @@
           </div>
 
 
-          <!-- Project 2: Brain Tumor Classification -->
+          <!-- Project 3: Brain Tumor Classification -->
           <div class="project-card">
             <div class="project-header">
               <div>
@@ -959,7 +1170,7 @@
             </div>
           </div>
 
-          <!-- Project 3: ECG Arrhythmia Classification -->
+          <!-- Project 4: ECG Arrhythmia Classification -->
           <div class="project-card">
             <div class="project-header">
               <div>
@@ -1006,7 +1217,7 @@
             </div>
           </div>
 
-          <!-- Project 4: Portfolio Optimizer -->
+          <!-- Project 5: Portfolio Optimizer -->
           <div class="project-card">
             <div class="project-header">
               <div>
@@ -1054,7 +1265,7 @@
             </div>
           </div>
 
-          <!-- Project 5: E-Commerce Recommender Systems -->
+          <!-- Project 6: E-Commerce Recommender Systems -->
           <div class="project-card">
             <div class="project-header">
               <div>
@@ -1680,17 +1891,90 @@
           </article>
         </div>
       </section>
+
+      <!-- Contact View -->
+      <section id="contactView" class="view" role="tabpanel" aria-labelledby="contactTab">
+        <div class="contact-section">
+          <div class="contact-header">
+            <h2>Get In Touch</h2>
+            <p>Feel free to reach out for collaborations, opportunities, or just to connect!</p>
+          </div>
+
+          <div class="contact-grid">
+            <div class="contact-card" onclick="window.location.href='mailto:panagiotis.valsamis21@gmail.com'">
+              <div class="contact-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="contact-title">Email</div>
+              <div class="contact-info">
+                <a href="mailto:panagiotis.valsamis21@gmail.com" class="contact-link">panagiotis.valsamis21@gmail.com</a>
+              </div>
+            </div>
+
+            <div class="contact-card" onclick="window.open('https://www.linkedin.com/in/panagiotis-valsamis-a45a93377/', '_blank')">
+              <div class="contact-icon">
+                <i class="fab fa-linkedin"></i>
+              </div>
+              <div class="contact-title">LinkedIn</div>
+              <div class="contact-info">
+                <a href="https://www.linkedin.com/in/panagiotis-valsamis-a45a93377/" class="contact-link" target="_blank" rel="noopener">Connect on LinkedIn</a>
+              </div>
+            </div>
+
+            <div class="contact-card" onclick="window.open('https://github.com/ValsamisP', '_blank')">
+              <div class="contact-icon">
+                <i class="fab fa-github"></i>
+              </div>
+              <div class="contact-title">GitHub</div>
+              <div class="contact-info">
+                <a href="https://github.com/ValsamisP" class="contact-link" target="_blank" rel="noopener">View My Repositories</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
   </div>
 
   <script>
+    // Theme Toggle Functionality
+    const themeToggle = document.getElementById('themeToggle');
+    const html = document.documentElement;
+    const themeIcon = themeToggle.querySelector('i');
+
+    // Check for saved theme preference or default to 'light' mode
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    html.setAttribute('data-theme', currentTheme);
+    updateThemeIcon(currentTheme);
+
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = html.getAttribute('data-theme');
+      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+      
+      html.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      updateThemeIcon(newTheme);
+    });
+
+    function updateThemeIcon(theme) {
+      if (theme === 'dark') {
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+      } else {
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+      }
+    }
+
     // Get DOM elements
     const projectsTab = document.getElementById('projectsTab');
     const skillsTab = document.getElementById('skillsTab');
     const certsTab = document.getElementById('certsTab');
+    const contactTab = document.getElementById('contactTab');
     const projectsView = document.getElementById('projectsView');
     const skillsView = document.getElementById('skillsView');
     const certsView = document.getElementById('certsView');
+    const contactView = document.getElementById('contactView');
     const titleEl = document.getElementById('viewTitle');
     const countEl = document.getElementById('countLabel');
 
@@ -1699,12 +1983,15 @@
       projectsView.classList.add('active');
       skillsView.classList.remove('active');
       certsView.classList.remove('active');
+      contactView.classList.remove('active');
       
       // Update tab states
       projectsTab.setAttribute('aria-selected', 'true');
       skillsTab.setAttribute('aria-selected', 'false');
       certsTab.setAttribute('aria-selected', 'false');
-// Update title and count
+      contactTab.setAttribute('aria-selected', 'false');
+      
+      // Update title and count
       titleEl.textContent = 'My Projects';
       const count = document.querySelectorAll('#projectsView .project-card').length;
       countEl.textContent = `${count} ${count === 1 ? 'project' : 'projects'}`;
@@ -1718,11 +2005,13 @@
       projectsView.classList.remove('active');
       skillsView.classList.add('active');
       certsView.classList.remove('active');
+      contactView.classList.remove('active');
       
       // Update tab states
       projectsTab.setAttribute('aria-selected', 'false');
       skillsTab.setAttribute('aria-selected', 'true');
       certsTab.setAttribute('aria-selected', 'false');
+      contactTab.setAttribute('aria-selected', 'false');
       
       // Update title and count
       titleEl.textContent = 'My Skills';
@@ -1743,11 +2032,13 @@
       projectsView.classList.remove('active');
       skillsView.classList.remove('active');
       certsView.classList.add('active');
+      contactView.classList.remove('active');
       
       // Update tab states
       projectsTab.setAttribute('aria-selected', 'false');
       skillsTab.setAttribute('aria-selected', 'false');
       certsTab.setAttribute('aria-selected', 'true');
+      contactTab.setAttribute('aria-selected', 'false');
       
       // Update title and count
       titleEl.textContent = 'My Certifications';
@@ -1756,6 +2047,27 @@
       
       // Update URL
       history.replaceState(null, '', '#certifications');
+    }
+
+    function showContact() {
+      // Hide others, show contact
+      projectsView.classList.remove('active');
+      skillsView.classList.remove('active');
+      certsView.classList.remove('active');
+      contactView.classList.add('active');
+      
+      // Update tab states
+      projectsTab.setAttribute('aria-selected', 'false');
+      skillsTab.setAttribute('aria-selected', 'false');
+      certsTab.setAttribute('aria-selected', 'false');
+      contactTab.setAttribute('aria-selected', 'true');
+      
+      // Update title and count
+      titleEl.textContent = 'Contact Me';
+      countEl.textContent = 'Let\'s connect!';
+      
+      // Update URL
+      history.replaceState(null, '', '#contact');
     }
 
     function animateSkillBoxes() {
@@ -1782,6 +2094,7 @@
     projectsTab.addEventListener('click', showProjects);
     skillsTab.addEventListener('click', showSkills);
     certsTab.addEventListener('click', showCertifications);
+    contactTab.addEventListener('click', showContact);
 
     // Initialize based on hash
     const hash = location.hash.replace('#','').toLowerCase();
@@ -1789,22 +2102,24 @@
       showCertifications();
     } else if (hash === 'skills') {
       showSkills();
+    } else if (hash === 'contact') {
+      showContact();
     } else {
       showProjects();
     }
 
     // Keyboard arrow navigation for tabs
-    document.querySelectorAll('.tab-btn').forEach(btn=>{
-      btn.addEventListener('keydown', (e)=>{
-        if(e.key === 'ArrowRight' || e.key === 'ArrowLeft'){
+    const allTabs = [projectsTab, skillsTab, certsTab, contactTab];
+    allTabs.forEach((btn, index) => {
+      btn.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowRight') {
           e.preventDefault();
-          if (btn.id === 'projectsTab') {
-            skillsTab.focus();
-          } else if (btn.id === 'skillsTab') {
-            certsTab.focus();
-          } else {
-            projectsTab.focus();
-          }
+          const nextIndex = (index + 1) % allTabs.length;
+          allTabs[nextIndex].focus();
+        } else if (e.key === 'ArrowLeft') {
+          e.preventDefault();
+          const prevIndex = (index - 1 + allTabs.length) % allTabs.length;
+          allTabs[prevIndex].focus();
         }
       });
     });
