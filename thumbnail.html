@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn Thumbnail - Adjusted Version</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 40px;
+            background: #f0f0f0;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        .thumbnail-wrapper {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .thumbnail {
+            width: 1200px;
+            height: 627px;
+            position: relative;
+            overflow: hidden;
+            margin: 0 auto;
+            display: block;
+            background: linear-gradient(135deg, #0a66c2 0%, #004182 100%);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 80px;
+        }
+        
+        .left-content {
+            flex: 1;
+            color: white;
+            z-index: 2;
+        }
+        
+        .left-content h1 {
+            font-size: 64px;
+            font-weight: 700;
+            margin: 0 0 20px 0;
+            color: white;
+        }
+        
+        .subtitle {
+            font-size: 32px;
+            color: #e8f4ff;
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+        
+        .skills {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .skill-tag {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 18px;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .right-content {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .chart-container {
+            width: 450px;
+            height: 400px;
+            position: relative;
+        }
+        
+        .chart-bars {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            height: 100%;
+            padding: 20px;
+        }
+        
+        .bar {
+            width: 90px;
+            background: linear-gradient(to top, #4ade80, #22c55e);
+            border-radius: 8px 8px 0 0;
+            position: relative;
+            box-shadow: 0 -4px 20px rgba(74, 222, 128, 0.3);
+        }
+        
+        /* ML and Stats tallest, Python and AI lower */
+        .bar1 { height: 95%; } /* ML - tallest */
+        .bar2 { height: 65%; } /* Python - lower */
+        .bar3 { height: 90%; } /* Stats - tallest */
+        .bar4 { height: 60%; } /* AI - lower */
+        
+        .bar-label {
+            position: absolute;
+            bottom: -35px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 16px;
+            white-space: nowrap;
+            font-weight: 500;
+        }
+        
+        .instructions {
+            margin-top: 20px;
+            padding: 15px;
+            background: #e3f2fd;
+            border-left: 4px solid #0a66c2;
+            border-radius: 4px;
+        }
+        
+        .instructions p {
+            margin: 5px 0;
+            color: #1565c0;
+        }
+        
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 style="text-align: center; color: #333; margin-bottom: 40px;">LinkedIn Thumbnail - ML & Stats Tall</h1>
+        
+        <div class="thumbnail-wrapper">
+            <h2>ML & Stats Tallest, Python & AI Lower</h2>
+            <div class="thumbnail">
+                <div class="left-content">
+                    <h1>Panagiotis Valsamis</h1>
+                    <div class="subtitle">Data Science & Machine Learning</div>
+                    <div class="skills">
+                        <div class="skill-tag">Python</div>
+                        <div class="skill-tag">Machine Learning</div>
+                        <div class="skill-tag">Data Analytics</div>
+                        <div class="skill-tag">Data Visualization</div>
+                        <div class="skill-tag">PyTorch</div>
+                        <div class="skill-tag">SQL</div>
+                    </div>
+                </div>
+                <div class="right-content">
+                    <div class="chart-container">
+                        <div class="chart-bars">
+                            <div class="bar bar1"><div class="bar-label">ML</div></div>
+                            <div class="bar bar2"><div class="bar-label">Python</div></div>
+                            <div class="bar bar3"><div class="bar-label">Stats</div></div>
+                            <div class="bar bar4"><div class="bar-label">AI</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="instructions">
+                <p><strong>To save:</strong> Right-click on the thumbnail → "Save image as..." or use screenshot tool (Windows: Win+Shift+S, Mac: Cmd+Shift+4)</p>
+                <p><strong>Configuration:</strong> ML (95%) and Stats (90%) are the tallest bars. Python (65%) and AI (60%) are lower.</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
