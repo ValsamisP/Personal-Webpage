@@ -2,2514 +2,1169 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Panagiotis Valsamis - Portfolio</title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Panagiotis Valsamis — Data Scientist & Machine Learning Engineer. Mathematics graduate and Data Science Master's student specializing in ML, deep learning, time series and MLOps." />
+  <meta name="author" content="Panagiotis Valsamis" />
+  <meta name="theme-color" content="#6366f1" />
+
+  <!-- Open Graph / social -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Panagiotis Valsamis — Data Scientist & ML Engineer" />
+  <meta property="og:description" content="Portfolio of Panagiotis Valsamis: machine learning, deep learning, time series forecasting and production MLOps." />
+  <meta property="og:image" content="photo.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <title>Panagiotis Valsamis — Data Scientist & ML Engineer</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
+
   <style>
     :root {
       --primary: #6366f1;
       --primary-dark: #4f46e5;
-      --secondary: #f1f5f9;
       --accent: #06b6d4;
-      --text-primary: #1e293b;
-      --text-secondary: #64748b;
+      --accent-2: #8b5cf6;
+      --text-primary: #0f172a;
+      --text-secondary: #475569;
       --text-muted: #94a3b8;
       --surface: #ffffff;
-      --surface-elevated: #ffffff;
+      --surface-2: #f8fafc;
+      --surface-glass: rgba(255, 255, 255, 0.72);
       --border: #e2e8f0;
       --border-hover: #cbd5e1;
-      --background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
-      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-      --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+      --bg: #f8fafc;
+      --shadow-sm: 0 1px 2px 0 rgb(15 23 42 / 0.05);
+      --shadow: 0 4px 12px -2px rgb(15 23 42 / 0.08), 0 2px 6px -2px rgb(15 23 42 / 0.06);
+      --shadow-lg: 0 18px 40px -12px rgb(15 23 42 / 0.18);
+      --shadow-xl: 0 30px 60px -15px rgb(15 23 42 / 0.25);
+      --grad: linear-gradient(135deg, var(--primary), var(--accent));
+      --grad-3: linear-gradient(135deg, #818cf8, #06b6d4, #8b5cf6);
+      --radius: 18px;
+      --maxw: 1180px;
+      --nav-h: 68px;
     }
 
     [data-theme="dark"] {
       --primary: #818cf8;
       --primary-dark: #6366f1;
-      --secondary: #1e293b;
       --accent: #22d3ee;
+      --accent-2: #a78bfa;
       --text-primary: #f1f5f9;
       --text-secondary: #cbd5e1;
       --text-muted: #94a3b8;
       --surface: #0f172a;
-      --surface-elevated: #1e293b;
-      --border: #334155;
-      --border-hover: #475569;
-      --background: linear-gradient(135deg, #020617 0%, #0f172a 100%);
-      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.3);
-      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.4);
-      --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.5), 0 4px 6px -4px rgb(0 0 0 / 0.5);
-      --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.6), 0 8px 10px -6px rgb(0 0 0 / 0.6);
+      --surface-2: #1e293b;
+      --surface-glass: rgba(15, 23, 42, 0.7);
+      --border: #1e293b;
+      --border-hover: #334155;
+      --bg: #020617;
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.4);
+      --shadow: 0 4px 12px -2px rgb(0 0 0 / 0.5);
+      --shadow-lg: 0 18px 40px -12px rgb(0 0 0 / 0.6);
+      --shadow-xl: 0 30px 60px -15px rgb(0 0 0 / 0.7);
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + 16px); }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Inter', sans-serif;
-      background: var(--background);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
       color: var(--text-primary);
       line-height: 1.7;
-      min-height: 100vh;
-      transition: background 0.3s ease, color 0.3s ease;
+      overflow-x: hidden;
+      transition: background 0.4s ease, color 0.4s ease;
+      -webkit-font-smoothing: antialiased;
     }
 
-    .theme-toggle {
-      position: fixed;
-      top: 20px;
-      right: 20px;
-      z-index: 1000;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 50%;
-      width: 48px;
-      height: 48px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      box-shadow: var(--shadow-lg);
-      transition: all 0.3s ease;
+    h1, h2, h3, .display { font-family: 'Space Grotesk', 'Inter', sans-serif; letter-spacing: -0.02em; }
+
+    a { color: inherit; }
+
+    ::selection { background: var(--primary); color: #fff; }
+
+    /* ---- Animated background orbs ---- */
+    .bg-orbs { position: fixed; inset: 0; z-index: -2; overflow: hidden; pointer-events: none; }
+    .orb {
+      position: absolute; border-radius: 50%; filter: blur(80px); opacity: 0.5;
+      animation: float 18s ease-in-out infinite;
+    }
+    .orb.o1 { width: 480px; height: 480px; background: #6366f1; top: -120px; left: -100px; }
+    .orb.o2 { width: 420px; height: 420px; background: #06b6d4; top: 30%; right: -120px; animation-delay: -6s; }
+    .orb.o3 { width: 380px; height: 380px; background: #8b5cf6; bottom: -120px; left: 30%; animation-delay: -12s; }
+    [data-theme="dark"] .orb { opacity: 0.28; }
+    @keyframes float {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33% { transform: translate(40px, -30px) scale(1.08); }
+      66% { transform: translate(-30px, 30px) scale(0.95); }
+    }
+    .bg-grid {
+      position: fixed; inset: 0; z-index: -1; pointer-events: none;
+      background-image:
+        linear-gradient(to right, rgba(100,116,139,0.06) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(100,116,139,0.06) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 100%);
+      -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 40%, transparent 100%);
     }
 
-    .theme-toggle:hover {
-      transform: scale(1.1);
-      box-shadow: var(--shadow-xl);
+    /* ---- Scroll progress ---- */
+    .scroll-progress {
+      position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+      background: var(--grad-3); z-index: 1001; transition: width 0.1s linear;
     }
 
-    .theme-toggle i {
-      font-size: 20px;
-      color: var(--primary);
-      transition: transform 0.3s ease;
+    /* ---- Navbar ---- */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h); z-index: 1000;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 clamp(16px, 5vw, 48px);
+      background: var(--surface-glass);
+      backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid transparent; transition: all 0.3s ease;
     }
-
-    .theme-toggle:hover i {
-      transform: rotate(20deg);
+    .nav.scrolled { border-bottom-color: var(--border); box-shadow: var(--shadow-sm); }
+    .nav-logo {
+      font-family: 'Space Grotesk'; font-weight: 700; font-size: 18px;
+      display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text-primary);
     }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 20px;
-      display: grid;
-      grid-template-columns: 320px 1fr;
-      gap: 40px;
-      min-height: 100vh;
+    .nav-logo .mono {
+      width: 38px; height: 38px; border-radius: 11px; background: var(--grad);
+      display: grid; place-items: center; color: #fff; font-size: 16px; box-shadow: var(--shadow);
     }
-
-    /* Sidebar */
-    .sidebar {
-      background: var(--surface);
-      border-radius: 20px;
-      padding: 40px 30px;
-      box-shadow: var(--shadow);
-      height: fit-content;
-      border: 1px solid var(--border);
-      backdrop-filter: blur(10px);
-      animation: slideInLeft 0.6s ease-out;
-      transition: all 0.3s ease;
-      align-self: start;
-      position: sticky;
-      top: 20px;
+    .nav-links { display: flex; align-items: center; gap: 4px; }
+    .nav-links a {
+      text-decoration: none; color: var(--text-secondary); font-weight: 500; font-size: 14.5px;
+      padding: 8px 14px; border-radius: 10px; transition: all 0.2s ease;
     }
-
-    @keyframes slideInLeft {
-      from {
-        opacity: 0;
-        transform: translateX(-30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateX(0);
-      }
+    .nav-links a:hover { color: var(--primary); background: color-mix(in srgb, var(--primary) 10%, transparent); }
+    .nav-right { display: flex; align-items: center; gap: 10px; }
+    .btn-icon {
+      width: 42px; height: 42px; border-radius: 12px; border: 1px solid var(--border);
+      background: var(--surface); color: var(--primary); cursor: pointer;
+      display: grid; place-items: center; font-size: 17px; transition: all 0.25s ease;
     }
+    .btn-icon:hover { transform: translateY(-2px); box-shadow: var(--shadow); border-color: var(--primary); }
+    .nav-toggle { display: none; }
 
-    .profile-img {
-      position: relative;
-      margin-bottom: 24px;
+    /* ---- Buttons ---- */
+    .btn {
+      display: inline-flex; align-items: center; gap: 9px; padding: 13px 24px;
+      border-radius: 12px; text-decoration: none; font-size: 14.5px; font-weight: 600;
+      cursor: pointer; border: 1px solid transparent; transition: all 0.25s ease; white-space: nowrap;
     }
+    .btn-primary { background: var(--grad); color: #fff; box-shadow: var(--shadow); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+    .btn-ghost { background: var(--surface); color: var(--text-primary); border-color: var(--border); }
+    .btn-ghost:hover { transform: translateY(-2px); border-color: var(--primary); color: var(--primary); box-shadow: var(--shadow); }
+    .btn-dark { background: #18181b; color: #fff; }
+    [data-theme="dark"] .btn-dark { background: #f4f4f5; color: #18181b; }
+    .btn-dark:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
 
-    .profile-img img {
-      width: 100%;
-      height: 50%;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid var(--primary);
-      box-shadow: var(--shadow-lg);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* ---- Section layout ---- */
+    section { padding: clamp(64px, 9vw, 110px) clamp(16px, 5vw, 48px); }
+    .wrap { max-width: var(--maxw); margin: 0 auto; }
+    .section-head { text-align: center; max-width: 680px; margin: 0 auto 56px; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600;
+      color: var(--primary); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 14px;
+      padding: 6px 14px; border: 1px solid var(--border); border-radius: 100px; background: var(--surface);
     }
-
-    .profile-img img:hover {
-      transform: scale(1.05);
-      box-shadow: var(--shadow-xl);
-    }
-
-    .name {
-      font-size: 28px;
-      font-weight: 700;
-      margin-bottom: 8px;
-      color: var(--text-primary);
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      -webkit-background-clip: text;
+    .section-title { font-size: clamp(28px, 4.5vw, 42px); font-weight: 700; margin-bottom: 14px; }
+    .section-sub { color: var(--text-secondary); font-size: 16.5px; }
+    .gradient-text {
+      background: var(--grad-3); -webkit-background-clip: text; background-clip: text;
       -webkit-text-fill-color: transparent;
-      background-clip: text;
     }
 
-    .bio {
-      color: var(--text-secondary);
-      margin-bottom: 32px;
-      font-size: 15px;
-      line-height: 1.6;
+    /* ---- Hero ---- */
+    .hero {
+      min-height: 100vh; display: flex; align-items: center;
+      padding-top: calc(var(--nav-h) + 40px); padding-bottom: 60px;
     }
-
-    .connect {
-      margin-top: 40px;
+    .hero-grid {
+      max-width: var(--maxw); margin: 0 auto; width: 100%;
+      display: grid; grid-template-columns: 1.25fr 0.85fr; gap: 56px; align-items: center;
     }
-
-    .connect h3 {
-      color: var(--text-primary);
-      margin-bottom: 20px;
-      font-size: 18px;
-      font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+    .badge-avail {
+      display: inline-flex; align-items: center; gap: 9px; font-size: 13.5px; font-weight: 600;
+      color: #059669; background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.25);
+      padding: 7px 16px; border-radius: 100px; margin-bottom: 24px;
     }
-
-    .connect h3::before {
-      content: '';
-      width: 4px;
-      height: 20px;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      border-radius: 2px;
+    [data-theme="dark"] .badge-avail { color: #34d399; }
+    .badge-avail .dot {
+      width: 9px; height: 9px; border-radius: 50%; background: #10b981; position: relative;
     }
-
-    .social-link {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      color: var(--text-secondary);
-      text-decoration: none;
-      padding: 12px 16px;
-      margin: 4px 0;
-      border-radius: 12px;
-      font-size: 14px;
-      font-weight: 500;
-      transition: all 0.3s ease;
-      border: 1px solid transparent;
+    .badge-avail .dot::after {
+      content: ''; position: absolute; inset: 0; border-radius: 50%; background: #10b981;
+      animation: ping 1.8s cubic-bezier(0,0,0.2,1) infinite;
     }
+    @keyframes ping { 75%, 100% { transform: scale(2.4); opacity: 0; } }
 
-    .social-link:hover {
-      color: var(--primary);
-      background: var(--secondary);
-      border-color: var(--border-hover);
-      transform: translateX(4px);
+    .hero h1 { font-size: clamp(38px, 6vw, 66px); line-height: 1.05; margin-bottom: 18px; }
+    .hero .role-line {
+      font-family: 'Space Grotesk'; font-size: clamp(20px, 3vw, 30px); font-weight: 600;
+      color: var(--text-secondary); margin-bottom: 22px; min-height: 1.3em;
     }
-
-    .social-link i {
-      width: 18px;
-      text-align: center;
-      color: var(--primary);
+    .typed { color: var(--primary); }
+    .cursor { display: inline-block; width: 3px; background: var(--accent); margin-left: 2px;
+      animation: blink 1s step-end infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+    .hero p.lead { font-size: 17px; color: var(--text-secondary); max-width: 560px; margin-bottom: 32px; }
+    .hero-cta { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 34px; }
+    .hero-socials { display: flex; gap: 12px; }
+    .hero-socials a {
+      width: 46px; height: 46px; border-radius: 13px; border: 1px solid var(--border);
+      background: var(--surface); display: grid; place-items: center; font-size: 19px;
+      color: var(--text-secondary); text-decoration: none; transition: all 0.25s ease;
     }
+    .hero-socials a:hover { transform: translateY(-3px); color: var(--primary); border-color: var(--primary); box-shadow: var(--shadow); }
 
-    /* Main Content */
-    .main-content {
-      background: var(--surface-elevated);
-      border-radius: 20px;
-      padding: 40px;
-      box-shadow: var(--shadow);
-      border: 1px solid var(--border);
-      animation: slideInRight 0.6s ease-out 0.2s both;
-    }
-
-    @keyframes slideInRight {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 32px;
-      gap: 16px;
-    }
-
-    .header h1 {
-      color: var(--text-primary);
-      font-size: 32px;
-      font-weight: 700;
-      transition: all 0.3s ease;
-    }
-
-    .count {
-      color: var(--text-muted);
-      font-size: 14px;
-      font-weight: 500;
-      padding: 6px 12px;
-      background: var(--secondary);
-      border-radius: 20px;
-      border: 1px solid var(--border);
-      width: 180px;
-      text-align: center;
-    }
-
-    /* Enhanced Tabs */
-    .tabs {
-      display: flex;
-      gap: 4px;
-      background: var(--secondary);
-      border-radius: 16px;
-      padding: 6px;
-      border: 1px solid var(--border);
-      position: relative;
-    }
-
-    .tab-btn {
-      border: none;
-      background: transparent;
-      padding: 12px 20px;
-      border-radius: 12px;
-      cursor: pointer;
-      font-weight: 600;
-      color: var(--text-secondary);
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
+    .hero-visual { display: flex; justify-content: center; }
+    .avatar-ring { position: relative; width: min(340px, 80vw); aspect-ratio: 1; }
+    .avatar-ring img {
+      position: absolute; inset: 18px; width: calc(100% - 36px); height: calc(100% - 36px);
+      object-fit: cover; object-position: center 20%; border-radius: 50%; border: 4px solid var(--surface); box-shadow: var(--shadow-xl);
       z-index: 2;
     }
-
-    .tab-btn[aria-selected="true"] {
-      background: var(--surface);
-      box-shadow: var(--shadow-sm);
-      color: var(--primary);
-      transform: translateY(-1px);
+    .avatar-ring::before {
+      content: ''; position: absolute; inset: 0; border-radius: 50%;
+      background: conic-gradient(from 0deg, var(--primary), var(--accent), var(--accent-2), var(--primary));
+      animation: spin 8s linear infinite; z-index: 1;
     }
-
-    .tab-btn:hover:not([aria-selected="true"]) {
-      color: var(--text-primary);
-      background: rgba(99, 102, 241, 0.1);
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .float-chip {
+      position: absolute; z-index: 3; background: var(--surface-glass); backdrop-filter: blur(8px);
+      border: 1px solid var(--border); border-radius: 14px; padding: 10px 15px; box-shadow: var(--shadow-lg);
+      font-size: 13px; font-weight: 600; display: flex; align-items: center; gap: 8px;
+      animation: bob 4s ease-in-out infinite;
     }
+    .float-chip i { color: var(--primary); }
+    .float-chip.c1 { top: 8%; left: -8%; }
+    .float-chip.c2 { bottom: 14%; right: -10%; animation-delay: -2s; }
+    .float-chip.c3 { bottom: -2%; left: 8%; animation-delay: -1s; }
+    @keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
 
-    /* Enhanced Projects */
-    .projects {
-      display: flex;
-      flex-direction: column;
-      gap: 32px;
+    .scroll-hint {
+      position: absolute; bottom: 26px; left: 50%; transform: translateX(-50%);
+      color: var(--text-muted); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
     }
-
-    .project-card {
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 32px;
-      background: var(--surface);
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-      position: relative;
-      overflow: hidden;
-      animation: slideInUp 0.6s ease-out backwards;
+    .scroll-hint .mouse { width: 22px; height: 36px; border: 2px solid var(--text-muted); border-radius: 12px; position: relative; }
+    .scroll-hint .mouse::after {
+      content: ''; position: absolute; top: 7px; left: 50%; transform: translateX(-50%);
+      width: 4px; height: 7px; border-radius: 2px; background: var(--text-muted);
+      animation: scrolldot 1.6s ease-in-out infinite;
     }
+    @keyframes scrolldot { 0% { opacity: 0; top: 7px; } 50% { opacity: 1; } 100% { opacity: 0; top: 18px; } }
 
-    .project-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, var(--primary), var(--accent));
-      transform: scaleX(0);
-      transition: transform 0.3s ease;
+    /* ---- Stats band ---- */
+    .stats { padding-top: 0; }
+    .stats-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+      background: var(--surface); border: 1px solid var(--border); border-radius: 24px;
+      padding: 40px 30px; box-shadow: var(--shadow);
     }
-
-    .project-card:hover::before {
-      transform: scaleX(1);
+    .stat { text-align: center; }
+    .stat .num {
+      font-family: 'Space Grotesk'; font-size: clamp(32px, 5vw, 46px); font-weight: 700; line-height: 1;
+      background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
     }
+    .stat .lbl { margin-top: 8px; font-size: 13px; font-weight: 600; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.06em; }
 
-    .project-card:nth-child(1) { animation-delay: 0.1s; }
-    .project-card:nth-child(2) { animation-delay: 0.2s; }
-    .project-card:nth-child(3) { animation-delay: 0.3s; }
-    .project-card:nth-child(4) { animation-delay: 0.4s; }
-    .project-card:nth-child(5) { animation-delay: 0.5s; }
-    .project-card:nth-child(6) { animation-delay: 0.6s; }
-    .project-card:nth-child(7) { animation-delay: 0.7s; }
-    .project-card:nth-child(8) { animation-delay: 0.8s; }
-
-    @keyframes slideInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .project-card:hover {
-      box-shadow: var(--shadow-xl);
-      transform: translateY(-4px);
-      border-color: var(--primary);
-    }
-
-    .project-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      margin-bottom: 16px;
-    }
-
-    .project-title {
-      font-size: 22px;
-      font-weight: 700;
-      color: var(--text-primary);
-      margin-bottom: 8px;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .project-lang {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      color: white;
-      padding: 6px 16px;
-      border-radius: 20px;
-      font-size: 12px;
-      font-weight: 600;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .project-description {
-      color: var(--text-secondary);
-      margin-bottom: 24px;
-      font-size: 15px;
-      line-height: 1.6;
-    }
-
-    .project-description p {
-      margin-bottom: 16px;
-    }
-
-    .project-description p:last-child {
-      margin-bottom: 0;
-    }
-
-    .project-description strong {
-      color: var(--text-primary);
-      font-weight: 600;
-    }
-
-    .tech-stack {
-      margin-bottom: 24px;
-    }
-
-    .tech-label {
-      font-size: 13px;
-      color: var(--text-muted);
-      margin-bottom: 12px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .tech-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .tech-tag {
-      background: var(--secondary);
-      color: var(--text-secondary);
-      padding: 6px 14px;
-      border-radius: 16px;
-      font-size: 12px;
-      font-weight: 500;
-      border: 1px solid var(--border);
-      transition: all 0.2s ease;
-    }
-
-    .tech-tag:hover {
-      background: var(--primary);
-      color: white;
-      transform: translateY(-1px);
-      box-shadow: var(--shadow-sm);
-    }
-
-    .tech-stack .tech-tags + .tech-label {
-      margin-top: 16px;
-    }
-
-    .project-actions {
-      display: flex;
-      gap: 16px;
-      align-items: center;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 12px 24px;
-      border-radius: 12px;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      border: none;
-      cursor: pointer;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .btn::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-      transition: left 0.5s ease;
-    }
-
-    .btn:hover::before {
-      left: 100%;
-    }
-
-    .btn-git {
-      background: linear-gradient(135deg, #24292e, #1a1e22);
-      color: white;
-      box-shadow: var(--shadow);
-    }
-
-    .btn-git:hover {
-      background: linear-gradient(135deg, #1a1e22, #0d1117);
-      transform: translateY(-2px);
-      box-shadow: var(--shadow-lg);
-    }
-
-    .status-indicator {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      margin-right: 8px;
-      position: relative;
-    }
-
-    .status-active {
-      background: #10b981;
-      box-shadow: 0 0 8px rgba(16, 185, 129, 0.4);
-    }
-
-    .status-active::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      background: inherit;
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0% {
-        transform: scale(1);
-        opacity: 1;
-      }
-      100% {
-        transform: scale(1.8);
-        opacity: 0;
-      }
-    }
-
-    /* Enhanced Skills */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 32px;
-    }
-
-    .skill-category {
-      background: var(--surface);
-      border-radius: 16px;
-      padding: 24px;
-      border: 1px solid var(--border);
-      animation: fadeInUp 0.6s ease-out backwards;
-    }
-
-    .skill-category:nth-child(1) { animation-delay: 0.1s; }
-    .skill-category:nth-child(2) { animation-delay: 0.2s; }
-    .skill-category:nth-child(3) { animation-delay: 0.3s; }
-    .skill-category:nth-child(4) { animation-delay: 0.4s; }
-    .skill-category:nth-child(5) { animation-delay: 0.5s; }
-    .skill-category:nth-child(6) { animation-delay: 0.6s; }
-
-    .skill-category-title {
-      font-size: 18px;
-      font-weight: 700;
-      color: var(--text-primary);
-      margin-bottom: 20px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .skill-category-title i {
-      color: var(--primary);
-      font-size: 16px;
-    }
-
-    .skills-list {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-
-    .skill-item {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .skill-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 8px;
-    }
-
-    .skill-name {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--text-primary);
-    }
-
-    .skill-level {
-      display: flex;
-      gap: 4px;
-      align-items: center;
-    }
-
-    .skill-box {
-      width: 12px;
-      height: 12px;
-      border: 2px solid var(--border);
-      border-radius: 3px;
-      background: var(--secondary);
+    /* ---- About ---- */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+    .about-text h2 { font-size: clamp(26px, 4vw, 38px); margin-bottom: 18px; }
+    .about-text p { color: var(--text-secondary); margin-bottom: 16px; font-size: 16px; }
+    .about-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .about-card {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 24px;
       transition: all 0.3s ease;
     }
-
-    .skill-box.filled {
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      border-color: var(--primary);
-      box-shadow: 0 0 4px rgba(99, 102, 241, 0.3);
+    .about-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--primary); }
+    .about-card i {
+      width: 46px; height: 46px; border-radius: 12px; background: color-mix(in srgb, var(--primary) 12%, transparent);
+      color: var(--primary); display: grid; place-items: center; font-size: 20px; margin-bottom: 14px;
     }
+    .about-card h4 { font-size: 16px; margin-bottom: 6px; }
+    .about-card p { font-size: 13.5px; color: var(--text-secondary); margin: 0; }
 
-    .skill-item:hover .skill-box.filled {
-      transform: scale(1.1);
-      box-shadow: 0 0 8px rgba(99, 102, 241, 0.5);
+    /* ---- Filter chips ---- */
+    .filters { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-bottom: 40px; }
+    .chip {
+      border: 1px solid var(--border); background: var(--surface); color: var(--text-secondary);
+      padding: 9px 18px; border-radius: 100px; font-size: 14px; font-weight: 600; cursor: pointer;
+      transition: all 0.22s ease;
     }
+    .chip:hover { border-color: var(--primary); color: var(--primary); }
+    .chip.active { background: var(--grad); color: #fff; border-color: transparent; box-shadow: var(--shadow); }
 
-    .skill-category:hover {
-      box-shadow: var(--shadow-lg);
-      transform: translateY(-2px);
-      border-color: var(--primary);
+    /* ---- Projects ---- */
+    .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 26px; }
+    .pcard {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 22px; padding: 30px;
+      display: flex; flex-direction: column; transition: all 0.35s cubic-bezier(0.4,0,0.2,1);
+      position: relative; overflow: hidden;
     }
-
-    /* Enhanced Certifications */
-    .certs {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
+    .pcard::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+      background: var(--grad); transform: scaleX(0); transform-origin: left; transition: transform 0.35s ease;
     }
-
-    .cert-card {
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      background: var(--surface);
-      padding: 24px;
-      transition: all 0.3s ease;
-      animation: fadeInUp 0.6s ease-out backwards;
+    .pcard:hover { transform: translateY(-6px); box-shadow: var(--shadow-xl); border-color: var(--primary); }
+    .pcard:hover::before { transform: scaleX(1); }
+    .pcard.hide { display: none; }
+    .pcard-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 14px; }
+    .pcard h3 { font-size: 20px; line-height: 1.3; display: flex; align-items: center; gap: 10px; }
+    .pcard h3 .live {
+      width: 9px; height: 9px; border-radius: 50%; background: #10b981; flex-shrink: 0;
+      box-shadow: 0 0 0 4px rgba(16,185,129,0.18);
     }
-
-    .cert-card:nth-child(odd) { animation-delay: 0.1s; }
-    .cert-card:nth-child(even) { animation-delay: 0.2s; }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .pcard .lang {
+      flex-shrink: 0; font-size: 11.5px; font-weight: 600; color: #fff; background: var(--grad);
+      padding: 5px 12px; border-radius: 100px; display: inline-flex; align-items: center; gap: 6px;
     }
-
-    .cert-card:hover {
-      box-shadow: var(--shadow-lg);
-      transform: translateY(-2px);
-      border-color: var(--primary);
+    .pcard .summary { color: var(--text-secondary); font-size: 14.5px; margin-bottom: 18px; flex-grow: 1; }
+    .metric-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+    .metric-pill {
+      font-size: 12px; font-weight: 600; color: var(--primary);
+      background: color-mix(in srgb, var(--primary) 10%, transparent); padding: 5px 12px; border-radius: 8px;
+      display: inline-flex; align-items: center; gap: 6px;
     }
-
-    .cert-title {
-      font-weight: 700;
-      color: var(--text-primary);
-      margin-bottom: 8px;
-      font-size: 16px;
+    .tags { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 22px; }
+    .tag {
+      font-size: 11.5px; font-weight: 500; color: var(--text-secondary); background: var(--surface-2);
+      border: 1px solid var(--border); padding: 5px 11px; border-radius: 8px; transition: all 0.2s ease;
     }
-
-    .cert-issuer {
-      font-size: 14px;
-      color: var(--text-secondary);
-      margin-bottom: 8px;
-      font-weight: 500;
+    .tag:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
+    .pcard-actions { display: flex; gap: 12px; margin-top: auto; }
+    .details {
+      max-height: 0; overflow: hidden; transition: max-height 0.4s ease, margin 0.4s ease; opacity: 0.85;
     }
-
-    .cert-meta {
-      font-size: 12px;
-      color: var(--text-muted);
-      margin-bottom: 12px;
+    .details.open { max-height: 900px; margin-bottom: 18px; }
+    .details p { font-size: 14px; color: var(--text-secondary); margin-bottom: 12px; }
+    .details strong { color: var(--text-primary); }
+    .toggle-details {
+      background: none; border: none; color: var(--primary); font-weight: 600; font-size: 13.5px;
+      cursor: pointer; padding: 0; display: inline-flex; align-items: center; gap: 6px; margin-bottom: 4px;
     }
+    .toggle-details i { transition: transform 0.3s ease; }
+    .toggle-details.open i { transform: rotate(180deg); }
 
-    .cert-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 12px;
-      font-size: 13px;
-      color: var(--primary);
-      text-decoration: none;
-      font-weight: 500;
-      transition: all 0.2s ease;
-    }
-
-    .cert-link:hover {
-      color: var(--primary-dark);
-      transform: translateX(2px);
-    }
-
-    .cert-link i {
-      font-size: 12px;
-    }
-
-    /* Contact Section */
-    .contact-section {
-      background: var(--surface);
-      border-radius: 16px;
-      padding: 40px;
-      border: 1px solid var(--border);
-      animation: fadeInUp 0.6s ease-out;
-    }
-
-    .contact-header {
-      text-align: center;
-      margin-bottom: 40px;
-    }
-
-    .contact-header h2 {
-      font-size: 32px;
-      font-weight: 700;
-      color: var(--text-primary);
-      margin-bottom: 12px;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .contact-header p {
-      color: var(--text-secondary);
-      font-size: 16px;
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .contact-card {
-      background: var(--secondary);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 24px;
-      text-align: center;
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
-
-    .contact-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-lg);
-      border-color: var(--primary);
-    }
-
-    .contact-icon {
-      width: 56px;
-      height: 56px;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 16px;
+    /* ---- Skills ---- */
+    .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .skill-cat {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 18px; padding: 26px;
       transition: all 0.3s ease;
     }
-
-    .contact-card:hover .contact-icon {
-      transform: scale(1.1) rotate(5deg);
+    .skill-cat:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--primary); }
+    .skill-cat h3 { font-size: 16px; display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
+    .skill-cat h3 i {
+      width: 38px; height: 38px; border-radius: 10px; background: color-mix(in srgb, var(--primary) 12%, transparent);
+      color: var(--primary); display: grid; place-items: center; font-size: 16px;
+    }
+    .skill-row { margin-bottom: 16px; }
+    .skill-row:last-child { margin-bottom: 0; }
+    .skill-row .top { display: flex; justify-content: space-between; font-size: 13.5px; font-weight: 600; margin-bottom: 7px; }
+    .skill-row .top span:last-child { color: var(--text-muted); font-weight: 500; font-size: 12px; }
+    .bar { height: 7px; border-radius: 100px; background: var(--surface-2); overflow: hidden; }
+    .bar i {
+      display: block; height: 100%; width: 0; border-radius: 100px; background: var(--grad);
+      transition: width 1.1s cubic-bezier(0.4,0,0.2,1);
     }
 
-    .contact-icon i {
-      font-size: 24px;
-      color: white;
+    /* ---- Certifications ---- */
+    .cert-toolbar { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; align-items: center; margin-bottom: 34px; }
+    .search-box {
+      display: flex; align-items: center; gap: 10px; background: var(--surface); border: 1px solid var(--border);
+      border-radius: 12px; padding: 11px 16px; width: min(380px, 90vw); transition: all 0.25s ease;
     }
-
-    .contact-title {
-      font-size: 18px;
-      font-weight: 600;
-      color: var(--text-primary);
-      margin-bottom: 8px;
+    .search-box:focus-within { border-color: var(--primary); box-shadow: var(--shadow); }
+    .search-box i { color: var(--text-muted); }
+    .search-box input { border: none; outline: none; background: none; flex: 1; font-size: 14.5px; color: var(--text-primary); font-family: inherit; }
+    .cert-count { font-size: 13.5px; color: var(--text-muted); font-weight: 500; }
+    .certs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; }
+    .cert {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 22px;
+      transition: all 0.28s ease; display: flex; flex-direction: column;
     }
-
-    .contact-info {
-      font-size: 14px;
-      color: var(--text-secondary);
-      word-break: break-all;
+    .cert:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); border-color: var(--primary); }
+    .cert.hide { display: none; }
+    .cert .issuer-logo {
+      width: 40px; height: 40px; border-radius: 11px; background: var(--grad); color: #fff;
+      display: grid; place-items: center; font-size: 17px; margin-bottom: 14px;
     }
-
-    .contact-link {
-      color: var(--primary);
-      text-decoration: none;
-      transition: all 0.2s ease;
+    .cert h4 { font-size: 15px; line-height: 1.4; margin-bottom: 8px; }
+    .cert .issuer { font-size: 13px; color: var(--text-secondary); font-weight: 500; margin-bottom: 4px; }
+    .cert .date { font-size: 12px; color: var(--text-muted); margin-bottom: 12px; }
+    .cert .cert-link {
+      margin-top: auto; font-size: 13px; font-weight: 600; color: var(--primary); text-decoration: none;
+      display: inline-flex; align-items: center; gap: 6px; transition: gap 0.2s ease;
     }
+    .cert .cert-link:hover { gap: 10px; }
+    .no-results { text-align: center; color: var(--text-muted); padding: 40px; grid-column: 1/-1; display: none; }
 
-    .contact-link:hover {
-      color: var(--primary-dark);
-      text-decoration: underline;
+    /* ---- Contact ---- */
+    .contact-wrap {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 28px;
+      padding: clamp(36px, 6vw, 64px); text-align: center; box-shadow: var(--shadow); position: relative; overflow: hidden;
     }
-
-    .section-intro {
-      margin-bottom: 24px;
-      color: var(--text-secondary);
-      font-size: 15px;
-      line-height: 1.6;
-      padding: 20px;
-      background: var(--secondary);
-      border-radius: 16px;
-      border: 1px solid var(--border);
+    .contact-wrap::before {
+      content: ''; position: absolute; top: -50%; left: 50%; transform: translateX(-50%);
+      width: 600px; height: 600px; background: radial-gradient(circle, rgba(99,102,241,0.12), transparent 70%);
+      pointer-events: none;
     }
-
-    /* Metrics Dashboard */
-    .metrics-dashboard {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 24px;
-      margin-bottom: 40px;
-      animation: fadeInUp 0.6s ease-out;
+    .contact-wrap h2 { font-size: clamp(28px, 4.5vw, 44px); margin-bottom: 14px; position: relative; }
+    .contact-wrap p.sub { color: var(--text-secondary); font-size: 17px; max-width: 520px; margin: 0 auto 32px; position: relative; }
+    .contact-methods { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; position: relative; }
+    .cmethod {
+      display: flex; align-items: center; gap: 14px; background: var(--surface-2); border: 1px solid var(--border);
+      border-radius: 16px; padding: 18px 24px; text-decoration: none; color: var(--text-primary);
+      transition: all 0.28s ease; min-width: 220px;
     }
-
-    .metric-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 32px 24px;
-      text-align: center;
-      transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
+    .cmethod:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--primary); }
+    .cmethod i {
+      width: 46px; height: 46px; border-radius: 12px; background: var(--grad); color: #fff;
+      display: grid; place-items: center; font-size: 19px; flex-shrink: 0;
     }
+    .cmethod .m-lbl { font-size: 12px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.05em; }
+    .cmethod .m-val { font-size: 14.5px; font-weight: 600; }
 
-    .metric-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, var(--primary), var(--accent));
-      transform: scaleX(0);
-      transition: transform 0.3s ease;
+    /* ---- Footer ---- */
+    footer {
+      border-top: 1px solid var(--border); padding: 36px clamp(16px, 5vw, 48px);
+      display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: center;
+      max-width: var(--maxw); margin: 0 auto; color: var(--text-muted); font-size: 14px;
     }
+    footer .foot-socials { display: flex; gap: 10px; }
+    footer .foot-socials a { color: var(--text-muted); font-size: 18px; transition: color 0.2s ease; }
+    footer .foot-socials a:hover { color: var(--primary); }
 
-    .metric-card:hover {
-      transform: translateY(-8px);
-      box-shadow: var(--shadow-xl);
-      border-color: var(--primary);
+    /* ---- Back to top ---- */
+    .to-top {
+      position: fixed; bottom: 26px; right: 26px; width: 48px; height: 48px; border-radius: 14px;
+      background: var(--grad); color: #fff; border: none; cursor: pointer; display: grid; place-items: center;
+      font-size: 18px; box-shadow: var(--shadow-lg); opacity: 0; pointer-events: none;
+      transform: translateY(16px); transition: all 0.3s ease; z-index: 999;
     }
+    .to-top.show { opacity: 1; pointer-events: auto; transform: translateY(0); }
+    .to-top:hover { transform: translateY(-3px); }
 
-    .metric-card:hover::before {
-      transform: scaleX(1);
+    /* ---- Reveal animation ---- */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+
+    /* ---- Mobile menu ---- */
+    .mobile-menu {
+      position: fixed; inset: var(--nav-h) 0 0 0; background: var(--surface); z-index: 999;
+      flex-direction: column; padding: 24px; gap: 6px; display: none;
     }
-
-    .metric-icon {
-      width: 56px;
-      height: 56px;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 16px;
-      transition: all 0.3s ease;
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      text-decoration: none; color: var(--text-primary); font-size: 18px; font-weight: 600;
+      padding: 14px 16px; border-radius: 12px;
     }
+    .mobile-menu a:hover { background: var(--surface-2); color: var(--primary); }
 
-    .metric-card:hover .metric-icon {
-      transform: scale(1.1) rotate(5deg);
+    /* ---- Responsive ---- */
+    @media (max-width: 980px) {
+      .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 40px; }
+      .hero p.lead { margin-left: auto; margin-right: auto; }
+      .hero-cta, .hero-socials { justify-content: center; }
+      .hero-visual { order: -1; }
+      .about-grid { grid-template-columns: 1fr; gap: 32px; }
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
     }
-
-    .metric-icon i {
-      font-size: 28px;
-      color: white;
+    @media (max-width: 760px) {
+      .nav-links { display: none; }
+      .nav-toggle { display: grid; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 28px 16px; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .about-cards { grid-template-columns: 1fr; }
+      .float-chip { display: none; }
     }
-
-    .metric-number {
-      font-size: 48px;
-      font-weight: 700;
-      background: linear-gradient(135deg, var(--primary), var(--accent));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      margin-bottom: 8px;
-      line-height: 1;
-    }
-
-    .metric-label {
-      font-size: 14px;
-      font-weight: 600;
-      color: var(--text-secondary);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-    }
-
-    .metric-sublabel {
-      font-size: 12px;
-      color: var(--text-muted);
-      margin-top: 4px;
-    }
-
-    /* View transitions */
-    .view {
-      display: none;
-      animation: fadeIn 0.4s ease-out;
-    }
-
-    .view.active {
-      display: block;
-    }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* Responsive Design */
-    @media (max-width: 1024px) {
-      .container {
-        grid-template-columns: 280px 1fr;
-        gap: 30px;
-      }
-
-      .sidebar {
-        padding: 30px 20px;
-      }
-    }
-
-    @media (max-width: 900px) {
-      .certs {
-        grid-template-columns: 1fr;
-      }
-      
-      .skills-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .container {
-        grid-template-columns: 1fr;
-        gap: 24px;
-      }
-      
-      .sidebar {
-        position: relative;
-        top: 0;
-        text-align: center;
-      }
-      
-      .main-content {
-        padding: 24px;
-      }
-      
-      .header {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 20px;
-      }
-      
-      .tabs {
-        justify-content: center;
-        flex-wrap: wrap;
-      }
-
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .theme-toggle {
-        top: 15px;
-        right: 15px;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .container {
-        padding: 12px;
-      }
-      
-      .project-card,
-      .main-content,
-      .contact-section {
-        padding: 20px;
-      }
-      
-      .header h1 {
-        font-size: 24px;
-      }
-      
-      .project-title {
-        font-size: 18px;
-      }
-      
-      .tech-tags {
-        gap: 6px;
-      }
-      
-      .tech-tag {
-        font-size: 11px;
-        padding: 4px 10px;
-      }
-
-      .tab-btn {
-        padding: 10px 14px;
-        font-size: 13px;
-      }
-
-      .contact-header h2 {
-        font-size: 24px;
-      }
-
-      .theme-toggle {
-        width: 40px;
-        height: 40px;
-      }
-
-      .theme-toggle i {
-        font-size: 18px;
-      }
-
-      .metrics-dashboard {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 16px;
-        margin-bottom: 32px;
-      }
-
-      .metric-card {
-        padding: 24px 16px;
-      }
-
-      .metric-number {
-        font-size: 36px;
-      }
-
-      .metric-icon {
-        width: 48px;
-        height: 48px;
-      }
-
-      .metric-icon i {
-        font-size: 24px;
-      }
-    }
-
-    /* Scrollbar styling */
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: var(--secondary);
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: var(--primary);
-      border-radius: 4px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: var(--primary-dark);
-    }
-
-    /* Smooth scroll */
-    html {
-      scroll-behavior: smooth;
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.001ms !important; transition-duration: 0.1ms !important; }
+      .reveal { opacity: 1; transform: none; }
     }
   </style>
 </head>
 <body>
-  <!-- Theme Toggle Button -->
-  <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-    <i class="fas fa-moon"></i>
-  </button>
+  <div class="scroll-progress" id="scrollProgress"></div>
+  <div class="bg-orbs"><span class="orb o1"></span><span class="orb o2"></span><span class="orb o3"></span></div>
+  <div class="bg-grid"></div>
 
-  <div class="container">
-    <aside class="sidebar">
-      <div class="profile-img">
-        <img src="photo.jpg" alt="Panagiotis Valsamis">
-      </div>
-      <h1 class="name">Panagiotis Valsamis</h1>
-      <p class="bio">
-        Mathematics graduate and current Master's student in Data Science at the University of Luxembourg. I specialize in machine learning, statistical analysis, and optimization, with hands on experience in Python, R, and deep learning frameworks like PyTorch and TensorFlow.
-      </p>
-
-      <div class="connect">
-        <h3><i class="fas fa-link"></i>Connect With Me</h3>
-        <a href="https://www.linkedin.com/in/panagiotis-valsamis-a45a93377/" class="social-link" target="_blank" rel="noopener">
-          <i class="fab fa-linkedin"></i>LinkedIn Profile
-        </a>
-        <a href="https://github.com/ValsamisP" class="social-link" target="_blank" rel="noopener">
-          <i class="fab fa-github"></i>GitHub Profile
-        </a>
-        <a href="mailto:panagiotis.valsamis21@gmail.com" class="social-link">
-          <i class="fas fa-envelope"></i>Email Me
-        </a>
-        <a href="assets/files/Panagiotis_Valsamis_CV.pdf" class="social-link" download="Panagiotis_Valsamis_CV.pdf">
-          <i class="fas fa-download"></i>Download CV
-        </a>
-      </div>
-    </aside>
-
-    <main class="main-content">
-      <div class="header">
-        <h1 id="viewTitle">My Projects</h1>
-        <div class="tabs" role="tablist" aria-label="Sections">
-          <button class="tab-btn" role="tab" aria-selected="true" aria-controls="projectsView" id="projectsTab">
-            <i class="fas fa-code"></i> Projects
-          </button>
-          <button class="tab-btn" role="tab" aria-selected="false" aria-controls="skillsView" id="skillsTab">
-            <i class="fas fa-cogs"></i> Skills
-          </button>
-          <button class="tab-btn" role="tab" aria-selected="false" aria-controls="certsView" id="certsTab">
-            <i class="fas fa-certificate"></i> Certifications
-          </button>
-          <button class="tab-btn" role="tab" aria-selected="false" aria-controls="contactView" id="contactTab">
-            <i class="fas fa-envelope"></i> Contact
-          </button>
-        </div>
-        <div class="count" id="countLabel"></div>
-      </div>
-
-      <!-- Projects View -->
-      <section id="projectsView" class="view active" role="tabpanel" aria-labelledby="projectsTab">
-        <!-- Metrics Dashboard -->
-        <div class="metrics-dashboard">
-          <div class="metric-card">
-            <div class="metric-icon">
-              <i class="fas fa-code"></i>
-            </div>
-            <div class="metric-number" data-target="0">0</div>
-            <div class="metric-label">Projects</div>
-            <div class="metric-sublabel">Completed</div>
-          </div>
-
-          <div class="metric-card">
-            <div class="metric-icon">
-              <i class="fas fa-certificate"></i>
-            </div>
-            <div class="metric-number" data-target="0">0</div>
-            <div class="metric-label">Certifications</div>
-            <div class="metric-sublabel">Earned</div>
-          </div>
-
-          <div class="metric-card">
-            <div class="metric-icon">
-              <i class="fas fa-cogs"></i>
-            </div>
-            <div class="metric-number" data-target="0">0</div>
-            <div class="metric-label">Technologies</div>
-            <div class="metric-sublabel">Mastered</div>
-          </div>
-
-          <div class="metric-card">
-            <div class="metric-icon">
-              <i class="fas fa-chart-line"></i>
-            </div>
-            <div class="metric-number" data-target="98">0</div>
-            <div class="metric-label">Accuracy</div>
-            <div class="metric-sublabel">Best Model</div>
-          </div>
-        </div>
-
-        <div class="projects">
-          <!-- Project 1: Walkforward-Arimax -->
-          <div class="project-card">
-            <div class="project-header">
-              <div>
-                <div class="project-title">
-                  <span class="status-indicator status-active"></span>
-                  Walkforward-Arimax
-                </div>
-                <div class="project-lang">
-                  <i class="fab fa-python"></i>Python
-                </div>
-              </div>
-            </div>
-
-            <div class="project-description">
-              <p><strong>The Challenge:</strong> Traditional investment strategies often fail during market volatility, and many financial forecasting models suffer from look-ahead bias, making their backtested results unrealistic when applied to live trading.</p>
-              
-              <p><strong>My Approach:</strong> I developed a robust time series forecasting framework using ARIMAX models with walk-forward validation to eliminate data leakage. The system implements automated parameter optimization through grid search and generates trading signals based on predicted price movements using rolling window analysis.</p>
-              
-              <p><strong>Key Results:</strong> The strategy achieved returns of 127% compared to 52% for the NASDAQ(QQQ) benchmark over the testing period, with a Sharpe ratio of 1.34 and maximum drawdown of 12%. Walk-forward validation confirmed these results are statistically robust and not due to overfitting.</p>
-              
-              <p><strong>Impact:</strong> This framework shows how proper time series methodology can create profitable trading strategies while ensuring statistical confidence bridging the gap between academic research and practical financial applications.</p>
-            </div>
-
-            <div class="tech-stack">
-              <div class="tech-label">Technologies Used</div>
-              <div class="tech-tags">
-                <span class="tech-tag">Python</span>
-                <span class="tech-tag">ARIMAX</span>
-                <span class="tech-tag">yfinance</span>
-                <span class="tech-tag">Time Series Forecasting</span>
-              </div>
-              <div class="tech-label">Key Features</div>
-              <div class="tech-tags">
-                <span class="tech-tag">Grid-Search</span>
-                <span class="tech-tag">Time Series Feature Engineering</span>
-                <span class="tech-tag">Rolling Window Analysis</span>
-                <span class="tech-tag">Risk-adjusted Performance Metrics</span>
-                <span class="tech-tag">Walk-forward Validation</span>
-              </div>
-            </div>
-
-            <div class="project-actions">
-              <a href="https://github.com/ValsamisP/Walkforward-Arimax" class="btn btn-git" target="_blank" rel="noopener">
-                <i class="fab fa-github"></i>View Code
-              </a>
-            </div>
-          </div>
-
-          <!-- Project 2: Complex Network -->
-          <div class="project-card">
-            <div class="project-header">
-              <div>
-                <div class="project-title">
-                  <span class="status-indicator status-active"></span>
-                  Gene-Disease Association-Prediction
-                </div>
-                <div class="project-lang">
-                  <i class="fab fa-python"></i>Python
-                </div>
-              </div>
-            </div>
-
-            <div class="project-description">
-              <p><strong>The Challenge:</strong> Identifying associations between genes and diseases is a highly complex task due to the size, sparsity, and imbalance of biological interaction networks.</p>
-              
-              <p><strong>My Approach:</strong> We modeled the BioGRID protein–protein interaction network as a graph and applied graph neural networks for semi-supervised, multi-label node classification. The model integrates biological gene features with network topology to infer disease associations.</p>
-              
-              <p><strong>Key Results:</strong> The proposed GNN-based approach successfully captured structural and biological patterns in the network, achieving competitive performance on a large-scale, imbalanced gene–disease prediction task evaluated using micro-average precision.</p>
-              
-              <p><strong>Impact:</strong> This project demonstrates how graph machine learning can be applied to real-world biological networks, contributing to computational disease gene discovery and biomedical research.</p>
-            </div>
-
-            <div class="tech-stack">
-              <div class="tech-label">Technologies Used</div>
-              <div class="tech-tags">
-                <span class="tech-tag">Python</span>
-                <span class="tech-tag">PyTorch</span>
-                <span class="tech-tag">Graph Neural Networks</span>
-                <span class="tech-tag">BioGRID</span>
-              </div>
-              <div class="tech-label">Key Features</div>
-              <div class="tech-tags">
-                <span class="tech-tag">Multi-label Node Classification</span>
-                <span class="tech-tag">Protein-Protein Interaction Networks</span>
-                <span class="tech-tag">Semi-supervised Learning</span>
-                <span class="tech-tag">Imbalanced Data</span>
-                <span class="tech-tag">Graph-Based Feature Learning</span>
-              </div>
-            </div>
-
-            <div class="project-actions">
-              <a href="https://github.com/ValsamisP/GNNs-for-Gene-Disease-Association-Prediction" class="btn btn-git" target="_blank" rel="noopener">
-                <i class="fab fa-github"></i>View Code
-              </a>
-            </div>
-          </div>
-
-          <!-- Project 3: Walmart Time Series Forecasting -->
-          <div class="project-card">
-            <div class="project-header">
-              <div>
-                <div class="project-title">
-                  <span class="status-indicator status-active"></span>
-                  Walmart Sales Forecasting: Time Series Analysis
-                </div>
-                <div class="project-lang">
-                  <i class="fab fa-python"></i>Python
-                </div>
-              </div>
-            </div>
-
-            <div class="project-description">
-              <p><strong>The Challenge:</strong> Retail forecasting faces a critical question: should we forecast at granular department levels and aggregate up, or aggregate sales first and then disaggregate predictions? Traditional wisdom suggests granular forecasting captures department-specific patterns, but this may amplify noise in volatile retail data.</p>
-              
-              <p><strong>My Approach:</strong> We developed a systematic comparison of two hierarchical forecasting strategies using Holt-Winters Exponential Smoothing on Walmart sales data. Method 1 forecasted directly at department level, while Method 2 aggregated to store level, forecasted, then disaggregated using historical proportions. Rigorous statistical testing (ADF, KPSS, Mann-Kendall) informed model selection, and grid search optimized smoothing parameters.</p>
-              
-              <p><strong>Key Results:</strong> Surprisingly, Method 2 (aggregate-disaggregate) outperformed Method 1 by 3.96% in RMSE for Store 1, Department 1. The aggregation approach reduced noise by 15% while maintaining stable department proportions, proving that maximum granularity doesn't always yield superior forecasts when temporal patterns are noisy but proportions are stable.</p>
-              
-              <p><strong>Impact:</strong> This research provides actionable insights for retail supply chain optimization, demonstrating when aggregation strategies outperform granular approaches. The findings directly impact inventory management, supplier contract optimization, and forecast-driven rebate maximization strategies in retail analytics.</p>
-            </div>
-
-            <div class="tech-stack">
-              <div class="tech-label">Technologies Used</div>
-              <div class="tech-tags">
-                <span class="tech-tag">Python</span>
-                <span class="tech-tag">Pandas</span>
-                <span class="tech-tag">NumPy</span>
-                <span class="tech-tag">Holt-Winters</span>
-                <span class="tech-tag">Quarto</span>
-              </div>
-              <div class="tech-label">Key Features</div>
-              <div class="tech-tags">
-                <span class="tech-tag">Hierarchical Forecasting</span>
-                <span class="tech-tag">Statistical Testing (ADF, KPSS)</span>
-                <span class="tech-tag">Grid Search Optimization</span>
-                <span class="tech-tag">Seasonal Decomposition</span>
-                <span class="tech-tag">Comparative Analysis</span>
-                <span class="tech-tag">Supply Chain Analytics</span>
-              </div>
-            </div>
-
-            <div class="project-actions">
-              <a href="https://github.com/ValsamisP/Time-Series-Forecasting-using-Walmart-Data" class="btn btn-git" target="_blank" rel="noopener">
-                <i class="fab fa-github"></i>View Code
-              </a>
-            </div>
-          </div>
-
-          <!-- Project 4: Brain Tumor Classification -->
-          <div class="project-card">
-            <div class="project-header">
-              <div>
-                <div class="project-title">
-                  <span class="status-indicator status-active"></span>
-                  Brain Tumor Classification using 2D+1D CNN
-                </div>
-                <div class="project-lang">
-                  <i class="fab fa-python"></i>Python
-                </div>
-              </div>
-            </div>
-
-            <div class="project-description">
-              <p><strong>The Challenge:</strong> Brain tumor diagnosis relies heavily on expert radiologists analyzing MRI scans, creating bottlenecks in healthcare systems and potential for human error. Accurate classification between glioma, meningioma, pituitary tumors, and healthy tissue is critical for treatment.</p>
-              
-              <p><strong>My Approach:</strong> I designed a neural network architecture combining 2D convolutional layers for spatial feature extraction with 1D processing for sequential pattern analysis. The model combines advanced regularization techniques including dropout, early stopping, and learning rate scheduling to prevent overfitting on the imbalanced medical dataset.</p>
-              
-              <p><strong>Key Results:</strong> Achieved 97% test accuracy across four tumor categories, with precision and recall scores above 95% for each class. The model shows very high and robust performance on previously unseen data, matching radiologist level diagnostic accuracy in controlled studies.</p>
-              
-              <p><strong>Impact:</strong> This approach could assist medical professionals in faster, more consistent diagnoses, potentially reducing diagnostic time from hours to minutes while ensuring clinical-grade accuracy standards.</p>
-            </div>
-
-            <div class="tech-stack">
-              <div class="tech-label">Technologies Used</div>
-              <div class="tech-tags">
-                <span class="tech-tag">Python</span>
-                <span class="tech-tag">PyTorch</span>
-                <span class="tech-tag">Image Classification</span>
-                <span class="tech-tag">Deep Learning</span>
-                <span class="tech-tag">Transfer Learning</span>
-              </div>
-              <div class="tech-label">Key Features</div>
-              <div class="tech-tags">
-                <span class="tech-tag">Convolutional Neural Networks</span>
-                <span class="tech-tag">Multi-class Classification Problem</span>
-                <span class="tech-tag">Imbalanced Dataset</span>
-                <span class="tech-tag">Early Stopping</span>
-                <span class="tech-tag">ReduceLROnPlateau Scheduler</span>
-                <span class="tech-tag">Dropout</span>
-              </div>
-            </div>
-
-            <div class="project-actions">
-              <a href="https://github.com/ValsamisP/Brain-Tumor-Classification-using-2D-1D-CNN" class="btn btn-git" target="_blank" rel="noopener">
-                <i class="fab fa-github"></i>View Code
-              </a>
-            </div>
-          </div>
-
-          <!-- Project 5: Brain Tumor MLOps Pipeline (NEW PROJECT) -->
-          <div class="project-card">
-            <div class="project-header">
-              <div>
-                <div class="project-title">
-                  <span class="status-indicator status-active"></span>
-                  Brain Tumor Classification - Production MLOps Pipeline
-                </div>
-                <div class="project-lang">
-                  <i class="fab fa-python"></i>Python
-                </div>
-              </div>
-            </div>
-
-            <div class="project-description">
-              <p><strong>The Challenge:</strong> While achieving 97% accuracy in research is impressive, deploying machine learning models to production environments where they can actually help healthcare professionals requires an entirely different skill set. The gap between a Jupyter notebook and a production-ready system is vast.</p>
-              
-              <p><strong>My Approach:</strong> I transformed my brain tumor classification research model into a complete production MLOps pipeline. This includes a FastAPI REST API with async support, a modern drag-and-drop web interface for clinicians, Docker containerization for consistent deployment, CI/CD pipelines for automated testing, and comprehensive monitoring with Prometheus, Grafana, and MLflow for real-time performance tracking.</p>
-              
-              <p><strong>Key Results:</strong> Successfully deployed a production-grade system achieving 96.7% validation accuracy with sub-500ms inference times on CPU. The web interface enables instant MRI analysis with confidence scores and probability distributions. The complete MLOps infrastructure includes automated testing, health monitoring, and one-command deployment across any environment.</p>
-              
-              <p><strong>Impact:</strong> This project bridges the critical gap between ML research and production deployment, demonstrating enterprise-level DevOps practices, scalable API design, and modern web development. The system is deployment-ready for cloud platforms (AWS, GCP, Azure) and showcases the full ML lifecycle from training to production monitoring.</p>
-            </div>
-
-            <div class="tech-stack">
-              <div class="tech-label">Backend & API</div>
-              <div class="tech-tags">
-                <span class="tech-tag">FastAPI</span>
-                <span class="tech-tag">Python</span>
-                <span class="tech-tag">PyTorch</span>
-                <span class="tech-tag">Uvicorn</span>
-                <span class="tech-tag">Async/Await</span>
-              </div>
-              <div class="tech-label">Frontend & UI</div>
-              <div class="tech-tags">
-                <span class="tech-tag">Vanilla JavaScript</span>
-                <span class="tech-tag">HTML5/CSS3</span>
-                <span class="tech-tag">Responsive Design</span>
-                <span class="tech-tag">LocalStorage</span>
-              </div>
-              <div class="tech-label">DevOps & Deployment</div>
-              <div class="tech-tags">
-                <span class="tech-tag">Docker</span>
-                <span class="tech-tag">Docker Compose</span>
-                <span class="tech-tag">GitHub Actions</span>
-                <span class="tech-tag">CI/CD</span>
-              </div>
-              <div class="tech-label">Monitoring & MLOps</div>
-              <div class="tech-tags">
-                <span class="tech-tag">Prometheus</span>
-                <span class="tech-tag">Grafana</span>
-                <span class="tech-tag">MLflow</span>
-                <span class="tech-tag">Health Checks</span>
-                <span class="tech-tag">Metrics API</span>
-              </div>
-            </div>
-
-            <div class="project-actions">
-              <a href="https://github.com/ValsamisP/Brain-Tumor-MLops" class="btn btn-git" target="_blank" rel="noopener">
-                <i class="fab fa-github"></i>View Code
-              </a>
-            </div>
-          </div>
-
-          <!-- Project 6: ECG Arrhythmia Classification -->
-          <div class="project-card">
-            <div class="project-header">
-              <div>
-                <div class="project-title">
-                  <span class="status-indicator status-active"></span>
-                  ECG Arrhythmia Classification using 1D CNNs with Residual Connections
-                </div>
-                <div class="project-lang">
-                  <i class="fab fa-python"></i>Python
-                </div>
-              </div>
-            </div>
-
-            <div class="project-description">
-              <p><strong>The Challenge:</strong> Cardiac arrhythmias affect millions worldwide and require rapid, accurate detection for proper treatment. Traditional ECG analysis is time consuming and requires specialized training, while automated systems often struggle with the subtle patterns that distinguish different arrhythmia types.</p>
-              
-              <p><strong>My Approach:</strong> I implemented a 1D Convolutional Neural Network with residual connections specifically designed for ECG signal processing. The architecture handles the sequential nature of cardiac signals while addressing class imbalance through weighted loss functions and data augmentation techniques.</p>
-              
-              <p><strong>Key Results:</strong> Achieved 98% overall accuracy, 97% macro precision, and 86% macro recall on the MIT-BIH Arrhythmia Database. The model successfully distinguished between normal heartbeats and four types of arrhythmias, with particularly strong performance on life threatening conditions.</p>
-              
-              <p><strong>Impact:</strong> This system could enable real time cardiac monitoring in wearable devices or hospital settings, providing immediate alerts for dangerous arrhythmias and reducing the workload on cardiac specialists.</p>
-            </div>
-
-            <div class="tech-stack">
-              <div class="tech-label">Technologies Used</div>
-              <div class="tech-tags">
-                <span class="tech-tag">Python</span>
-                <span class="tech-tag">TensorFlow</span>
-                <span class="tech-tag">1D Convolutional Neural Networks</span>
-                <span class="tech-tag">MIT-BIH Arrhythmia Database</span>
-              </div>
-              <div class="tech-label">Key Features</div>
-              <div class="tech-tags">
-                <span class="tech-tag">Multi-class Classification</span>
-                <span class="tech-tag">Class Imbalance Handling</span>
-                <span class="tech-tag">Comprehensive Evaluation</span>
-              </div>
-            </div>
-
-            <div class="project-actions">
-              <a href="https://github.com/ValsamisP/ECG-Classification-1DCNN" class="btn btn-git" target="_blank" rel="noopener">
-                <i class="fab fa-github"></i>View Code
-              </a>
-            </div>
-          </div>
-
-          <!-- Project 7: Portfolio Optimizer -->
-          <div class="project-card">
-            <div class="project-header">
-              <div>
-                <div class="project-title">
-                  <span class="status-indicator status-active"></span>
-                  Portfolio Optimizer User Interface
-                </div>
-                <div class="project-lang">
-                  <i class="fab fa-python"></i>Python
-                </div>
-              </div>
-            </div>
-
-            <div class="project-description">
-              <p><strong>The Challenge:</strong> Individual investors often lack access to sophisticated portfolio optimization tools used by institutional investors, leading to not optimal asset allocation and poor risk-adjusted returns. Most of the existing tools are either too complex or overly simplified.</p>
-              
-              <p><strong>My Approach:</strong> I built an interactive web application implementing modern portfolio theory algorithms including Maximum Sharpe ratio, Risk Parity, and Minimum Variance optimization. The tool features Monte Carlo simulations for risk assessment and automated rebalancing recommendations with intuitive visualizations.</p>
-              
-              <p><strong>Key Results:</strong> The application successfully optimizes portfolios of 5-50 assets, reducing portfolio variance by an average of 23% compared to equal-weight allocation while improving Sharpe ratios by 15%. Monte Carlo simulations provide 95% confidence intervals for expected returns.</p>
-              
-              <p><strong>Impact:</strong> This tool introduces advanced portfolio management techniques, enabling daily investors to apply institutional grade optimization strategies and make more informed investment decisions.</p>
-            </div>
-
-            <div class="tech-stack">
-              <div class="tech-label">Technologies Used</div>
-              <div class="tech-tags">
-                <span class="tech-tag">Python</span>
-                <span class="tech-tag">Portfolio Theory</span>
-                <span class="tech-tag">Monte Carlo Simulations</span>
-                <span class="tech-tag">Streamlit</span>
-              </div>
-              <div class="tech-label">Key Features</div>
-              <div class="tech-tags">
-                <span class="tech-tag">Sharpe Ratio</span>
-                <span class="tech-tag">Value at Risk</span>
-                <span class="tech-tag">Risk Parity</span>
-                <span class="tech-tag">Maximum Drawdown</span>
-              </div>
-            </div>
-
-            <div class="project-actions">
-              <a href="https://github.com/ValsamisP/Portfolio-Optimizer" class="btn btn-git" target="_blank" rel="noopener">
-                <i class="fab fa-github"></i>View Code
-              </a>
-            </div>
-          </div>
-
-          <!-- Project 8: E-Commerce Recommender Systems -->
-          <div class="project-card">
-            <div class="project-header">
-              <div>
-                <div class="project-title">
-                  <span class="status-indicator status-active"></span>
-                  E-Commerce Recommender Systems
-                </div>
-                <div class="project-lang">
-                  <i class="fab fa-python"></i>Python
-                </div>
-              </div>
-            </div>
-
-            <div class="project-description">
-              <p><strong>The Challenge:</strong> Online retailers face problems to provide personalized shopping experiences at scale, leading to poor customer engagement and lost sales opportunities. Traditional recommendation systems often fail to capture the complexity of customer behavior and product relationships.</p>
-              
-              <p><strong>My Approach:</strong> I co developed a comprehensive recommendation system implementing three complementary algorithms: Market Basket Analysis using FP-Growth for cross-selling, Item-Item Collaborative Filtering with TF-IDF for similar product discovery, and User-Item Personalization combining NMF and Neural Collaborative Filtering for individualized suggestions.</p>
-              
-              <p><strong>Key Results:</strong> Processing over 1.3 million transaction records, the system achieved improvement in click-through rates and increase in average order value compared to random recommendations. The FP-Growth algorithm identified 15,000+ frequent itemsets with confidence scores above 0.7.</p>
-              
-              <p><strong>Impact:</strong> This multi algorithm approach provides retailers with a flexible recommendation engine that adapts to different customer behaviors and business objectives, directly translating to increased revenue and customer satisfaction.</p>
-            </div>
-
-            <div class="tech-stack">
-              <div class="tech-label">Technologies Used</div>
-              <div class="tech-tags">
-                <span class="tech-tag">Python</span>
-                <span class="tech-tag">Pandas</span>
-                <span class="tech-tag">Streamlit</span>
-              </div>
-              <div class="tech-label">Key Features</div>
-              <div class="tech-tags">
-                <span class="tech-tag">FP-Growth</span>
-                <span class="tech-tag">Cosine Similarity</span>
-                <span class="tech-tag">Non-Negative Matrix Factorization</span>
-                <span class="tech-tag">Neural Collaborative Filtering</span>
-              </div>
-            </div>
-
-            <div class="project-actions">
-              <a href="https://github.com/omkardesai2827/E-Commerce-Recommender-Systems" class="btn btn-git" target="_blank" rel="noopener">
-                <i class="fab fa-github"></i>View Code
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Skills View -->
-      <section id="skillsView" class="view" role="tabpanel" aria-labelledby="skillsTab">
-        <p class="section-intro">
-          <i class="fas fa-tools" style="color: var(--primary); margin-right: 8px;"></i>
-          My technical expertise is improving in multiple domains, from machine learning and data analysis to web development. These skills have been developed through academic projects, professional experience, and continuous learning.
-        </p>
-
-        <div class="skills-grid">
-          <!-- Programming Languages -->
-          <div class="skill-category">
-            <h3 class="skill-category-title">
-              <i class="fas fa-code"></i>
-              Programming Languages
-            </h3>
-            <div class="skills-list">
-              <div class="skill-item">
-                <div class="skill-header">
-                  <span class="skill-name">Python</span>
-                  <div class="skill-level">
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-header">
-                  <span class="skill-name">R</span>
-                  <div class="skill-level">
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-header">
-                  <span class="skill-name">SQL</span>
-                  <div class="skill-level">
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-header">
-                  <span class="skill-name">Scala</span>
-                  <div class="skill-level">
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box"></div>
-                    <div class="skill-box"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-header">
-                  <span class="skill-name">JavaScript</span>
-                  <div class="skill-level">
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box"></div>
-                    <div class="skill-box"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Statistics & Probability -->
-          <div class="skill-category">
-            <h3 class="skill-category-title">
-              <i class="fas fa-calculator"></i>
-              Statistics & Probability
-            </h3>
-            <div class="skills-list">
-              <div class="skill-item">
-                <div class="skill-header">
-                  <span class="skill-name">Statistical Inference</span>
-                  <div class="skill-level">
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-header">
-                  <span class="skill-name">Hypothesis Testing</span>
-                  <div class="skill-level">
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-header">
-                  <span class="skill-name">A/B Testing</span>
-                  <div class="skill-level">
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-header">
-                  <span class="skill-name">Bayesian Statistics</span>
-                  <div class="skill-level">
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-header">
-                  <span class="skill-name">Probability Theory</span>
-                  <div class="skill-level">
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Machine Learning & AI -->
-          <div class="skill-category">
-            <h3 class="skill-category-title">
-              <i class="fas fa-brain"></i>
-              Machine Learning & AI
-            </h3>
-            <div class="skills-list">
-              <div class="skill-item">
-                <div class="skill-header">
-                  <span class="skill-name">PyTorch</span>
-                  <div class="skill-level">
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-header">
-                  <span class="skill-name">TensorFlow</span>
-                  <div class="skill-level">
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-header">
-                  <span class="skill-name">Scikit-learn</span>
-                  <div class="skill-level">
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-header">
-                  <span class="skill-name">Deep Learning</span>
-                  <div class="skill-level">
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-header">
-                  <span class="skill-name">Computer Vision</span>
-                  <div class="skill-level">
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box"></div>
-                    <div class="skill-box"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-header">
-                  <span class="skill-name">NLP</span>
-                  <div class="skill-level">
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Data Analysis & Visualization -->
-          <div class="skill-category">
-            <h3 class="skill-category-title">
-              <i class="fas fa-chart-line"></i>
-              Data Analysis & Visualization
-            </h3>
-            <div class="skills-list">
-              <div class="skill-item">
-                <div class="skill-header">
-                  <span class="skill-name">Pandas</span>
-                  <div class="skill-level">
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-header">
-                  <span class="skill-name">NumPy</span>
-                  <div class="skill-level">
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-header">
-                  <span class="skill-name">Matplotlib/Seaborn</span>
-                  <div class="skill-level">
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-header">
-                  <span class="skill-name">Power BI</span>
-                  <div class="skill-level">
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-header">
-                  <span class="skill-name">Tableau</span>
-                  <div class="skill-level">
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box"></div>
-                    <div class="skill-box"></div>
-                    <div class="skill-box"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-header">
-                  <span class="skill-name">Data Storytelling</span>
-                  <div class="skill-level">
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Big Data & Databases -->
-          <div class="skill-category">
-            <h3 class="skill-category-title">
-              <i class="fas fa-database"></i>
-              Big Data & Databases
-            </h3>
-            <div class="skills-list">
-              <div class="skill-item">
-                <div class="skill-header">
-                  <span class="skill-name">PySpark</span>
-                  <div class="skill-level">
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-header">
-                  <span class="skill-name">Hadoop</span>
-                  <div class="skill-level">
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box"></div>
-                    <div class="skill-box"></div>
-                    <div class="skill-box"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-header">
-                  <span class="skill-name">MongoDB</span>
-                  <div class="skill-level">
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box"></div>
-                    <div class="skill-box"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-header">
-                  <span class="skill-name">Neo4j</span>
-                  <div class="skill-level">
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box"></div>
-                    <div class="skill-box"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-header">
-                  <span class="skill-name">Graph Analytics</span>
-                  <div class="skill-level">
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Tools & Technologies -->
-          <div class="skill-category">
-            <h3 class="skill-category-title">
-              <i class="fas fa-wrench"></i>
-              Tools & Technologies
-            </h3>
-            <div class="skills-list">
-              <div class="skill-item">
-                <div class="skill-header">
-                  <span class="skill-name">Git/GitHub</span>
-                  <div class="skill-level">
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-header">
-                  <span class="skill-name">Docker</span>
-                  <div class="skill-level">
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-header">
-                  <span class="skill-name">Streamlit</span>
-                  <div class="skill-level">
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-header">
-                  <span class="skill-name">Flask</span>
-                  <div class="skill-level">
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box"></div>
-                    <div class="skill-box"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="skill-item">
-                <div class="skill-header">
-                  <span class="skill-name">Jupyter</span>
-                  <div class="skill-level">
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                    <div class="skill-box filled"></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Certifications View -->
-      <section id="certsView" class="view" role="tabpanel" aria-labelledby="certsTab">
-        <p class="section-intro">
-          <i class="fas fa-graduation-cap" style="color: var(--primary); margin-right: 8px;"></i>
-          Each certification represents a step in my personal growth focused learning that helped me improve my skills and apply them in real projects. Whether it's deepening my understanding of machine learning, getting hands-on with cloud technologies, or improving the way I build and deploy data solutions, these experiences are about more than just credentials.
-        </p>
-
-        <div class="certs" id="certsGrid">
-          <article class="cert-card">
-            <div class="cert-title">AI for Medicine Specialization</div>
-            <div class="cert-issuer">Coursera · DeepLearning.AI</div>
-            <div class="cert-meta">Issued: Sep 2025</div>
-            <a class="cert-link" href="https://coursera.org/share/a23f64895fb43e6158f4c515c7209a59" target="_blank" rel="noopener">
-              <i class="fas fa-external-link-alt"></i>View credential
-            </a>
-          </article>
-          <article class="cert-card">
-            <div class="cert-title">Machine Learning Specialization</div>
-            <div class="cert-issuer">Coursera · DeepLearning.AI</div>
-            <div class="cert-meta">Issued: Jul 2025</div>
-            <a class="cert-link" href="https://coursera.org/share/1f3d3fedf4e7745b5e9aea8a8f278dcb" target="_blank" rel="noopener">
-              <i class="fas fa-external-link-alt"></i>View credential
-            </a>
-          </article>
-          <article class="cert-card">
-            <div class="cert-title">Learning Amazon SageMaker AI</div>
-            <div class="cert-issuer">LinkedIn Learning</div>
-            <div class="cert-meta">Issued: Feb 2026</div>
-          </article>
-          <article class="cert-card">
-            <div class="cert-title">From Excel to Power BI</div>
-            <div class="cert-issuer">Coursera</div>
-            <div class="cert-meta">Issued: Aug 2025</div>
-            <a class="cert-link" href="https://coursera.org/share/09d53d6dadebdfe919d8f5e016e5ad79" target="_blank" rel="noopener">
-              <i class="fas fa-external-link-alt"></i>View credential
-            </a>
-          </article>
-          <article class="cert-card">
-            <div class="cert-title">Data Analysis with Python</div>
-            <div class="cert-issuer">Coursera · IBM</div>
-            <div class="cert-meta">Issued: Mar 2025</div>
-            <a class="cert-link" href="https://coursera.org/share/090b50124c7aaddd4a4facfb3f7d0a30" target="_blank" rel="noopener">
-              <i class="fas fa-external-link-alt"></i>View credential
-            </a>
-          </article>
-          <article class="cert-card">
-            <div class="cert-title">Getting Started with Data Visualization in R</div>
-            <div class="cert-issuer">Coursera · Johns Hopkins University</div>
-            <div class="cert-meta">Issued: Dec 2024</div>
-            <a class="cert-link" href="https://coursera.org/share/80f6d9275c7ad61f857464ce60092ac3" target="_blank" rel="noopener">
-              <i class="fas fa-external-link-alt"></i>View credential
-            </a>
-          </article>
-          <article class="cert-card">
-            <div class="cert-title">Data Visualization in R with ggplot2</div>
-            <div class="cert-issuer">Coursera · Johns Hopkins University</div>
-            <div class="cert-meta">Issued: Dec 2024</div>
-            <a class="cert-link" href="https://coursera.org/share/7d826e02d0fc310fc85dc5b00f365dd3" target="_blank" rel="noopener">
-              <i class="fas fa-external-link-alt"></i>View credential
-            </a>
-          </article>
-          <article class="cert-card">
-            <div class="cert-title">Advanced Data Visualization with R</div>
-            <div class="cert-issuer">Coursera · Johns Hopkins University</div>
-            <div class="cert-meta">Issued: Mar 2025</div>
-            <a class="cert-link" href="https://coursera.org/share/21a510f3f2fff212f48f9bca07ef72f0" target="_blank" rel="noopener">
-              <i class="fas fa-external-link-alt"></i>View credential
-            </a>
-          </article>
-          <article class="cert-card">
-            <div class="cert-title">Understanding and Visualizing Data with Python</div>
-            <div class="cert-issuer">Coursera · University of Michigan</div>
-            <div class="cert-meta">Issued: Dec 2024</div>
-            <a class="cert-link" href="https://coursera.org/share/6f7a149d13bd291a649e8645037c027a" target="_blank" rel="noopener">
-              <i class="fas fa-external-link-alt"></i>View credential
-            </a>
-          </article>
-          <article class="cert-card">
-            <div class="cert-title">Supervised Machine Learning: Classification</div>
-            <div class="cert-issuer">Coursera · IBM</div>
-            <a class="cert-link" href="https://coursera.org/share/212584fcb7b5b521c5fda8ac361d30eb" target="_blank" rel="noopener">
-              <i class="fas fa-external-link-alt"></i>View credential
-            </a>
-          </article>
-          <article class="cert-card">
-            <div class="cert-title">SQL for Data Science</div>
-            <div class="cert-issuer">Coursera · University of California, Davis</div>
-            <div class="cert-meta">Issued: Jul 2025</div>
-            <a class="cert-link" href="https://coursera.org/share/e7425fa1d58041ed9aebbb74f67bfe61" target="_blank" rel="noopener">
-              <i class="fas fa-external-link-alt"></i>View credential
-            </a>
-          </article>
-          <article class="cert-card">
-            <div class="cert-title">Transact-SQL Basic Data Retrieval</div>
-            <div class="cert-issuer">PluralSight</div>
-            <div class="cert-meta">Issued: Febr 2026</div>
-          </article>
-          <article class="cert-card">
-            <div class="cert-title">Microsoft Fabric Data Engineer Associate (DP-700):Implement and Manage an Analytics Solution</div>
-            <div class="cert-issuer">Pluralsight</div>
-            <div class="cert-meta">Issued: March 2026</div>
-          </article>
-          <article class="cert-card">
-            <div class="cert-title">Microsoft Fabric Data Engineer Associate (DP-700):Ingest and Transform <Data></Data></div>
-            <div class="cert-issuer">Pluralsight</div>
-            <div class="cert-meta">Issued: March 2026</div>
-          </article>
-          <article class="cert-card">
-            <div class="cert-title">Excel Skills for Business: Essentials</div>
-            <div class="cert-issuer">Coursera · Macquarie University</div>
-            <div class="cert-meta">Issued: Jul 2025</div>
-            <a class="cert-link" href="https://coursera.org/share/81bce1fe90e8cad166a4503af2b180a2" target="_blank" rel="noopener">
-              <i class="fas fa-external-link-alt"></i>View credential
-            </a>
-          </article>
-          <article class="cert-card">
-            <div class="cert-title">Excel Skills for Business: Intermediate I</div>
-            <div class="cert-issuer">Coursera · Macquarie University</div>
-            <div class="cert-meta">Issued: Jul 2025</div>
-            <a class="cert-link" href="https://coursera.org/share/6c0f7420f67d7a2fb7ad06159e85e9ff" target="_blank" rel="noopener">
-              <i class="fas fa-external-link-alt"></i>View credential
-            </a>
-          </article>
-          <article class="cert-card">
-            <div class="cert-title">Apache Kafka Essential Training: Getting Started</div>
-            <div class="cert-issuer">LinkedIn Learning</div>
-            <div class="cert-meta">Issued: Nov 2025</div>
-          </article>
-          <article class="cert-card">
-            <div class="cert-title">Microsoft Power BI Data Analyst(PL-300) Model the Data</div>
-            <div class="cert-issuer">Pluralsight</div>
-            <div class="cert-meta">Issued: February 2026</div>
-          </article>
-          <article class="cert-card">
-            <div class="cert-title">Using Power BI to be a Strategic Financial Partner</div>
-            <div class="cert-issuer">LinkedIn Learning</div>
-            <div class="cert-meta">Issued: Feb 2026</div>
-          </article>
-          <article class="cert-card">
-            <div class="cert-title">Microsoft Power BI Data Analyst(PL-300): Visualize and Analyze the Data</div>
-            <div class="cert-issuer">Pluralsight</div>
-            <div class="cert-meta">Issued: March 2026</div>
-          </article>  
-          <article class="cert-card">
-            <div class="cert-title">Build AI Agents and Automate Workflows with n8n</div>
-            <div class="cert-issuer">LinkedIn Learning</div>
-            <div class="cert-meta">Issued: Oct 2025</div>
-          </article>
-          <article class="cert-card">
-            <div class="cert-title">Build with AI: Create Custom Chatbots with n8n</div>
-            <div class="cert-issuer">LinkedIn Learning</div>
-            <div class="cert-meta">Issued: Oct 2025</div>
-          </article>
-          <article class="cert-card">
-            <div class="cert-title">Hands-On Generative AI with Multi-Agent LangChain: Building Real-World Applications</div>
-            <div class="cert-issuer">LinkedIn Learning</div>
-            <div class="cert-meta">Issued: Oct 2025</div>
-          </article>
-          <article class="cert-card">
-            <div class="cert-title">Microsoft Azure Fundamentals (AZ-900) Cert Prep: Cloud Concepts</div>
-            <div class="cert-issuer">LinkedIn Learning</div>
-            <div class="cert-meta">Issued: Nov 2025</div>
-          </article>
-          <article class="cert-card">
-            <div class="cert-title">Learning Microsoft Fabric</div>
-            <div class="cert-issuer">LinkedIn Learning</div>
-            <div class="cert-meta">Issued: Feb 2026</div>
-          </article>
-          <article class="cert-card">
-            <div class="cert-title">PySpark Essential Training: Introduction to Building Data Pipelines</div>
-            <div class="cert-issuer">LinkedIn Learning</div>
-            <div class="cert-meta">Issued: Dec 2025</div>
-          </article>          
-          <article class="cert-card">
-            <div class="cert-title">Data Science with R</div>
-            <div class="cert-issuer">Aegean University</div>
-            <div class="cert-meta">Issued: Jun 2024</div>
-          </article>
-          <article class="cert-card">
-            <div class="cert-title">BlockChain Technologies</div>
-            <div class="cert-issuer">Aegean University</div>
-            <div class="cert-meta">Issued: Jun 2024</div>
-          </article>
-          <article class="cert-card">
-            <div class="cert-title">GRE Certificate</div>
-            <div class="cert-issuer">76th Percentile Quantitative Reasoning</div>
-            <div class="cert-meta">Issued: Jun 2023</div>
-          </article>
-          <article class="cert-card">
-            <div class="cert-title">IELTS</div>
-            <div class="cert-issuer">CEFR Level C1</div>
-            <div class="cert-meta">Issued: Feb 2024</div>
-          </article>
-        </div>
-      </section>
-
-      <!-- Contact View -->
-      <section id="contactView" class="view" role="tabpanel" aria-labelledby="contactTab">
-        <div class="contact-section">
-          <div class="contact-header">
-            <h2>Get In Touch</h2>
-            <p>Feel free to reach out for collaborations, opportunities, or just to connect!</p>
-          </div>
-
-          <div class="contact-grid">
-            <div class="contact-card" onclick="window.location.href='mailto:panagiotis.valsamis21@gmail.com'">
-              <div class="contact-icon">
-                <i class="fas fa-envelope"></i>
-              </div>
-              <div class="contact-title">Email</div>
-              <div class="contact-info">
-                <a href="mailto:panagiotis.valsamis21@gmail.com" class="contact-link">panagiotis.valsamis21@gmail.com</a>
-              </div>
-            </div>
-
-            <div class="contact-card" onclick="window.open('https://www.linkedin.com/in/panagiotis-valsamis-a45a93377/', '_blank')">
-              <div class="contact-icon">
-                <i class="fab fa-linkedin"></i>
-              </div>
-              <div class="contact-title">LinkedIn</div>
-              <div class="contact-info">
-                <a href="https://www.linkedin.com/in/panagiotis-valsamis-a45a93377/" class="contact-link" target="_blank" rel="noopener">Connect on LinkedIn</a>
-              </div>
-            </div>
-
-            <div class="contact-card" onclick="window.open('https://github.com/ValsamisP', '_blank')">
-              <div class="contact-icon">
-                <i class="fab fa-github"></i>
-              </div>
-              <div class="contact-title">GitHub</div>
-              <div class="contact-info">
-                <a href="https://github.com/ValsamisP" class="contact-link" target="_blank" rel="noopener">View My Repositories</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
+  <!-- ===== NAV ===== -->
+  <nav class="nav" id="nav">
+    <a href="#home" class="nav-logo"><span class="mono">PV</span>Panagiotis Valsamis</a>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="nav-right">
+      <button class="btn-icon" id="themeToggle" aria-label="Toggle dark mode"><i class="fas fa-moon"></i></button>
+      <button class="btn-icon nav-toggle" id="navToggle" aria-label="Open menu"><i class="fas fa-bars"></i></button>
+    </div>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about">About</a>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#contact">Contact</a>
   </div>
 
+  <!-- ===== HERO ===== -->
+  <header class="hero" id="home">
+    <div class="hero-grid">
+      <div class="hero-text">
+        <span class="badge-avail"><span class="dot"></span> Open to Data Science & ML opportunities</span>
+        <h1>Hi, I'm <span class="gradient-text">Panagiotis</span></h1>
+        <div class="role-line">I build <span class="typed" id="typed"></span><span class="cursor" aria-hidden="true">&nbsp;</span></div>
+        <p class="lead">
+          Mathematics graduate and Data Science Master's student at the University of Luxembourg.
+          I turn complex data into reliable, production-ready machine learning, from research notebooks
+          to deployed MLOps pipelines.
+        </p>
+        <div class="hero-cta">
+          <a href="#projects" class="btn btn-primary"><i class="fas fa-folder-open"></i> View My Work</a>
+          <a href="assets/files/Panagiotis_Valsamis_CV.pdf" download class="btn btn-ghost"><i class="fas fa-download"></i> Download CV</a>
+          <a href="#contact" class="btn btn-ghost"><i class="fas fa-paper-plane"></i> Get in Touch</a>
+        </div>
+        <div class="hero-socials">
+          <a href="https://github.com/ValsamisP" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/panagiotis-valsamis-a45a93377/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="mailto:panagiotis.valsamis21@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="avatar-ring">
+          <img src="photo.jpg" alt="Panagiotis Valsamis" />
+          <span class="float-chip c1"><i class="fas fa-brain"></i> Machine Learning</span>
+          <span class="float-chip c2"><i class="fab fa-python"></i> Python</span>
+          <span class="float-chip c4"><i class="fas fa-chart-line"></i> 98% best model</span>
+          <span class="float-chip c3"><i class="fas fa-chart-line"></i> Time Series Forecasting and Analysis</span>
+        </div>
+      </div>
+    </div>
+    <a href="#about" class="scroll-hint" aria-label="Scroll down">
+      <span class="mouse"></span> Scroll
+    </a>
+  </header>
+
+  <!-- ===== STATS ===== -->
+  <section class="stats" id="stats">
+    <div class="wrap">
+      <div class="stats-grid reveal">
+        <div class="stat"><div class="num" data-count="8" data-suffix="+">0</div><div class="lbl">Projects</div></div>
+        <div class="stat"><div class="num" data-count="30" data-suffix="+">0</div><div class="lbl">Certifications</div></div>
+        <div class="stat"><div class="num" data-count="25" data-suffix="+">0</div><div class="lbl">Technologies</div></div>
+        <div class="stat"><div class="num" data-count="98" data-suffix="%">0</div><div class="lbl">Best Accuracy</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section id="about">
+    <div class="wrap">
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <span class="eyebrow"><i class="fas fa-user"></i> About Me</span>
+          <h2>Bridging rigorous mathematics with real-world machine learning</h2>
+          <p>
+            I'm a Mathematics graduate currently pursuing a Master's in Data Science at the University of
+            Luxembourg. My work sits at the intersection of statistical theory and applied machine
+            learning, I care as much about <strong>why</strong> a model works as whether it ships.
+          </p>
+          <p>
+            I've built end-to-end systems across healthcare (medical imaging, ECG analysis), quantitative
+            finance (time series forecasting, portfolio optimization), and graph machine learning and
+            I've taken models all the way from research to production with FastAPI, Docker and full MLOps
+            monitoring.
+          </p>
+        </div>
+        <div class="about-cards reveal">
+          <div class="about-card">
+            <i class="fas fa-brain"></i>
+            <h4>Machine Learning</h4>
+            <p>Deep learning, CNNs, GNNs, and classical ML with PyTorch, TensorFlow & scikit-learn.</p>
+          </div>
+          <div class="about-card">
+            <i class="fas fa-chart-line"></i>
+            <h4>Statistics & Forecasting</h4>
+            <p>Time series, hypothesis testing, Bayesian methods and rigorous validation.</p>
+          </div>
+          <div class="about-card">
+            <i class="fas fa-rocket"></i>
+            <h4>MLOps & Deployment</h4>
+            <p>FastAPI, Docker, CI/CD, Prometheus, Grafana & MLflow for production pipelines.</p>
+          </div>
+          <div class="about-card">
+            <i class="fas fa-database"></i>
+            <h4>Data Engineering</h4>
+            <p>PySpark, SQL, MongoDB, Neo4j and large-scale data processing.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS ===== -->
+  <section id="projects">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow"><i class="fas fa-code"></i> Portfolio</span>
+        <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
+        <p class="section-sub">A selection of work spanning healthcare AI, quantitative finance, graph learning and production MLOps.</p>
+      </div>
+
+      <div class="filters reveal" id="projectFilters">
+        <button class="chip active" data-filter="all">All</button>
+        <button class="chip" data-filter="ml">Machine Learning</button>
+        <button class="chip" data-filter="healthcare">Healthcare AI</button>
+        <button class="chip" data-filter="finance">Finance</button>
+        <button class="chip" data-filter="mlops">MLOps</button>
+      </div>
+
+      <div class="projects-grid" id="projectsGrid">
+
+        <!-- 1. Walkforward-Arimax -->
+        <article class="pcard reveal" data-cat="finance ml">
+          <div class="pcard-top">
+            <h3><span class="live"></span> Walkforward-ARIMAX</h3>
+            <span class="lang"><i class="fab fa-python"></i> Python</span>
+          </div>
+          <p class="summary">A time-series trading framework using ARIMAX with walk-forward validation to eliminate look-ahead bias, with automated grid-search parameter tuning.</p>
+          <div class="metric-pills">
+            <span class="metric-pill"><i class="fas fa-arrow-trend-up"></i> 127% return</span>
+            <span class="metric-pill"><i class="fas fa-shield-halved"></i> Sharpe 1.34</span>
+            <span class="metric-pill"><i class="fas fa-chart-area"></i> 12% max drawdown</span>
+          </div>
+          <button class="toggle-details">Read the story <i class="fas fa-chevron-down"></i></button>
+          <div class="details">
+            <p><strong>The Challenge:</strong> Many financial forecasting models suffer from look-ahead bias, making backtested results unrealistic in live trading.</p>
+            <p><strong>My Approach:</strong> ARIMAX models with walk-forward validation to eliminate data leakage, automated parameter optimization via grid search, and trading signals from rolling-window predictions.</p>
+            <p><strong>Impact:</strong> 127% return vs. 52% for the NASDAQ (QQQ) benchmark, with a Sharpe ratio of 1.34.</p>
+          </div>
+          <div class="tags">
+            <span class="tag">ARIMAX</span><span class="tag">yfinance</span><span class="tag">Walk-forward Validation</span>
+            <span class="tag">Grid Search</span><span class="tag">Time Series</span>
+          </div>
+          <div class="pcard-actions">
+            <a href="https://github.com/ValsamisP/Walkforward-Arimax" class="btn btn-dark" target="_blank" rel="noopener"><i class="fab fa-github"></i> View Code</a>
+          </div>
+        </article>
+
+        <!-- 2. Gene-Disease GNN -->
+        <article class="pcard reveal" data-cat="ml">
+          <div class="pcard-top">
+            <h3><span class="live"></span> Gene–Disease Prediction (GNN)</h3>
+            <span class="lang"><i class="fab fa-python"></i> Python</span>
+          </div>
+          <p class="summary">Graph neural networks on the BioGRID protein–protein interaction network for semi-supervised, multi-label gene–disease association prediction.</p>
+          <div class="metric-pills">
+            <span class="metric-pill"><i class="fas fa-diagram-project"></i> Graph ML</span>
+            <span class="metric-pill"><i class="fas fa-layer-group"></i> Multi-label</span>
+          </div>
+          <button class="toggle-details">Read the story <i class="fas fa-chevron-down"></i></button>
+          <div class="details">
+            <p><strong>The Challenge:</strong> Identifying gene–disease associations is hard due to the size, sparsity and imbalance of biological interaction networks.</p>
+            <p><strong>My Approach:</strong> Modeled the BioGRID network as a graph and applied GNNs for semi-supervised, multi-label node classification, fusing biological gene features with network topology.</p>
+            <p><strong>Impact:</strong> Captured structural and biological patterns, achieving competitive micro-average precision on a large, imbalanced task.</p>
+          </div>
+          <div class="tags">
+            <span class="tag">PyTorch</span><span class="tag">GNNs</span><span class="tag">BioGRID</span>
+            <span class="tag">Semi-supervised</span><span class="tag">Imbalanced Data</span>
+          </div>
+          <div class="pcard-actions">
+            <a href="https://github.com/ValsamisP/GNNs-for-Gene-Disease-Association-Prediction" class="btn btn-dark" target="_blank" rel="noopener"><i class="fab fa-github"></i> View Code</a>
+          </div>
+        </article>
+
+        <!-- 3. Walmart Forecasting -->
+        <article class="pcard reveal" data-cat="finance ml">
+          <div class="pcard-top">
+            <h3><span class="live"></span> Walmart Sales Forecasting</h3>
+            <span class="lang"><i class="fab fa-python"></i> Python</span>
+          </div>
+          <p class="summary">A systematic comparison of hierarchical forecasting strategies (granular vs. aggregate-disaggregate) using Holt-Winters on Walmart retail data.</p>
+          <div class="metric-pills">
+            <span class="metric-pill"><i class="fas fa-percent"></i> 3.96% better RMSE</span>
+            <span class="metric-pill"><i class="fas fa-wave-square"></i> 15% less noise</span>
+          </div>
+          <button class="toggle-details">Read the story <i class="fas fa-chevron-down"></i></button>
+          <div class="details">
+            <p><strong>The Challenge:</strong> Should we forecast at granular department level, or aggregate first and disaggregate later? Granularity can amplify noise in volatile retail data.</p>
+            <p><strong>My Approach:</strong> Compared both strategies with Holt-Winters smoothing, using ADF/KPSS/Mann-Kendall tests for model selection and grid search for parameter tuning.</p>
+            <p><strong>Impact:</strong> The aggregate-disaggregate method beat granular forecasting by 3.96% RMSE while cutting noise 15%, actionable insight for retail supply-chain optimization.</p>
+          </div>
+          <div class="tags">
+            <span class="tag">Holt-Winters</span><span class="tag">Pandas</span><span class="tag">ADF/KPSS</span>
+            <span class="tag">Quarto</span><span class="tag">Supply Chain</span>
+          </div>
+          <div class="pcard-actions">
+            <a href="https://github.com/ValsamisP/Time-Series-Forecasting-using-Walmart-Data" class="btn btn-dark" target="_blank" rel="noopener"><i class="fab fa-github"></i> View Code</a>
+          </div>
+        </article>
+
+        <!-- 4. Brain Tumor CNN -->
+        <article class="pcard reveal" data-cat="healthcare ml">
+          <div class="pcard-top">
+            <h3><span class="live"></span> Brain Tumor Classification (2D+1D CNN)</h3>
+            <span class="lang"><i class="fab fa-python"></i> Python</span>
+          </div>
+          <p class="summary">A hybrid 2D+1D CNN classifying MRI scans into glioma, meningioma, pituitary tumors and healthy tissue, with strong regularization on imbalanced data.</p>
+          <div class="metric-pills">
+            <span class="metric-pill"><i class="fas fa-bullseye"></i> 97% accuracy</span>
+            <span class="metric-pill"><i class="fas fa-check-double"></i> 95%+ per class</span>
+          </div>
+          <button class="toggle-details">Read the story <i class="fas fa-chevron-down"></i></button>
+          <div class="details">
+            <p><strong>The Challenge:</strong> Brain tumor diagnosis relies on expert radiologists analyzing MRI scans, a bottleneck with room for human error.</p>
+            <p><strong>My Approach:</strong> Combined 2D convolutions for spatial features with 1D processing for sequential patterns, plus dropout, early stopping and LR scheduling to fight overfitting.</p>
+            <p><strong>Impact:</strong> 97% test accuracy across four categories with precision/recall above 95% per class, matching radiologist-level accuracy in controlled studies.</p>
+          </div>
+          <div class="tags">
+            <span class="tag">PyTorch</span><span class="tag">CNNs</span><span class="tag">Transfer Learning</span>
+            <span class="tag">Imbalanced Data</span><span class="tag">Computer Vision</span>
+          </div>
+          <div class="pcard-actions">
+            <a href="https://github.com/ValsamisP/Brain-Tumor-Classification-using-2D-1D-CNN" class="btn btn-dark" target="_blank" rel="noopener"><i class="fab fa-github"></i> View Code</a>
+          </div>
+        </article>
+
+        <!-- 5. Brain Tumor MLOps -->
+        <article class="pcard reveal" data-cat="healthcare mlops ml">
+          <div class="pcard-top">
+            <h3><span class="live"></span> Brain Tumor, Production MLOps</h3>
+            <span class="lang"><i class="fab fa-python"></i> Python</span>
+          </div>
+          <p class="summary">The research model turned into a full production pipeline: FastAPI service, drag-and-drop web UI, Docker, CI/CD and monitoring with Prometheus, Grafana & MLflow.</p>
+          <div class="metric-pills">
+            <span class="metric-pill"><i class="fas fa-bullseye"></i> 96.7% accuracy</span>
+            <span class="metric-pill"><i class="fas fa-bolt"></i> &lt;500ms inference</span>
+            <span class="metric-pill"><i class="fas fa-cloud"></i> Cloud-ready</span>
+          </div>
+          <button class="toggle-details">Read the story <i class="fas fa-chevron-down"></i></button>
+          <div class="details">
+            <p><strong>The Challenge:</strong> The gap between a 97%-accurate notebook and a production system clinicians can actually use is vast.</p>
+            <p><strong>My Approach:</strong> Built a FastAPI REST API with async support, a modern drag-and-drop UI, Docker containerization, CI/CD pipelines, and full monitoring (Prometheus, Grafana, MLflow).</p>
+            <p><strong>Impact:</strong> A production-grade system at 96.7% validation accuracy with sub-500ms CPU inference, deployable to AWS/GCP/Azure with one command.</p>
+          </div>
+          <div class="tags">
+            <span class="tag">FastAPI</span><span class="tag">Docker</span><span class="tag">GitHub Actions</span>
+            <span class="tag">Prometheus</span><span class="tag">Grafana</span><span class="tag">MLflow</span>
+          </div>
+          <div class="pcard-actions">
+            <a href="https://github.com/ValsamisP/Brain-Tumor-MLops" class="btn btn-dark" target="_blank" rel="noopener"><i class="fab fa-github"></i> View Code</a>
+          </div>
+        </article>
+
+        <!-- 6. ECG -->
+        <article class="pcard reveal" data-cat="healthcare ml">
+          <div class="pcard-top">
+            <h3><span class="live"></span> ECG Arrhythmia Classification</h3>
+            <span class="lang"><i class="fab fa-python"></i> Python</span>
+          </div>
+          <p class="summary">A 1D CNN with residual connections for ECG signal classification on the MIT-BIH database, handling class imbalance with weighted loss and augmentation.</p>
+          <div class="metric-pills">
+            <span class="metric-pill"><i class="fas fa-bullseye"></i> 98% accuracy</span>
+            <span class="metric-pill"><i class="fas fa-crosshairs"></i> 97% macro precision</span>
+          </div>
+          <button class="toggle-details">Read the story <i class="fas fa-chevron-down"></i></button>
+          <div class="details">
+            <p><strong>The Challenge:</strong> Cardiac arrhythmias need rapid, accurate detection, but automated systems struggle with the subtle patterns distinguishing arrhythmia types.</p>
+            <p><strong>My Approach:</strong> A 1D CNN with residual connections designed for ECG signals, addressing class imbalance via weighted loss functions and data augmentation.</p>
+            <p><strong>Impact:</strong> 98% accuracy, 97% macro precision and 86% macro recall on MIT-BIH, strong performance even on life-threatening conditions. Suited to wearables and hospital monitoring.</p>
+          </div>
+          <div class="tags">
+            <span class="tag">TensorFlow</span><span class="tag">1D CNN</span><span class="tag">Residual Nets</span>
+            <span class="tag">MIT-BIH</span><span class="tag">Class Imbalance</span>
+          </div>
+          <div class="pcard-actions">
+            <a href="https://github.com/ValsamisP/ECG-Classification-1DCNN" class="btn btn-dark" target="_blank" rel="noopener"><i class="fab fa-github"></i> View Code</a>
+          </div>
+        </article>
+
+        <!-- 7. Portfolio Optimizer -->
+        <article class="pcard reveal" data-cat="finance">
+          <div class="pcard-top">
+            <h3><span class="live"></span> Portfolio Optimizer UI</h3>
+            <span class="lang"><i class="fab fa-python"></i> Python</span>
+          </div>
+          <p class="summary">An interactive Streamlit app implementing modern portfolio theory, Max Sharpe, Risk Parity and Min Variance ,with Monte Carlo risk assessment.</p>
+          <div class="metric-pills">
+            <span class="metric-pill"><i class="fas fa-arrow-down-wide-short"></i> 23% less variance</span>
+            <span class="metric-pill"><i class="fas fa-arrow-up"></i> 15% higher Sharpe</span>
+          </div>
+          <button class="toggle-details">Read the story <i class="fas fa-chevron-down"></i></button>
+          <div class="details">
+            <p><strong>The Challenge:</strong> Individual investors lack access to the institutional-grade optimization tools that drive better risk-adjusted returns.</p>
+            <p><strong>My Approach:</strong> Built an interactive app with Max Sharpe, Risk Parity and Min Variance optimization, Monte Carlo simulations and automated rebalancing recommendations.</p>
+            <p><strong>Impact:</strong> Optimizes portfolios of 5–50 assets, cutting variance ~23% vs. equal-weight while improving Sharpe ratios ~15%, with 95% confidence intervals on returns.</p>
+          </div>
+          <div class="tags">
+            <span class="tag">Streamlit</span><span class="tag">Portfolio Theory</span><span class="tag">Monte Carlo</span>
+            <span class="tag">Risk Parity</span><span class="tag">VaR</span>
+          </div>
+          <div class="pcard-actions">
+            <a href="https://github.com/ValsamisP/Portfolio-Optimizer" class="btn btn-dark" target="_blank" rel="noopener"><i class="fab fa-github"></i> View Code</a>
+          </div>
+        </article>
+
+        <!-- 8. Recommender -->
+        <article class="pcard reveal" data-cat="ml">
+          <div class="pcard-top">
+            <h3><span class="live"></span> E-Commerce Recommender Systems</h3>
+            <span class="lang"><i class="fab fa-python"></i> Python</span>
+          </div>
+          <p class="summary">A multi-algorithm recommendation engine combining Market Basket Analysis (FP-Growth), item-item collaborative filtering and neural personalization.</p>
+          <div class="metric-pills">
+            <span class="metric-pill"><i class="fas fa-receipt"></i> 1.3M+ transactions</span>
+            <span class="metric-pill"><i class="fas fa-sitemap"></i> 15K+ itemsets</span>
+          </div>
+          <button class="toggle-details">Read the story <i class="fas fa-chevron-down"></i></button>
+          <div class="details">
+            <p><strong>The Challenge:</strong> Online retailers struggle to personalize at scale; traditional recommenders miss the complexity of customer behavior.</p>
+            <p><strong>My Approach:</strong> Co-developed three complementary algorithms ,FP-Growth for cross-selling, item-item collaborative filtering with TF-IDF, and NMF + Neural Collaborative Filtering for personalization.</p>
+            <p><strong>Impact:</strong> Processed 1.3M+ transaction records and surfaced 15,000+ frequent itemsets (confidence > 0.7), improving CTR and average order value over random recommendations.</p>
+          </div>
+          <div class="tags">
+            <span class="tag">FP-Growth</span><span class="tag">Collaborative Filtering</span><span class="tag">NMF</span>
+            <span class="tag">Neural CF</span><span class="tag">Streamlit</span>
+          </div>
+          <div class="pcard-actions">
+            <a href="https://github.com/omkardesai2827/E-Commerce-Recommender-Systems" class="btn btn-dark" target="_blank" rel="noopener"><i class="fab fa-github"></i> View Code</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SKILLS ===== -->
+  <section id="skills">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow"><i class="fas fa-layer-group"></i> Toolkit</span>
+        <h2 class="section-title">Skills & <span class="gradient-text">Technologies</span></h2>
+        <p class="section-sub">Built through academic research, hands-on projects and continuous learning.</p>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-cat reveal">
+          <h3><i class="fas fa-code"></i> Programming</h3>
+          <div class="skill-row"><div class="top"><span>Python</span><span>Expert</span></div><div class="bar"><i data-level="95"></i></div></div>
+          <div class="skill-row"><div class="top"><span>R</span><span>Advanced</span></div><div class="bar"><i data-level="90"></i></div></div>
+          <div class="skill-row"><div class="top"><span>SQL</span><span>Proficient</span></div><div class="bar"><i data-level="75"></i></div></div>
+          <div class="skill-row"><div class="top"><span>Scala</span><span>Intermediate</span></div><div class="bar"><i data-level="50"></i></div></div>
+          <div class="skill-row"><div class="top"><span>JavaScript</span><span>Intermediate</span></div><div class="bar"><i data-level="50"></i></div></div>
+        </div>
+
+        <div class="skill-cat reveal">
+          <h3><i class="fas fa-brain"></i> Machine Learning & AI</h3>
+          <div class="skill-row"><div class="top"><span>Scikit-learn</span><span>Expert</span></div><div class="bar"><i data-level="95"></i></div></div>
+          <div class="skill-row"><div class="top"><span>PyTorch</span><span>Advanced</span></div><div class="bar"><i data-level="80"></i></div></div>
+          <div class="skill-row"><div class="top"><span>TensorFlow</span><span>Advanced</span></div><div class="bar"><i data-level="78"></i></div></div>
+          <div class="skill-row"><div class="top"><span>Deep Learning</span><span>Advanced</span></div><div class="bar"><i data-level="80"></i></div></div>
+          <div class="skill-row"><div class="top"><span>NLP</span><span>Proficient</span></div><div class="bar"><i data-level="72"></i></div></div>
+        </div>
+
+        <div class="skill-cat reveal">
+          <h3><i class="fas fa-calculator"></i> Statistics</h3>
+          <div class="skill-row"><div class="top"><span>Statistical Inference</span><span>Expert</span></div><div class="bar"><i data-level="95"></i></div></div>
+          <div class="skill-row"><div class="top"><span>Hypothesis Testing</span><span>Expert</span></div><div class="bar"><i data-level="92"></i></div></div>
+          <div class="skill-row"><div class="top"><span>Probability Theory</span><span>Expert</span></div><div class="bar"><i data-level="95"></i></div></div>
+          <div class="skill-row"><div class="top"><span>Bayesian Statistics</span><span>Advanced</span></div><div class="bar"><i data-level="78"></i></div></div>
+          <div class="skill-row"><div class="top"><span>A/B Testing</span><span>Advanced</span></div><div class="bar"><i data-level="78"></i></div></div>
+        </div>
+
+        <div class="skill-cat reveal">
+          <h3><i class="fas fa-chart-line"></i> Data & Visualization</h3>
+          <div class="skill-row"><div class="top"><span>Pandas / NumPy</span><span>Expert</span></div><div class="bar"><i data-level="95"></i></div></div>
+          <div class="skill-row"><div class="top"><span>Matplotlib / Seaborn</span><span>Expert</span></div><div class="bar"><i data-level="92"></i></div></div>
+          <div class="skill-row"><div class="top"><span>Power BI</span><span>Advanced</span></div><div class="bar"><i data-level="80"></i></div></div>
+          <div class="skill-row"><div class="top"><span>Data Storytelling</span><span>Advanced</span></div><div class="bar"><i data-level="80"></i></div></div>
+          <div class="skill-row"><div class="top"><span>Tableau</span><span>Intermediate</span></div><div class="bar"><i data-level="45"></i></div></div>
+        </div>
+
+        <div class="skill-cat reveal">
+          <h3><i class="fas fa-database"></i> Big Data & Databases</h3>
+          <div class="skill-row"><div class="top"><span>PySpark</span><span>Advanced</span></div><div class="bar"><i data-level="78"></i></div></div>
+          <div class="skill-row"><div class="top"><span>Graph Analytics</span><span>Advanced</span></div><div class="bar"><i data-level="78"></i></div></div>
+          <div class="skill-row"><div class="top"><span>MongoDB</span><span>Proficient</span></div><div class="bar"><i data-level="60"></i></div></div>
+          <div class="skill-row"><div class="top"><span>Neo4j</span><span>Proficient</span></div><div class="bar"><i data-level="60"></i></div></div>
+          <div class="skill-row"><div class="top"><span>Hadoop</span><span>Intermediate</span></div><div class="bar"><i data-level="45"></i></div></div>
+        </div>
+
+        <div class="skill-cat reveal">
+          <h3><i class="fas fa-wrench"></i> Tools & MLOps</h3>
+          <div class="skill-row"><div class="top"><span>Git / GitHub</span><span>Expert</span></div><div class="bar"><i data-level="92"></i></div></div>
+          <div class="skill-row"><div class="top"><span>Jupyter</span><span>Expert</span></div><div class="bar"><i data-level="95"></i></div></div>
+          <div class="skill-row"><div class="top"><span>Docker</span><span>Advanced</span></div><div class="bar"><i data-level="78"></i></div></div>
+          <div class="skill-row"><div class="top"><span>Streamlit</span><span>Advanced</span></div><div class="bar"><i data-level="80"></i></div></div>
+          <div class="skill-row"><div class="top"><span>Flask / FastAPI</span><span>Proficient</span></div><div class="bar"><i data-level="65"></i></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CERTIFICATIONS ===== -->
+  <section id="certifications">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="eyebrow"><i class="fas fa-certificate"></i> Credentials</span>
+        <h2 class="section-title">Certifications & <span class="gradient-text">Learning</span></h2>
+        <p class="section-sub">Continuous learning across machine learning, cloud, data engineering and analytics.</p>
+      </div>
+
+      <div class="cert-toolbar reveal">
+        <div class="search-box">
+          <i class="fas fa-search"></i>
+          <input type="text" id="certSearch" placeholder="Search certifications, issuers..." aria-label="Search certifications" />
+        </div>
+        <span class="cert-count" id="certCount"></span>
+      </div>
+
+      <div class="certs-grid reveal" id="certsGrid">
+        <!-- cert cards injected by JS -->
+        <p class="no-results" id="noResults">No certifications match your search.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section id="contact">
+    <div class="wrap">
+      <div class="contact-wrap reveal">
+        <span class="eyebrow"><i class="fas fa-paper-plane"></i> Contact</span>
+        <h2>Let's build something together</h2>
+        <p class="sub">I'm open to data science and machine learning roles, collaborations and research. Feel free to reach out, I'd love to hear from you.</p>
+        <div class="contact-methods">
+          <a class="cmethod" href="mailto:panagiotis.valsamis21@gmail.com">
+            <i class="fas fa-envelope"></i>
+            <span><span class="m-lbl">Email</span><br><span class="m-val">panagiotis.valsamis21@gmail.com</span></span>
+          </a>
+          <a class="cmethod" href="https://www.linkedin.com/in/panagiotis-valsamis-a45a93377/" target="_blank" rel="noopener">
+            <i class="fab fa-linkedin-in"></i>
+            <span><span class="m-lbl">LinkedIn</span><br><span class="m-val">Connect with me</span></span>
+          </a>
+          <a class="cmethod" href="https://github.com/ValsamisP" target="_blank" rel="noopener">
+            <i class="fab fa-github"></i>
+            <span><span class="m-lbl">GitHub</span><br><span class="m-val">View my repositories</span></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <span>© <span id="year"></span> Panagiotis Valsamis · Built with care.</span>
+    <div class="foot-socials">
+      <a href="https://github.com/ValsamisP" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/panagiotis-valsamis-a45a93377/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      <a href="mailto:panagiotis.valsamis21@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+    </div>
+  </footer>
+
+  <button class="to-top" id="toTop" aria-label="Back to top"><i class="fas fa-arrow-up"></i></button>
+
   <script>
-    // Theme Toggle Functionality
+    /* ===== Theme ===== */
+    const root = document.documentElement;
     const themeToggle = document.getElementById('themeToggle');
-    const html = document.documentElement;
     const themeIcon = themeToggle.querySelector('i');
-
-    // Check for saved theme preference or default to 'light' mode
-    const currentTheme = localStorage.getItem('theme') || 'light';
-    html.setAttribute('data-theme', currentTheme);
-    updateThemeIcon(currentTheme);
-
+    const saved = localStorage.getItem('theme')
+      || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    setTheme(saved);
     themeToggle.addEventListener('click', () => {
-      const currentTheme = html.getAttribute('data-theme');
-      const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-      
-      html.setAttribute('data-theme', newTheme);
-      localStorage.setItem('theme', newTheme);
-      updateThemeIcon(newTheme);
+      setTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
     });
-
-    function updateThemeIcon(theme) {
-      if (theme === 'dark') {
-        themeIcon.classList.remove('fa-moon');
-        themeIcon.classList.add('fa-sun');
-      } else {
-        themeIcon.classList.remove('fa-sun');
-        themeIcon.classList.add('fa-moon');
-      }
+    function setTheme(t) {
+      root.setAttribute('data-theme', t);
+      localStorage.setItem('theme', t);
+      themeIcon.className = t === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
     }
 
-    // Get DOM elements
-    const projectsTab = document.getElementById('projectsTab');
-    const skillsTab = document.getElementById('skillsTab');
-    const certsTab = document.getElementById('certsTab');
-    const contactTab = document.getElementById('contactTab');
-    const projectsView = document.getElementById('projectsView');
-    const skillsView = document.getElementById('skillsView');
-    const certsView = document.getElementById('certsView');
-    const contactView = document.getElementById('contactView');
-    const titleEl = document.getElementById('viewTitle');
-    const countEl = document.getElementById('countLabel');
-
-    function showProjects() {
-      // Hide others, show projects
-      projectsView.classList.add('active');
-      skillsView.classList.remove('active');
-      certsView.classList.remove('active');
-      contactView.classList.remove('active');
-      
-      // Update tab states
-      projectsTab.setAttribute('aria-selected', 'true');
-      skillsTab.setAttribute('aria-selected', 'false');
-      certsTab.setAttribute('aria-selected', 'false');
-      contactTab.setAttribute('aria-selected', 'false');
-      
-      // Update title and count
-      titleEl.textContent = 'Projects';
-      const count = document.querySelectorAll('#projectsView .project-card').length;
-      countEl.textContent = `${count} ${count === 1 ? 'project' : 'projects'}`;
-      
-      // Update URL
-      history.replaceState(null, '', '#projects');
+    /* ===== Nav scroll state + progress + back-to-top ===== */
+    const nav = document.getElementById('nav');
+    const progress = document.getElementById('scrollProgress');
+    const toTop = document.getElementById('toTop');
+    function onScroll() {
+      const y = window.scrollY;
+      nav.classList.toggle('scrolled', y > 10);
+      toTop.classList.toggle('show', y > 600);
+      const h = document.documentElement.scrollHeight - window.innerHeight;
+      progress.style.width = (h > 0 ? (y / h) * 100 : 0) + '%';
     }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    toTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-    function showSkills() {
-      // Hide others, show skills
-      projectsView.classList.remove('active');
-      skillsView.classList.add('active');
-      certsView.classList.remove('active');
-      contactView.classList.remove('active');
-      
-      // Update tab states
-      projectsTab.setAttribute('aria-selected', 'false');
-      skillsTab.setAttribute('aria-selected', 'true');
-      certsTab.setAttribute('aria-selected', 'false');
-      contactTab.setAttribute('aria-selected', 'false');
-      
-      // Update title and count
-      titleEl.textContent = 'Skills';
-      const count = document.querySelectorAll('#skillsView .skill-category').length;
-      countEl.textContent = `${count} ${count === 1 ? 'category' : 'categories'}`;
-      
-      // Update URL
-      history.replaceState(null, '', '#skills');
-      
-      // Animate skill boxes
-      setTimeout(() => {
-        animateSkillBoxes();
-      }, 300);
-    }
-
-    function showCertifications() {
-      // Hide others, show certifications
-      projectsView.classList.remove('active');
-      skillsView.classList.remove('active');
-      certsView.classList.add('active');
-      contactView.classList.remove('active');
-      
-      // Update tab states
-      projectsTab.setAttribute('aria-selected', 'false');
-      skillsTab.setAttribute('aria-selected', 'false');
-      certsTab.setAttribute('aria-selected', 'true');
-      contactTab.setAttribute('aria-selected', 'false');
-      
-      // Update title and count
-      titleEl.textContent = 'Certifications';
-      const count = document.querySelectorAll('#certsView .cert-card').length;
-      countEl.textContent = `${count} ${count === 1 ? 'certification' : 'certifications'}`;
-      
-      // Update URL
-      history.replaceState(null, '', '#certifications');
-    }
-
-    function showContact() {
-      // Hide others, show contact
-      projectsView.classList.remove('active');
-      skillsView.classList.remove('active');
-      certsView.classList.remove('active');
-      contactView.classList.add('active');
-      
-      // Update tab states
-      projectsTab.setAttribute('aria-selected', 'false');
-      skillsTab.setAttribute('aria-selected', 'false');
-      certsTab.setAttribute('aria-selected', 'false');
-      contactTab.setAttribute('aria-selected', 'true');
-      
-      // Update title and count
-      titleEl.textContent = 'Contact Me';
-      countEl.textContent = 'Let\'s connect!';
-      
-      // Update URL
-      history.replaceState(null, '', '#contact');
-    }
-
-    function animateSkillBoxes() {
-      const skillBoxes = document.querySelectorAll('.skill-box');
-      skillBoxes.forEach((box, index) => {
-        if (box.classList.contains('filled')) {
-          box.style.opacity = '0';
-          box.style.transform = 'scale(0.5)';
-          setTimeout(() => {
-            box.style.opacity = '1';
-            box.style.transform = 'scale(1)';
-          }, index * 50);
-        }
-      });
-    }
-
-    // Hover border effect
-    document.querySelectorAll('.project-card').forEach(card => {
-      card.addEventListener('mouseenter', function(){ this.style.borderColor='var(--primary)'; });
-      card.addEventListener('mouseleave', function(){ this.style.borderColor='var(--border)'; });
+    /* ===== Mobile menu ===== */
+    const navToggle = document.getElementById('navToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    navToggle.addEventListener('click', () => {
+      const open = mobileMenu.classList.toggle('open');
+      navToggle.querySelector('i').className = open ? 'fas fa-times' : 'fas fa-bars';
     });
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      navToggle.querySelector('i').className = 'fas fa-bars';
+    }));
 
-    // Add click event listeners
-    projectsTab.addEventListener('click', showProjects);
-    skillsTab.addEventListener('click', showSkills);
-    certsTab.addEventListener('click', showCertifications);
-    contactTab.addEventListener('click', showContact);
+    /* ===== Typed roles ===== */
+    const roles = ['production ML pipelines', 'deep learning models', 'forecasting systems', 'data-driven solutions'];
+    const typedEl = document.getElementById('typed');
+    let rI = 0, cI = 0, deleting = false;
+    (function type() {
+      const word = roles[rI];
+      typedEl.textContent = word.slice(0, cI);
+      if (!deleting && cI < word.length) { cI++; }
+      else if (deleting && cI > 0) { cI--; }
+      else if (!deleting && cI === word.length) { deleting = true; setTimeout(type, 1600); return; }
+      else { deleting = false; rI = (rI + 1) % roles.length; }
+      setTimeout(type, deleting ? 45 : 95);
+    })();
 
-    // Initialize based on hash
-    const hash = location.hash.replace('#','').toLowerCase();
-    if (hash === 'certifications') {
-      showCertifications();
-    } else if (hash === 'skills') {
-      showSkills();
-    } else if (hash === 'contact') {
-      showContact();
-    } else {
-      showProjects();
-    }
+    /* ===== Reveal on scroll ===== */
+    const revealObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); revealObs.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
-    // Keyboard arrow navigation for tabs
-    const allTabs = [projectsTab, skillsTab, certsTab, contactTab];
-    allTabs.forEach((btn, index) => {
-      btn.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowRight') {
-          e.preventDefault();
-          const nextIndex = (index + 1) % allTabs.length;
-          allTabs[nextIndex].focus();
-        } else if (e.key === 'ArrowLeft') {
-          e.preventDefault();
-          const prevIndex = (index - 1 + allTabs.length) % allTabs.length;
-          allTabs[prevIndex].focus();
-        }
-      });
-    });
-
-    // Auto-update metrics by counting actual elements
-    function updateMetricsTargets() {
-      const metricNumbers = document.querySelectorAll('.metric-number');
-      
-      // Count projects
-      const projectCount = document.querySelectorAll('#projectsView .project-card').length;
-      metricNumbers[0].setAttribute('data-target', projectCount);
-      
-      // Count certifications
-      const certCount = document.querySelectorAll('#certsView .cert-card').length;
-      metricNumbers[1].setAttribute('data-target', certCount);
-      
-      // Count technologies (all unique skills across categories)
-      const skillItems = document.querySelectorAll('#skillsView .skill-item').length;
-      metricNumbers[2].setAttribute('data-target', skillItems);
-      
-      // Keep accuracy at 98% (best model from ECG)
-      metricNumbers[3].setAttribute('data-target', 98);
-    }
-
-    // Animated Counter for Metrics
-    function animateCounter(element) {
-      const target = parseInt(element.getAttribute('data-target'));
-      const duration = 2000; // 2 seconds
-      const increment = target / (duration / 16); // 60fps
-      let current = 0;
-
-      const timer = setInterval(() => {
-        current += increment;
-        if (current >= target) {
-          // Check if this is the accuracy metric (4th card)
-          const isAccuracy = element.parentElement.querySelector('.metric-label').textContent === 'Accuracy';
-          element.textContent = target + (isAccuracy ? '%' : '');
-          clearInterval(timer);
-        } else {
-          element.textContent = Math.floor(current);
-        }
-      }, 16);
-    }
-
-    // Trigger animation when metrics come into view
-    const observerOptions = {
-      threshold: 0.5,
-      rootMargin: '0px'
-    };
-
-    const metricsObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          updateMetricsTargets(); // Update targets before animating
-          const metricNumbers = entry.target.querySelectorAll('.metric-number');
-          metricNumbers.forEach(num => {
-            if (num.textContent === '0') {
-              animateCounter(num);
-            }
-          });
-        }
-      });
-    }, observerOptions);
-
-    // Observe the metrics dashboard
-    const metricsDashboard = document.querySelector('.metrics-dashboard');
-    if (metricsDashboard) {
-      metricsObserver.observe(metricsDashboard);
-    }
-
-    // Reset counters when switching back to Projects view
-    projectsTab.addEventListener('click', () => {
-      setTimeout(() => {
-        updateMetricsTargets(); // Update targets first
-        const metricNumbers = document.querySelectorAll('.metric-number');
-        metricNumbers.forEach(num => {
-          if (num.textContent !== '0') {
-            num.textContent = '0';
-            animateCounter(num);
-          }
+    /* ===== Animated counters ===== */
+    const counterObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        e.target.querySelectorAll('.num').forEach(num => {
+          const target = +num.dataset.count, suffix = num.dataset.suffix || '';
+          let cur = 0; const step = target / 60;
+          const t = setInterval(() => {
+            cur += step;
+            if (cur >= target) { num.textContent = target + suffix; clearInterval(t); }
+            else num.textContent = Math.floor(cur) + suffix;
+          }, 22);
         });
-      }, 100);
+        counterObs.unobserve(e.target);
+      });
+    }, { threshold: 0.4 });
+    counterObs.observe(document.querySelector('.stats-grid'));
+
+    /* ===== Skill bars ===== */
+    const barObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        e.target.querySelectorAll('.bar i').forEach(b => { b.style.width = b.dataset.level + '%'; });
+        barObs.unobserve(e.target);
+      });
+    }, { threshold: 0.3 });
+    document.querySelectorAll('.skill-cat').forEach(c => barObs.observe(c));
+
+    /* ===== Project filters ===== */
+    const filters = document.getElementById('projectFilters');
+    const pcards = [...document.querySelectorAll('#projectsGrid .pcard')];
+    filters.addEventListener('click', (e) => {
+      const btn = e.target.closest('.chip');
+      if (!btn) return;
+      filters.querySelector('.active').classList.remove('active');
+      btn.classList.add('active');
+      const f = btn.dataset.filter;
+      pcards.forEach(c => {
+        c.classList.toggle('hide', f !== 'all' && !c.dataset.cat.split(' ').includes(f));
+      });
     });
+
+    /* ===== Project detail toggles ===== */
+    document.querySelectorAll('.toggle-details').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const details = btn.nextElementSibling;
+        const open = details.classList.toggle('open');
+        btn.classList.toggle('open', open);
+        btn.childNodes[0].textContent = open ? 'Hide story ' : 'Read the story ';
+      });
+    });
+
+    /* ===== Certifications (data-driven for search) ===== */
+    const certs = [
+      { t: "AI for Medicine Specialization", i: "Coursera · DeepLearning.AI", d: "Sep 2025", u: "https://coursera.org/share/a23f64895fb43e6158f4c515c7209a59" },
+      { t: "Machine Learning Specialization", i: "Coursera · DeepLearning.AI", d: "Jul 2025", u: "https://coursera.org/share/1f3d3fedf4e7745b5e9aea8a8f278dcb" },
+      { t: "Learning Amazon SageMaker AI", i: "LinkedIn Learning", d: "Feb 2026" },
+      { t: "From Excel to Power BI", i: "Coursera", d: "Aug 2025", u: "https://coursera.org/share/09d53d6dadebdfe919d8f5e016e5ad79" },
+      { t: "Data Analysis with Python", i: "Coursera · IBM", d: "Mar 2025", u: "https://coursera.org/share/090b50124c7aaddd4a4facfb3f7d0a30" },
+      { t: "Getting Started with Data Visualization in R", i: "Coursera · Johns Hopkins University", d: "Dec 2024", u: "https://coursera.org/share/80f6d9275c7ad61f857464ce60092ac3" },
+      { t: "Data Visualization in R with ggplot2", i: "Coursera · Johns Hopkins University", d: "Dec 2024", u: "https://coursera.org/share/7d826e02d0fc310fc85dc5b00f365dd3" },
+      { t: "Advanced Data Visualization with R", i: "Coursera · Johns Hopkins University", d: "Mar 2025", u: "https://coursera.org/share/21a510f3f2fff212f48f9bca07ef72f0" },
+      { t: "Understanding and Visualizing Data with Python", i: "Coursera · University of Michigan", d: "Dec 2024", u: "https://coursera.org/share/6f7a149d13bd291a649e8645037c027a" },
+      { t: "Supervised Machine Learning: Classification", i: "Coursera · IBM", d: "", u: "https://coursera.org/share/212584fcb7b5b521c5fda8ac361d30eb" },
+      { t: "SQL for Data Science", i: "Coursera · University of California, Davis", d: "Jul 2025", u: "https://coursera.org/share/e7425fa1d58041ed9aebbb74f67bfe61" },
+      { t: "Transact-SQL Basic Data Retrieval", i: "Pluralsight", d: "Feb 2026" },
+      { t: "Microsoft Fabric Data Engineer Associate (DP-700): Implement and Manage an Analytics Solution", i: "Pluralsight", d: "Mar 2026" },
+      { t: "Microsoft Fabric Data Engineer Associate (DP-700): Ingest and Transform Data", i: "Pluralsight", d: "Mar 2026" },
+      { t: "Excel Skills for Business: Essentials", i: "Coursera · Macquarie University", d: "Jul 2025", u: "https://coursera.org/share/81bce1fe90e8cad166a4503af2b180a2" },
+      { t: "Excel Skills for Business: Intermediate I", i: "Coursera · Macquarie University", d: "Jul 2025", u: "https://coursera.org/share/6c0f7420f67d7a2fb7ad06159e85e9ff" },
+      { t: "Apache Kafka Essential Training: Getting Started", i: "LinkedIn Learning", d: "Nov 2025" },
+      { t: "Microsoft Power BI Data Analyst (PL-300): Model the Data", i: "Pluralsight", d: "Feb 2026" },
+      { t: "Using Power BI to be a Strategic Financial Partner", i: "LinkedIn Learning", d: "Feb 2026" },
+      { t: "Microsoft Power BI Data Analyst (PL-300): Visualize and Analyze the Data", i: "Pluralsight", d: "Mar 2026" },
+      { t: "Build AI Agents and Automate Workflows with n8n", i: "LinkedIn Learning", d: "Oct 2025" },
+      { t: "Build with AI: Create Custom Chatbots with n8n", i: "LinkedIn Learning", d: "Oct 2025" },
+      { t: "Hands-On Generative AI with Multi-Agent LangChain: Building Real-World Applications", i: "LinkedIn Learning", d: "Oct 2025" },
+      { t: "Microsoft Azure Fundamentals (AZ-900) Cert Prep: Cloud Concepts", i: "LinkedIn Learning", d: "Nov 2025" },
+      { t: "Learning Microsoft Fabric", i: "LinkedIn Learning", d: "Feb 2026" },
+      { t: "PySpark Essential Training: Introduction to Building Data Pipelines", i: "LinkedIn Learning", d: "Dec 2025" },
+      { t: "Data Science with R", i: "Aegean University", d: "Jun 2024" },
+      { t: "Blockchain Technologies", i: "Aegean University", d: "Jun 2024" },
+      { t: "GRE Certificate", i: "76th Percentile Quantitative Reasoning", d: "Jun 2023" },
+      { t: "IELTS", i: "CEFR Level C1", d: "Feb 2024" }
+    ];
+
+    function issuerIcon(issuer) {
+      const s = issuer.toLowerCase();
+      if (s.includes('coursera')) return 'fas fa-graduation-cap';
+      if (s.includes('linkedin')) return 'fab fa-linkedin-in';
+      if (s.includes('pluralsight')) return 'fas fa-play';
+      if (s.includes('university') || s.includes('aegean')) return 'fas fa-university';
+      return 'fas fa-certificate';
+    }
+
+    const certsGrid = document.getElementById('certsGrid');
+    const noResults = document.getElementById('noResults');
+    const certCount = document.getElementById('certCount');
+    function renderCerts(list) {
+      certsGrid.querySelectorAll('.cert').forEach(n => n.remove());
+      list.forEach(c => {
+        const el = document.createElement('article');
+        el.className = 'cert';
+        el.innerHTML = `
+          <div class="issuer-logo"><i class="${issuerIcon(c.i)}"></i></div>
+          <h4>${c.t}</h4>
+          <div class="issuer">${c.i}</div>
+          ${c.d ? `<div class="date">Issued ${c.d}</div>` : `<div class="date">&nbsp;</div>`}
+          ${c.u ? `<a class="cert-link" href="${c.u}" target="_blank" rel="noopener">View credential <i class="fas fa-arrow-right"></i></a>` : ''}
+        `;
+        certsGrid.insertBefore(el, noResults);
+      });
+      noResults.style.display = list.length ? 'none' : 'block';
+      certCount.textContent = `${list.length} of ${certs.length} shown`;
+    }
+    renderCerts(certs);
+
+    document.getElementById('certSearch').addEventListener('input', (e) => {
+      const q = e.target.value.trim().toLowerCase();
+      renderCerts(certs.filter(c => (c.t + ' ' + c.i).toLowerCase().includes(q)));
+    });
+
+    /* ===== Year ===== */
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
